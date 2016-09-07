@@ -6,4 +6,4 @@ security:
     password: password
     
 foo:
-  bar: Hallo neuer Wert
+  bar: Hallo Christian
