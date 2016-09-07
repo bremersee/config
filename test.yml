@@ -1,0 +1,9 @@
+security:
+  basic:
+    enabled: true
+  user:
+    name: cbr
+    password: password
+    
+foo:
+  bar: Hallo neuer Wert
