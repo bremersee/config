@@ -1,0 +1,66 @@
+server:
+  context-path: /registry
+  port: 8761
+  tomcat:
+    remote-ip-header: x-forwarded-for
+    protocol-header: x-forwarded-proto
+    port-header: x-forwarded-port
+
+bremersee:
+  tomcat:
+    connector:
+      ajp:
+        port: 8762
+        proxy-name: '{cipher}AQBmUvqu5KQtih2UqI03oYjr0dNTu++NGoeO2Wvy0MWupLxTse4JUm/mvXX0Bcdzl9+13YfKyL5EP9YBcQNUH4F1ZuUmP5D828Lhft+pnT8NfsOYt4F9HjFfg+Tw7roMwigDVeEoB5M/CqRfh0unFbghbxPZSgUS5omF7kxR+AOtqE6/inbOAmYxaNEEWs930ZKoLbVYKCrxXbzQqJFcjMlPs1UnVGmkk0SBiGK6DWiDZ+47Rjt1s2/DjsOITHRPIFqtrfzcJQ+d87Tj0hr00icpvCng3dAWjpkoDrNr0QcWnJhU1cH/qJVZTvUQ4UyH/wYlRr9fK3h6/3rS7SmpJ8vmqcAweJA3BzYtX+ozmagO+4gZw0zqWNbYo28ZXzbNkM8ZnK+t2qFrZ7MJKqAAMRJV'
+        proxy-port: 443
+        redirect-port: 443
+        scheme: https
+        secure: true
+
+management:
+  context-path: /admin
+  security:
+    enabled: true
+    role: CLOUD
+
+security:
+  basic:
+    enabled: true
+  user:
+    name: '{cipher}AQBmLsWGHc5T9SVivgvnm5k/wzink75MHW/ymvdv4gTfUqblbG/pXlK19126vgXklVIa0Or4yNMIwXMF0i/sbB+SNZrZyJuVFdsQcdeDhzdkItbwQfkuXpezxjXGbnHKq/bkkeEcBGhJ5L/K3h5s1jFPkS6YCq1O+awAF38BOT1/hpgNhjDHmj/i4aoWKN+o3tVwQzMgg4CdWa6M+rVKOCHCrIVq7Xcg+cD4g1cguO0lf4Ibd5xnNb6kjdZNuy+xClvjPD8thsSNjaQ+WQQ6gNN3MInEL8CcLcwRBWzqHmIpEP6Z503OYN5VAGhgTkeuYfLgZ/LFIkG3u7QQkNaWU9FVUq4O9CNtx6m3HwBYYCrJszFFZ0qJUza9ne/OcxwJ8aw='
+    password: '{cipher}AQBF/wteeeJ5fBSMlCV3vd+X9bo6tQB5pwb3XymDNHW+Dr3ixgCst9v2MnL8sjSk1kg7pmucsIz+bx57ITeKSKhRxle1+tTbQpGMMJEj7VVDflrIWg6to3W2KcaYZ/AigdYUkhoXoK+I0nbb3kT++9HLxLpjDmwLShY3SHDBf9HM0j40UZhygXZg3fLC3nDAO5v3d1YM+njIC8MSV9D0SBU3wetNCF6TmDCiIeIYRkZLbC0nvzvukvjZJl+MBlCPEErhQDDW5tMdXAYqTGHkO/K9iKeMQ/n8JKKqxBP2RQBHep4DJLYdn08q3OR6U1RKnF4BnbDN2DTR4MQq//Ii2VCATkAQr9zLX8jeSqBLtNz04ngUGGPftGbq4GtE63rI35xeIN1nEida1yZ6deyxrxw2'
+    role:
+      - CLOUD
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/registry/eureka/
+      
+---
+
+spring:
+  profiles: devel
+
+server:
+  use-forward-headers: false
+  tomcat:
+    accesslog:
+      enabled: false
+
+---
+
+spring:
+  profiles: base
+  
+server:
+  use-forward-headers: true
+  tomcat:
+    accesslog:
+      enabled: true
+      directory: /opt/eureka/log
+  
