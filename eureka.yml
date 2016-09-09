@@ -56,7 +56,7 @@ server:
 
 spring:
   profiles: base
-  
+
 server:
   use-forward-headers: true
   tomcat:
