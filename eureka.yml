@@ -35,11 +35,17 @@ security:
 eureka:
   instance:
     hostname: localhost
+    home-page-url: ${management.context-path}
+    statusPageUrlPath: ${management.context-path}/info
+    healthCheckUrlPath: ${management.context-path}/health
+    prefer-ip-address: false
   client:
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/registry/eureka/
+      defaultZone: http://${security.user.name}:${security.user.password}@${eureka.instance.hostname}:${server.port}/registry/eureka
+  server:
+    wait-time-in-ms-when-sync-empty: 0
       
 ---
 
