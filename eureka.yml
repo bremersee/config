@@ -11,7 +11,7 @@ bremersee:
     connector:
       ajp:
         port: 8762
-        proxy-name: '{cipher}AQBmUvqu5KQtih2UqI03oYjr0dNTu++NGoeO2Wvy0MWupLxTse4JUm/mvXX0Bcdzl9+13YfKyL5EP9YBcQNUH4F1ZuUmP5D828Lhft+pnT8NfsOYt4F9HjFfg+Tw7roMwigDVeEoB5M/CqRfh0unFbghbxPZSgUS5omF7kxR+AOtqE6/inbOAmYxaNEEWs930ZKoLbVYKCrxXbzQqJFcjMlPs1UnVGmkk0SBiGK6DWiDZ+47Rjt1s2/DjsOITHRPIFqtrfzcJQ+d87Tj0hr00icpvCng3dAWjpkoDrNr0QcWnJhU1cH/qJVZTvUQ4UyH/wYlRr9fK3h6/3rS7SmpJ8vmqcAweJA3BzYtX+ozmagO+4gZw0zqWNbYo28ZXzbNkM8ZnK+t2qFrZ7MJKqAAMRJV'
+        proxy-name: '{cipher}AQCTgxkFSWHeZFs0QpXk7BakC34jsUOROemajWobujPSuFUg3+SQMVI0T2IJ2F915SxLdKxyEIwqJXn1BNQ5G5rmGklmH/KPqwaWONcpEZUyeVcWWjNvB0jY3W46XOgVZMOiXFzW5kZFRicUwOwUghIO1heuwbVdAXClLn0kxCu+E4LdsBkDHD8IqXKBSaauJaUupK8xWAbIudlHi/TSMGLbWtd26cTcaSwavwN63qn3WswHiRx4FeadTkKuvkx+X8o/gORFbdfVEw6Z+L0LiKLhUoBC53YIFclmVD03GWE1vuGfC9+1trCzlQFMaFX4FLApqyZmTmE1mhPD4+plH5FPRhFDd+AbMLfO+315XqSvGvzpz0DtKNr0bDVBADiOkuSVuudUwacs'
         proxy-port: 443
         redirect-port: 443
         scheme: https
