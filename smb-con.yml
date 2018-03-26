@@ -30,7 +30,8 @@ logging:
   level:
     ROOT: info
     org.bremersee: debug
-    org.springframework.security.oauth2: debug
+#    org.springframework.security.oauth2: debug
+    org.springframework: info
 
 server:
   port: 8090
@@ -44,3 +45,20 @@ spring:
     serialization:
       WRITE_DATES_AS_TIMESTAMPS: false
     time-zone: Europe/Berlin
+
+---
+
+spring:
+  profiles: debian9
+
+logging:
+  path: /var/log/smb-con
+  file:
+    max-history: 25
+
+server:
+  tomcat:
+    accesslog:
+      enabled: true
+      directory: /var/log/smb-con
+
