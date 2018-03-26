@@ -1,0 +1,46 @@
+bremersee:
+  ldaptive:
+    ldap-url: '{cipher}AQCXJHVIbKlAGbKs7uLbHGv46q1e97b+6TU2xtBRm4BUZyUY0DJ2+WdVcyiw79H9ftgUpOfi0tnQjAuXEDk1iF5BUAtBAHrug0uZKUynftNkvbcVVsxq3ion4A2sFF0sWyWh+SKPehZHk6r/vHKT/v1ySBren75+ILBtrm0Bx5GlnkjM22+/BffIW5EZ/8VSC6sHGlBhRKHZPMtCLuVeq2hVvt/7AnuTpmoeTeJckyGmLHxrVet0nvSlE6BLbKVGEKhgA6h8WhMpogt8LF86l2fSZuf3zZrwbOYHQbuPH+52CFvpenTh5z922BM7bXTXLPIaiVP4rytTMAKWzbtociH5XF3C0YKANklUcHJ0tDmXpmHfQu8jtwOj0rjRlZHxUhamfHanFUM8APON3OKxMsdO'
+    use-ssl: true
+    bind-dn: '{cipher}AQCfbgO3lozOFTE8if8JlcfWpwIVpIk3DEz2q9Q22vfz9AleZQU3O+o0eGAAQpm3ebYRQEOUcSR7QJ76c+z1+uIz6SnWqWPMUlPvT5VYiernWGZgNpaH/I9ELO/7kIxbAOTo6x3dscPGQ59J/5dCOe/TQtkEFJcGdjYhIkQ/I9JZxw94X1ElQPEYOjEphlmvyqeMFJJ+zh6n+hWRBPHluUTNCdlzVrtXoeQuwnUAjKi8B1cJglwApKpnCPz8vxoFP+nBi3OBh5c35zPiNbul1k2xPClMHT/LeHc8SuhPePBx0ST2D+VCUMwihyvK0mLrPaOzQkDS7XKbN6xZG9xvMaRvKa1YSkFN2SxdXLMA9BUoQRAYpQ96X6FCEsGrbfOmpDRUZlnBhovlTHkQXxXwsbha'
+    bind-credential: '{cipher}AQBFsE6aRbmoiZfWYqR80BKl6mLOgB58tJ82RaKUScgqnNBXW+qBoXzkNwiQfWbahH3lGWRsV6QgZJOyXBWP0tB5ePRAhJCZcRi67zVyBXzqlvAXGn0RF97Qf260yBKoBVFrdEcGUODruuG0vb9SiGfLuxhSxhE0iGl4ubhWucDnS8bKiH3wW6qB0t7HYfHsHg/YkIgZDD0vgOpvAG+7ckIR9NXsH6LPCf4ai80KVC3ShPD8/gMGhv6DrSLAHoItxyO0u//Kb7iRPaVLvFh4RWd2KVhAbzeQAR3xYKLUkJGkpGd1WarKGDbkB2THaM6s2PL3toIwMMka6L7gYYj4GIIsJNZ3EDswKcDdpYcjZ53nGb1ZLF7ZKcYFKzOiHNPW+nZFpMZN7Iz/GR7OXj/Q/hP1'
+    pooled: true
+    min-pool-size: 3
+    max-pool-size: 10
+    validate-on-check-in: false
+    validate-on-check-out: false
+    validate-periodically: true
+    validate-period: 300
+    idle-time: 600
+    block-wait-time: 10000
+    search-validator:
+      search-request:
+        base-dn: '{cipher}AQANEie1ulsjxflJfE1rNEnfoZxHxMYcvpR0XncRTxtkDJqs8YKWtsREYGhOWSrAbztBLlMMdLKWwsI83ERSHSMuxigsa41igIonhsCsL24WH4oSsP7vIsz1csbmA589FOoaPPrmZVQJxEhaEqfL2B0872PlrhWZBRdj6aY3dJak4IOyD/eAihBOr1BGxH5FnNBFKJBK0VDB9i7d5yIm60EJW6gVa9gL4abNEXeIyhUydxWUeRGyznQ6u9EfDaqGziPB28FoX8YDdKXAqHos6MniQuMnILUXGwJCxaG3L6GEo8NxXhW9lH/iLe97y0OTXxrFWIQUxW6m3tKieP+BK12yNtY3kmKd5cVyOUX9Q9cM1D0mpuiDiRKoaqx6S6TzRqSEnRO6ZAY0o1nB/lPjL1mC'
+        search-filter:
+          filter: (cn=Administrator)
+        size-limit: 1
+        search-scope: ONELEVEL
+        return-attributes:
+          - cn
+  samba-domain:
+    group-base-dn: '{cipher}AQAMNeB3bsdSBnzYjJFaWmtJEbICU0T7/DgcvQCgpR5XNCDpIULCFDWpB3GJfm+ndbE2ggMACL4ZRB0SS1yRpvGyKRAPAIYgoAMyy4nPSeHEC2lksyyUJ75aMHgYKybiPFIB3pejFJMFAnj8k8GCesCpch072TrFUhnzejiZ2vYSgVHwGwMaL0qbaGdwwOX5NCuC75tDMDCIyoh0uK6E5dTLdfiQixdUpUIOAMYfVfWBoZ4GZ6mbpcMV6uJ8JAmbjtgsUJZzByDhdknHCE2CWBYmG11eO8VHOjj4hZSX79t9yoKCWcvTm85GhWPTqtP0uCo7hp3vRmEoPTQEKPEmFeCb/BDcoIpdNWZUhtc5MLkDizSMiFU9K9IvxlJ+EjW5SCvMoO4eltjMRQ9MoJ8PQmeTP8Zdv0txQvMTW4tma6KJQQ=='
+    user-base-dn: '{cipher}AQALYzg7LSqWPFBo7OigWxmXk3W1MZRDsh6XLy7wmyKGasut7P7rzSC+kmZWl5fCrMlqD4JJ139rnAj1V25Ab5j/PnTaqHCqF+eq0OD0GozUWWuNKIjxlQ0HJRFslj9YvlrQEC7lfRNhJP8sWC+ZwiqhpRrSByXro0kWC0NsWOfgu5WUAVnozE8Uei56+cKsjvj36TBeAv+G+GgTBh7clXl7LWAiYavHe5NFYdxG06xDmMyhOJRRYO6+eBZSQJwwsBO79YcgAvIyyPTAo4GxJ6mYXbHJca7n+U139U0JNZy4ISuTIoCAdSJkumccxL9+AK/OnzLMjORf0W0NnTGr47PK9Jy/cI4GfheJMwv517zVf7qN8kv3nqBTGZDnPP8RjMKCg1m3lJmMzYXJik2d609ljDnm8UQj2sGf4B9pF3dakg=='
+
+logging:
+  level:
+    ROOT: info
+    org.bremersee: debug
+    org.springframework.security.oauth2: debug
+
+server:
+  port: 8090
+
+spring:
+  jackson:
+    date-format: com.fasterxml.jackson.databind.util.ISO8601DateFormat
+    default-property-inclusion: non_null
+    property-naming-strategy: LOWER_CAMEL_CASE
+    locale: de_DE
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+    time-zone: Europe/Berlin
