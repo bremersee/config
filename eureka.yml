@@ -1,72 +1,76 @@
 server:
-  context-path: /registry
   port: 8761
+  use-forward-headers: true
   tomcat:
     remote-ip-header: x-forwarded-for
     protocol-header: x-forwarded-proto
     port-header: x-forwarded-port
 
-bremersee:
-  tomcat:
-    connector:
-      ajp:
-        port: 8762
-        proxy-name: '{cipher}AQCTgxkFSWHeZFs0QpXk7BakC34jsUOROemajWobujPSuFUg3+SQMVI0T2IJ2F915SxLdKxyEIwqJXn1BNQ5G5rmGklmH/KPqwaWONcpEZUyeVcWWjNvB0jY3W46XOgVZMOiXFzW5kZFRicUwOwUghIO1heuwbVdAXClLn0kxCu+E4LdsBkDHD8IqXKBSaauJaUupK8xWAbIudlHi/TSMGLbWtd26cTcaSwavwN63qn3WswHiRx4FeadTkKuvkx+X8o/gORFbdfVEw6Z+L0LiKLhUoBC53YIFclmVD03GWE1vuGfC9+1trCzlQFMaFX4FLApqyZmTmE1mhPD4+plH5FPRhFDd+AbMLfO+315XqSvGvzpz0DtKNr0bDVBADiOkuSVuudUwacs'
-        proxy-port: 443
-        redirect-port: 443
-        scheme: https
-        secure: true
-
-management:
-  context-path: /admin
+spring:
   security:
-    enabled: true
-    role: CLOUD
+    user:
+      name: '{cipher}AQBZR2ZKdhEtiUQsPLLq1L6F+FpUpdBoK71svyRqz+XXcsV7QzTT2PF56UAle77ztR+9pKGsVjX+jf0PAhkrV2wA8NhpPdcGV0Ezsq99nwF/bPNnEhqWbiMUD6NLyeaUFu8lUpdL4vmEa3VUtc27mWY9N1ryT5v1a8jVCAmZWzz2AiLzDqwkw77eEYo4xB+p4+U8obuZoD9uEmISJ158/055o9DEix7xmMUR0scsl4LeENnIU/Ff+wjFukG552wGUFIeQrUAb82O3gAibbLwCFnUAbUNx2XAmvP3lKHOZjeSd23ApcwXaYoUfR+2+Y+IFpfDT9Olrh4MWnoojGy/nQfRQcGrz1HVUgkpjj9VT1RSzRVQ7bvj6KWXx2y3R+fFLmQ='
+      password: '{cipher}AQA2mRu/pgoLZ4wyLwoXoj5yUuCMxpWN2gmyxRYQtmplBTDOrCRgcrr4fTuLAzkdQn+DBQo498NT+VMKG7LYze/A9I+rn/eGNLt+0S/MLYlWGxl2NR6RTncVlQhESp+OQqeAiefESbdudGXjQFOGlJdo/ZdZz0Kq7/DptXEpLReKs2FcTh5uKtit4zFsvOZq2Qb4Y+VxrJSi4uq1NfhKfTVfp4dvoQqb9UHStgcUUJb7hUaFd3K0cKlUZL3yvFAUnzjdZnWwKgLyJhDaLz+Ng/7QoHTUfw9k/QLZofumpfipfKxzlZl2dk1c768i6Wa7AEgzpxsAfmHM4oB+CEwyOkT8LMJQagKin5GzLqVHpK1HLmPe2BxDFIdO/cItu/1A25XufF3B/wYD+28njNQQ3wb1wZmxZKiiw5Q7X71syD3t/w=='
+      roles: EUREKA
 
-security:
-  basic:
-    enabled: true
-  user:
-    name: '{cipher}AQBmLsWGHc5T9SVivgvnm5k/wzink75MHW/ymvdv4gTfUqblbG/pXlK19126vgXklVIa0Or4yNMIwXMF0i/sbB+SNZrZyJuVFdsQcdeDhzdkItbwQfkuXpezxjXGbnHKq/bkkeEcBGhJ5L/K3h5s1jFPkS6YCq1O+awAF38BOT1/hpgNhjDHmj/i4aoWKN+o3tVwQzMgg4CdWa6M+rVKOCHCrIVq7Xcg+cD4g1cguO0lf4Ibd5xnNb6kjdZNuy+xClvjPD8thsSNjaQ+WQQ6gNN3MInEL8CcLcwRBWzqHmIpEP6Z503OYN5VAGhgTkeuYfLgZ/LFIkG3u7QQkNaWU9FVUq4O9CNtx6m3HwBYYCrJszFFZ0qJUza9ne/OcxwJ8aw='
-    password: '{cipher}AQA4HVyhPvGGWcnF3HUuh0x/uykqYAlmQ1yLmXH6otbRSR5IL+CgT3p2zAIBSSCbVYGs5l8T/rNCh7m9IkDcUKdFESjXCbKo8P6rH7PDUe0BN6aIZH+guWZu5r+F2aZZyGt1pEKGPThRLj+BE5rWtfwc+9PuKJqsCkWe/160euN0YEqcKfdRVMzG5T1bKULmXkXE5E1vgRmcmHPkeJBCZyuINrHqsPhSUnB61z9hdEXCkUpTv9oZpPJC+1DXZNrx+D5r8ne/hIFGM24uW5N+9Fark95f5M2/81O24PI/bK1/0/Fvc4ELiyUrw8aAZhKK1rSy96ccpg/RlnAOjLEjWVjqjbE4tb6UCWSKp4DuhieEfp/nBHYDqchBKnjJIIkGSCWX2s9MaEuWms1i4ZrOuZZ/ZAC/2KCXxDmS7YDM+X0rE0uq+k70qk2gIFZMC7xlaiiJhk8VbhlJbQucvlZgQIuu'
-    role:
-      - CLOUD
+logging:
+  level:
+    org.springframework: INFO
+    org.bremersee: INFO
 
 eureka:
   instance:
-    hostname: localhost
-    home-page-url: ${management.context-path}
-    statusPageUrlPath: ${management.context-path}/info
-    healthCheckUrlPath: ${management.context-path}/health
-    prefer-ip-address: false
+    hostname: eureka.bremersee.org
   client:
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
-      defaultZone: http://${security.user.name}:${security.user.password}@${eureka.instance.hostname}:${server.port}${server.context-path}/eureka
-  server:
-    wait-time-in-ms-when-sync-empty: 0
-      
----
-
-spring:
-  profiles: devel
-
-server:
-  use-forward-headers: false
-  tomcat:
-    accesslog:
-      enabled: false
+      defaultZone: https://${spring.security.user.name}:${spring.security.user.password}@eureka.bremersee.org/eureka/
 
 ---
 
 spring:
-  profiles: base
+  profiles: logfiles
+
+logging:
+  path: /var/log/eureka
+  file:
+    max-history: 25
 
 server:
-  use-forward-headers: true
   tomcat:
     accesslog:
       enabled: true
-      directory: /opt/eureka/log
-  
+      directory: /var/log/eureka
+
+---
+
+spring:
+  profiles: api-zone
+
+eureka:
+  instance:
+    hostname: eureka.bremersee.org
+    non-secure-port: 80
+    non-secure-port-enabled: false
+    secure-port: 443
+    secure-port-enabled: true
+  client:
+    service-url:
+      defaultZone: https://${spring.security.user.name}:${spring.security.user.password}@base-eureka.bremersee.org/eureka/
+
+---
+
+spring:
+  profiles: base-api-zone
+
+eureka:
+  instance:
+    hostname: base-eureka.bremersee.org
+    non-secure-port: 80
+    non-secure-port-enabled: false
+    secure-port: 443
+    secure-port-enabled: true
+  client:
+    service-url:
+      defaultZone: https://${spring.security.user.name}:${spring.security.user.password}@eureka.bremersee.org/eureka/
