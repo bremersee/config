@@ -1,0 +1,191 @@
+bremersee:
+  authorization-server:
+    allow-form-authentication-for-clients: false
+    check-token-access: isAuthenticated()
+    handle-approval-revocations-as-expiry: false
+    jwt-key-pair-alias: jwt
+    jwt-key-pair-password: ${bremersee.authorization-server.jwt-key-store-password}
+    jwt-key-store-location: /etc/authman/jwt.jks
+    jwt-key-store-password: '{cipher}AQBKOegwbSZjt8DQ19pE1Obf+jd+XUoLzqQp3MzXoZL8TTZeTbeCJKNvNRz7r+x7KdzKmRO9+HyEy4WRegV1xCO4cJhahdewR/jhKZbcwbAIU/ea6x2M8OS7pWbwKDGcWvBULqq4Wwh9PObMXHKFSmRAjzw+tJTvSXnBQnM5yWbSbZG7lbJnnNd+aJYFVd5yaDRRD+/eEIfJ/zILzFT8A+4o/Hyd2df9Zri9zbalFDIlr/dExpnMpGq1RYEuvw297N2gzYPIpGVhAOSas1OphIqyGqg7yuHl0++8DmOVvQ0ItvSH0rSvWNYDYeN+cSQysCounJISgBwZnxrMTyO/DYe+7r7S1mKqgaR7QEbOw0WL04FJ/GE+FfSZXY31BILPz22EuG85L0JyYnbYvOBtG/3dASyDBwaBUJrV9yfzejO0fw=='
+    no-scope-description-available: Sorry, there's no description of this scope.
+    realm: oauth2/client
+    ssl-only: false
+    token-key-access: permitAll()
+  oauth2:
+    facebook:
+      provider: facebook
+      login-url-template: "\
+        https://www.facebook.com/v2.8/dialog/oauth\
+        ?client_id={clientId}\
+        &redirect_uri={redirectUri}\
+        &response_type={responseType}\
+        &scope={scope}\
+        &state={state}"
+      client-id: '{cipher}AQCJSlZuBL1O6QwLnyoq3FSndx4AvJ0BwikqRXYvdPATnumKTgftvsfmpd1F8SgWe9TUCIxLcD2B0USTdkTq0ZKlM9Em/UsZrQ9PiYEUAaVuu5Au6InoU8glSwGCM7AHNWkG0eAkL+YfHw4BOThcyCx3DNGStrcz8TdtfYGQvQ9vmxB5s/b1WBsNdAqau2Gk9Ln7ofMTYFPYZ9KHhQfOHqb2GkDE0brm/iPdFiwExPVNohi2bOo6PRsdu0hl8XXofaXqRb9N4hTrEHPv7hPbE3awd19mDnBkelZN4kJID1pc+on6kka7sDX5gOBLR6qYGnTawQJkrW7NXtkpVivp5fAgDfrjvdNHif3KVONpCauByEKzvPuNVaGC5D7mGvdf9ScPIwv80hFluAwCkCYwXwyK'
+      client-secret: '{cipher}AQCBEDuyEjPxeWy8UbcdkxC/5gydHGOkQ7gNDfWBHgTYcZQ4IuxUvepEmZi4qWRFoGwM01a8jYA/YdFgdjzQLdKncfUyPKwQz6lBik53DBKB3jCIyCZqKjIh+Agd6MUnsi0y2Cj1c/yc4D9EdgyY/AmXFlrLK0DhNiUKmkAPxSO4fmAokKBt8ca0tvymYlVsZjw+iwxD3wMZqjQao1mTX8+nCO9O4dqs+lIJ9Ub97018etK+pR6KZ2Fy1MhggK6w/1A+zV0Acl7O30vUmAK3R++3fFRcMEwaB0ITI77Pd0ZLfTkCajlNzn27SrirgOLYUDMiwQkzadeBof9r+yGU+Q+6IajjbURRE+K4LvF+u3/ZPTtOYGspT/Ry6yka1X4jGecZr72RiQkpVKVhSLyueifqplVlgTfj9tjKW7QdRCjwvQ=='
+      redirect-uri: https://authman.bremersee.org/facebook/callback
+      response-type: code
+      scope: public_profile,email
+      token-url-template: "\
+        https://graph.facebook.com/v2.8/oauth/access_token\
+        ?client_id={clientId}\
+        &redirect_uri={redirectUri}\
+        &client_secret={clientSecret}\
+        &code={code}"
+      api-base-url: https://graph.facebook.com/v2.8
+      profile-path-template: "/me?access_token={accessToken}\
+        &fields=id,name,gender,first_name,middle_name,last_name,name_format,email,locale,timezone,verified,website"
+    github:
+      provider: github
+      login-url-template: "\
+        https://github.com/login/oauth/authorize\
+        ?client_id={clientId}\
+        &redirect_uri={redirectUri}\
+        &scope={scope}\
+        &state={state}"
+      client-id: '{cipher}AQCprsST6HE6WdU/Ly/MRxb/ipkXf5YhemnfW5wCGWkcz6mVuVuu2cRvLdICzLCTFTkH0tisldSfQ0AO+NvGy8LaJQPNKigHHB4wO/8oedNQUi7VCYWqMcRwc5X4Z76Tj4/Z121AuTKfWgUZBrPuLjvNmQRVBZaLOd/+9N8NZhGFnBi8gctgt6TW4W7J6JQ2+ovkbcsxM+xwjvxktTB31G61G9uHm/saQbOWINzqz5uZ/iwinKR3skMRlUDRb2vJChWE+kQVB6GLxSaGBtTRWFCa9ygzVLd3Pj+eJYydWOeXn/yJAVKb1hRibEEh7qRqkkS2IJjiOen2EQimkcPQG4t2qrhXzDrQARg+S094VPNqpV9W4aIyeAG1AlmSatUdSc9CYf0D7woSX1tYD5P0D+KH'
+      client-secret: '{cipher}AQA71ObjJuoDU63eiuBOxU/BWoz2WZwNxHr2aHcs1lAoXXafePpBE/yCwM/eia9lum2RAv0JNw09nR/cFJWU08YN08Wzf4LvE1jEgKMJb9RSDaY4XHDWS3k/qsjN2Rbx3a+pqGKg3HQdSt5Anc6k/szx1jtTckWFREfh7TJFSr5pGv9N0guuNCtev863p2qG4f14l1e5Q/9+Ljz3hG615Cj7cnAYd1FJW7JtnVtXiTSZ23xPI/+GrMFO+Y2WqLyEfJc7sC5jDpWFrFrZNFZDkzf/6I3mCMIZaVvToq4e+Mks9kTa79P0sgmVU5UMh4hVq2uFrNTrkPQ+1qWCQkTyut2IptTf5fF6byy8HHyvm4FRIaH2iGQXRq5E5HV4km/2++yUdXauiKKLs5LrdM7067JaM9C0RZroetnM6LhE47pJ8g=='
+      redirect-uri: https://authman.bremersee.org/github/callback
+      response-type: code
+      scope: user
+      token-url-template: "\
+        https://github.com/login/oauth/access_token\
+        ?client_id={clientId}\
+        &client_secret={clientSecret}\
+        &redirect_uri={redirectUri}\
+        &code={code}"
+      token-method: POST
+      api-base-url: https://api.github.com
+      profile-path-template: /user?access_token={accessToken}
+    google:
+      provider: google
+      login-url-template: "\
+        https://accounts.google.com/o/oauth2/v2/auth\
+        ?client_id={clientId}\
+        &redirect_uri={redirectUri}\
+        &response_type={responseType}\
+        &scope={scope}\
+        &state={state}\
+        &access_type={accessType}\
+        &include_granted_scopes={includeGrantedScopes}"
+      client-id: '{cipher}AQBvYZe4Zko0iuRVg+Ez4HHwdxyUgV9gKKN/+H2zScJLYvFQHxWKRvyOdXO4wWnGJ/grK26FM037gpgjFxMkVrLEUzz5elB6/rcvBS3Nlq22bV+uU0r9DTbSl+QB87k7aBUnUtDk7z4x2BZhiDl2KgV0OuYNsxZ54VwV19Apu6rgEqaj4Eq4cCUj8yoYfWJPrEN5i6sY2m826Z6t3W3mKwx0Nxa2NNoyZ2rDzyLLeI9ymeYmpGjZmWXgMScLhpqAZZ5nQpPK7ETjmdGlgHABZcbUkwAie6hqKzrc/phm6E4vXAohfn2OJss4KDyEGyqJ0p28ua6/Rb2Zc8FINn3BSBH5xZOvcDoy2RuK8+k8Cvu014/B8GjCkc0DS7Ckt8H6XiLlWZUQOYrxQGKaJkwRPdDmvJPCvrsCNYitnk2U7fhaJPqYD5KVdkPFUXkUMYg9cbvbKWLxQbhP/wjjxs2K99j2'
+      client-secret: '{cipher}AQCooDLhtDlbi/gHzrEyZIGVI0gBwfa/rAifql6TjWErPLaWdk8Km9i5IROuwszdluZR3VhbEWX962pSo7R74wBdPAnPsQwm41v8UCE3/iirAFlshfQpL++OjRQrCn+VMxMSCWVX/cLzTNYOkyRP4DStfsAtVG59+TDwduX6uHdq1jgx0335pI8GMksJyWrocRIx+EuzBlLw2lzJeQl2AKlHfC+GgDZwH+62L4WAicaO3dONiRe68V1whUUMeiHKawKqe4KtCp3pGJqjeKW/kO0wVAGOJfUYRx7O05J7bdx+s6CxFVPK1Wp2s/vOdcnoTG7MQfx2cp2GqxpTH2YvSLN5ZNQDEuiClciIX1+p8fJjkmcoCBgi//Sf/VR9j5gGNeW9gbczB93spFWVQTf40dYD'
+      redirect-uri: https://authman.bremersee.org/authman/google/callback
+      response-type: code
+      scope: profile email
+      additional-login-parameters:
+#          accessType:  offline
+        includeGrantedScopes: false
+        accessType:  online
+      token-url-template: "\
+        https://www.googleapis.com/oauth2/v4/token\
+        ?client_id={clientId}\
+        &client_secret={clientSecret}\
+        &redirect_uri={redirectUri}\
+        &code={code}\
+        &grant_type=authorization_code"
+      token-method: POST
+      api-base-url: https://www.googleapis.com
+      profile-path-template: /plus/v1/people/me?access_token={accessToken}
+  registration:
+    life-time: 30
+    life-time-unit: days
+    link: https://authman.bremersee.org/register?hash={registrationHash}
+    sender: no-reply@bremersee.org
+    subject-code: userRegistrationService.sendValidationEmail.subject
+  samba-connector:
+    name: smb-con
+#    name: false
+    url: https://base-api.bremersee.org/smb-con
+    token-endpoint: https://authman.bremersee.org/oauth/token
+  security:
+    crypto:
+      password-encoder:
+        algorithm: SSHA256
+        random-salt-length: 4
+        store-no-encryption-flag: false
+  sms:
+    enabled: true
+    url: https://gate1.goyyamobile.com/sms/sendsms.asp
+    username: '{cipher}AQAfzxSBk7JYmxWBsp63Ksz/69PiUEHg+FYmthRykH0sXC9VgiLFEylrq5B2asp9tl69uc9UZb8uYV53zWV0fBL6WT8HfISdnZOrDENmw72gPNXa4/5i5E5XjSel+teo812wvBinAxlI61D6ILt5XV6tDtc17H/WAVqNpl3GVXH2xuiOQRTB4bjMALWkSrWwlclWDCbKHssxizKV9qnJpy3vT+jdGHqzyOouXeIr496IORWaWCzHmQ2ZksZVqXR2RxvxmXnZeElSkRhPPLdarlK3II84EMbXyQvizGfMKh6Q17e6ip2dHHY3W4Fw+9EPsm+z9QdqOIlh5piPOpSucT7rlB2f0BUzleiSE8YgiHg43tgncwgRm8bn6SOjIpf3DfM='
+    password: '{cipher}AQCmYf+HCGmHxgCaFduUYJ6wJcnZNik0UYSMFRel46Omn0VXEMnt0wHAIrnjhHRyHFb6U4va+Bc+Lm2C2HM8Fm7ddp8QzG/MNkV9LJa1QBhbJpxbPSKcPdRaLoqlUTcjk8MOg+qurwl3jpi1l9efQe3y4Yfe5e8TfVnjYfny/5UDML9rh/CHpY+7wQ5qWYqOx0Bs7S0e5D62USOjWpRxQU3BM9rTsTtyrYf81Oza42v+Y7I8mdqXeNzB67h5YCXT7Z7rdx2SVNHeIsBNYQZnq3U7YL27DvHU4jxvl1VK0PcANwT2Cn8WcZtTM317pbH16HPh1rx+AqZv+Ohdx5rkR37eFBhVRcLY8J9vIoFI8JeLtFdUVWZtkeUQFpBOlp7sZf8='
+    sender: bremersee
+  startup:
+    admin:
+      user-name: '{cipher}AQAyoRMETXlTyDl/WG1gt5Vmwm1lSOecuB1wDusLlYwtv0oloFoCAdQV5036gZfiDqxMH83xipnC8IA5gLZxEsvZ3dsqtcNn2vJD8D/fV7rcwbJMn+TVIO3/CUGJr2Zr0HqWW0JTLKc9bCw9H6wUPAPfAiCPsbtaesclfxMZbGZJzEvI6VIcjdLI0/t++X8iPznBF2i/QIUxVhRZiPw5h5DdATahuqChKA5IAs6E8CJYD1iihbaZmByl8ArwUbV30xqHL6oImTX1+ElH+LniPC3F+K07SzFobCEAac/nX7jvjHucP2UA1kK3RL5nEs+yXqMAAH1P4VXUEh/bqu0FCLO5JN6MiTutxuNzqd9RuImZBxfX8tgTXnKohjXxAfjtbK4='
+      password: '{cipher}AQAxAYDDcN7I2mdtycIIu7bg2KWax09kmXI4SgcSVAjS+bRj/du9vA/3+BZkdEHGiqqljQ8wJGvFZnqrnQtuVuOsZYQgfY1PAdteUaGuVOFjg7jXMPNiI4p1P+qLSn/OIQMGgSPP7SKpPXOlL/DCDV6Aw4Oukds3xJEO2lyMiKh3FXJNLKs+oNFDoVI3STkY8hAtq7U6c9DoI/LAzv30OiC3Y7Qt3sv9D2CZ2Hirx283eY2TfhVGKr//6TRUN5fFJXjjwy5VurlLTsFNoTtZRRHjA/IPrgGc9iNccTzUlg6OY3W6u3JvXtUYZIrxARr9+W3jHYJRWdUkHD+mxei0mw2q8yGyaWW2zRfGz8+vTNpavVyEBNT3i1bLkYbE1fBp7atAUCfR0uYUqMQQyshQtNUm'
+      display-name: '{cipher}AQBrBD6sXo4HAWl579KzrvLUznhnS0u4sxu5rcVgrpbiCehVqhQdfraEB2yOo1RLVFI4V6FC4BKIufrMuzoBV6nX8yly5vQk2DPMR1OOQeJyALfj8qwwOB1ldB8lZUS1+HJ03R23btV5/ex6Wsf/CzXLZ707rPsWHaOSouuCFqquOfnH4X969MF6d1dT0qJSY8q3j8JOXXUkAHInRkZHbjxS+8RCEeRhX/L9CFIpC+hzfziVsyile1K71pB1SvFtABgKBmbOte0k4HxhGujeXoMY7rjeptYQCZHSQ52wzwGoAu4dCZsSkT0DZGeFPgdueloIhwIf8JsVEVEwrgN+h+EZod0vaZjaoM6AddAOsyUYn+gbFkSbLmRSi9wCxOCLgyQ='
+      email: '{cipher}AQCen65tYghJbzA0L6VkRO4GcC+RDJi8V/J0gUIEyl+6uOOPZ0oh9jlBjqlXHd9dikVwVQgsZ1r40JpuiRBPKvok5RXNChDfXm/fw1u03DQdZ5CZc9slX/2B2LYjnvEDQdOTZdX0SigqtVQAni+ZvihbuypfalZCvY2TE9mh0kpPxEUHb/2tuYxMhMJPInGZtjw0a4e7UpYYG0Iyh/wNr8LIvQOK5xnXwBZC+cGHi7aiAz7QY9cEvVGBavvLJIe2M1cQCPj/ZgkTctBYCEKzKa06ECQtJKRe4+zF3iEdsXg2Cz5/gt5J7tKl+olJlukVRy1Itt5+NHHeA2yzWwi5Ch/X+qyIcad1puKN0KISwtYRcc8EslhP60GfI/K6bg9dUVsbRTJiaTjyMlvlVQJUQPX7'
+      preferred-locale: de_DE
+      preferred-time-zone-id: Europe/Berlin
+  user-service:
+    min-search-length: 3
+
+feign:
+  client:
+    config:
+      default:
+        logger-level: FULL
+        connect-timeout: 5000
+        read-timeout: 5000
+      smb-con:
+        logger-level: FULL
+        connect-timeout: 5000
+        read-timeout: 5000
+
+logging:
+  level:
+    ROOT: info
+    org.bremersee: info
+    org.springframework: info
+
+server:
+  port: 8040
+
+spring:
+  data:
+    mongodb:
+      database: authman
+      host: mongo
+      port: 27017
+      username: authman
+      password: '{cipher}AQCFb625C0ZVxxaEoC3RbWAwx514HlXLncbUYT8+eGVlEaFXwx/AG2vYGcvekrgP+kd0y/J2oKscNTOk1BUh8u274vwv3Jgr9OAvGcZ2Jpq2HPmH2JOyBTz6/CohWTiPUzAueazgbOy0SS8OVReagW2JOrm885nG2RO4QzQNsQv8jX+HlAWrNDbt+mIDg/L/YasQO1D8PzKl82DPwq54FadsST6CKKjlhimB2mWMuIh0uLq8Dek89gvmhOuJeT4Ms6gvs1tKPyAsPeNWvi9tXEGqDAZJZPglUnlr1TYfpWmQ4EXenVGoIHvuC2UMzxkKAtFV5pT7jEVWnOW4deEMSKq0cZYxZuCM5DJ+RgbKn+s9q060h2d8u+Aph8f8ZboCF6U='
+  jackson:
+    date-format: com.fasterxml.jackson.databind.util.ISO8601DateFormat
+    default-property-inclusion: non_null
+    property-naming-strategy: LOWER_CAMEL_CASE
+    locale: de_DE
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+    time-zone: Europe/Berlin
+  mail:
+    host: mail.bremersee.org
+    port: 465
+    username: no-reply@bremersee.org
+    password: '{cipher}AQCP/t3GBpADnw6mnzNm1t5EJFev/nKgCWDEvFNNzj7nPU762hbW8B7YyRQKDuvETwPmQXy0CeJBGkcBdpswG+LpP1octk8AYNhNxkiyYHkdk0UV1vmEQG/Ho1Epfia2h/YIq24OlsdKC2MNzKYUGAoD9Rn+6BHxqfm9u5N5CCNJ/TX6xCvIoEhlMjnqvjOUOA7+sVILit7ZV0FoNoc5w0FfP7iSSePV5B3QAwbpQc1/EAk1ZBdCLCjNzytWLUYDSSwob7ZuX6xKAcvi7OTpqPEV/0BBGN9GcS11L4OyeaRkIte5fe9VJZEZ7Af4GA5tZPYAKFD1novgCXu4gD0mHkaJIuoCXvKvOAntKCRJ79d9TZFMgLSuMoNbNbduTgPiavU='
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.ssl.enable: true
+  messages:
+    basename: messages
+  thymeleaf:
+    cache: false
+  zipkin:
+    enabled: true
+    base-url: http://zipkin:9411/
+
+---
+
+spring:
+  profiles: logfiles
+
+logging:
+  path: /var/log/authman
+  file:
+    max-history: 25
+
+server:
+  tomcat:
+    accesslog:
+      enabled: true
+      directory: /var/log/authman

@@ -1,0 +1,43 @@
+server:
+  port: ${SERVER_PORT:8765}
+  use-forward-headers: ${USE_FORWARD_HEADERS:true}
+  tomcat:
+    remote-ip-header: x-forwarded-for
+    protocol-header: x-forwarded-proto
+    port-header: x-forwarded-port
+
+logging:
+  level:
+    ROOT: ${LOG_LEVEL_ROOT:INFO}
+    org.springframework: ${LOG_LEVEL_SPRING:INFO}
+    org.bremersee: ${LOG_LEVEL_BREMERSEE:DEBUG}
+
+eureka:
+  client:
+    enabled: true
+    register-with-eureka: false
+#    prefer-same-zone-eureka: true
+    serviceUrl:
+      defaultZone: '{cipher}AQBf7LJxonMDWosAEjtIKW5fA4YDvZ/EmhobJOfVw+PsbVCYBeOQGctVnU3sV3zwVxJY5CZLnRLGutIxvze09AIU9mgQfoMfEpAKUYA3xP5egZH7XzrhKN6nPyBQr1hKsFzqPGVxFyBaIA2wrGB+y+Y9aNn6qzkhQoMFaWkXjlajtMBkUKSOIagXXOU0TERGLqSxe+B3WJ0HxgBrKvDXLyGNKf/6ySSwAYVHHrTkCOQltYtDtLRCCdK4y1zQQ7VRjg+pBHdtT7lE7Y7NQ/KFvkhlZApZlxyv5IccJOk7MHL9pVKCIHvxDcVyZN0ytUKVzxC8pA5cR9pdegxb/2U51MFePuZukDlH8I2aILigIh/2nQLjlDQ8lybPUQ0Mj88V10oQtwfZMIybHMSTS2GPV20bIE3JzGwHx5NH7M8GWrWPuCI4Miuk1m0Med+YvyIw+D44Y6wm9Up0OCe6ldTRXsBW'
+
+zuul:
+  sensitive-headers:
+  add-host-header: true
+  add-proxy-headers: true
+  strip-prefix: true
+
+---
+
+spring:
+  profiles: logfiles
+
+logging:
+  path: /var/log/zuul
+  file:
+    max-history: 25
+
+server:
+  tomcat:
+    accesslog:
+      enabled: true
+      directory: /var/log/zuul
