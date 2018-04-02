@@ -5,7 +5,7 @@ bremersee:
     handle-approval-revocations-as-expiry: false
     jwt-key-pair-alias: jwt
     jwt-key-pair-password: ${bremersee.authorization-server.jwt-key-store-password}
-    jwt-key-store-location: /etc/authman/jwt.jks
+    jwt-key-store-location: file:/etc/authman/jwt.jks
     jwt-key-store-password: '{cipher}AQBKOegwbSZjt8DQ19pE1Obf+jd+XUoLzqQp3MzXoZL8TTZeTbeCJKNvNRz7r+x7KdzKmRO9+HyEy4WRegV1xCO4cJhahdewR/jhKZbcwbAIU/ea6x2M8OS7pWbwKDGcWvBULqq4Wwh9PObMXHKFSmRAjzw+tJTvSXnBQnM5yWbSbZG7lbJnnNd+aJYFVd5yaDRRD+/eEIfJ/zILzFT8A+4o/Hyd2df9Zri9zbalFDIlr/dExpnMpGq1RYEuvw297N2gzYPIpGVhAOSas1OphIqyGqg7yuHl0++8DmOVvQ0ItvSH0rSvWNYDYeN+cSQysCounJISgBwZnxrMTyO/DYe+7r7S1mKqgaR7QEbOw0WL04FJ/GE+FfSZXY31BILPz22EuG85L0JyYnbYvOBtG/3dASyDBwaBUJrV9yfzejO0fw=='
     no-scope-description-available: Sorry, there's no description of this scope.
     realm: oauth2/client
