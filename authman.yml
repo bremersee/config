@@ -3,12 +3,17 @@ bremersee:
     allow-form-authentication-for-clients: false
     check-token-access: isAuthenticated()
     handle-approval-revocations-as-expiry: false
-    jwt-key-pair-alias: jwt
-    jwt-key-pair-password: ${bremersee.authorization-server.jwt-key-store-password}
-#    jwt-key-store-location: file:/etc/authman/jwt.jks
-#    jwt-key-store-password: '{cipher}AQBKOegwbSZjt8DQ19pE1Obf+jd+XUoLzqQp3MzXoZL8TTZeTbeCJKNvNRz7r+x7KdzKmRO9+HyEy4WRegV1xCO4cJhahdewR/jhKZbcwbAIU/ea6x2M8OS7pWbwKDGcWvBULqq4Wwh9PObMXHKFSmRAjzw+tJTvSXnBQnM5yWbSbZG7lbJnnNd+aJYFVd5yaDRRD+/eEIfJ/zILzFT8A+4o/Hyd2df9Zri9zbalFDIlr/dExpnMpGq1RYEuvw297N2gzYPIpGVhAOSas1OphIqyGqg7yuHl0++8DmOVvQ0ItvSH0rSvWNYDYeN+cSQysCounJISgBwZnxrMTyO/DYe+7r7S1mKqgaR7QEbOw0WL04FJ/GE+FfSZXY31BILPz22EuG85L0JyYnbYvOBtG/3dASyDBwaBUJrV9yfzejO0fw=='
-    jwt-key-store-location: classpath:jwt.jks
-    jwt-key-store-password: changeit
+    jwt-signing-key: '{cipher}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'
+    jwt-verifier-key: |
+      -----BEGIN PUBLIC KEY-----
+      MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApM/zEylsUfxlT7Je8UMJ
+      i+tVQjdto6PF8jrfeBivIR1rl1Jbhthx0V2jK92dnjyU6UTUxfP29axMNKRA8/tB
+      KlikYZoH4ZmWlx27K2G+49czfQPz0DO5Wn4P4d1ot3zgKNYVfqAjzrDwzAwMLnkm
+      X7eZyikhrptyG0war2ZGHJxm3VaENUch1XVVzl8nSeDIzs6Usn40N5IyTrEi5/yw
+      wFlGeB04mbulLT5uDZqjk6nBsB2n4vD2qhNSjA2q4BR4DlPLy9T1VlZM286cEk44
+      noQjHGhTdPQMG7nNeQL5rnG/7GGs5pJCd53JF3wKEugJxoT1DzTKGhRT0cDlHYyW
+      SQIDAQAB
+      -----END PUBLIC KEY-----
     no-scope-description-available: Sorry, there's no description of this scope.
     realm: oauth2/client
     ssl-only: false
@@ -153,6 +158,8 @@ management:
 
 server:
   port: 8080
+  servlet:
+    context-path: /
 
 spring:
   data:
