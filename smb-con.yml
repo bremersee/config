@@ -26,6 +26,20 @@ bremersee:
     group-base-dn: '{cipher}AQAMNeB3bsdSBnzYjJFaWmtJEbICU0T7/DgcvQCgpR5XNCDpIULCFDWpB3GJfm+ndbE2ggMACL4ZRB0SS1yRpvGyKRAPAIYgoAMyy4nPSeHEC2lksyyUJ75aMHgYKybiPFIB3pejFJMFAnj8k8GCesCpch072TrFUhnzejiZ2vYSgVHwGwMaL0qbaGdwwOX5NCuC75tDMDCIyoh0uK6E5dTLdfiQixdUpUIOAMYfVfWBoZ4GZ6mbpcMV6uJ8JAmbjtgsUJZzByDhdknHCE2CWBYmG11eO8VHOjj4hZSX79t9yoKCWcvTm85GhWPTqtP0uCo7hp3vRmEoPTQEKPEmFeCb/BDcoIpdNWZUhtc5MLkDizSMiFU9K9IvxlJ+EjW5SCvMoO4eltjMRQ9MoJ8PQmeTP8Zdv0txQvMTW4tma6KJQQ=='
     user-base-dn: '{cipher}AQALYzg7LSqWPFBo7OigWxmXk3W1MZRDsh6XLy7wmyKGasut7P7rzSC+kmZWl5fCrMlqD4JJ139rnAj1V25Ab5j/PnTaqHCqF+eq0OD0GozUWWuNKIjxlQ0HJRFslj9YvlrQEC7lfRNhJP8sWC+ZwiqhpRrSByXro0kWC0NsWOfgu5WUAVnozE8Uei56+cKsjvj36TBeAv+G+GgTBh7clXl7LWAiYavHe5NFYdxG06xDmMyhOJRRYO6+eBZSQJwwsBO79YcgAvIyyPTAo4GxJ6mYXbHJca7n+U139U0JNZy4ISuTIoCAdSJkumccxL9+AK/OnzLMjORf0W0NnTGr47PK9Jy/cI4GfheJMwv517zVf7qN8kv3nqBTGZDnPP8RjMKCg1m3lJmMzYXJik2d609ljDnm8UQj2sGf4B9pF3dakg=='
 
+eureka:
+  client:
+    enabled: true
+    register-with-eureka: true
+    prefer-same-zone-eureka: true
+    service-url:
+      defaultZone: '{cipher}AQB2Yv2xI9kHk+uB1HV2Ez79QNFRyot6/XYXydX3QzdW2aodCYUjeFw9BfHvvWdKJpdfkbqFyE3tVJkjS2lOJjp4ojtjXfArTusVmm56BehsvTwX4InO7/2xtLXIPMicdIsXwby3EgrcxnpZQsO+A/ZtfdRbc5fq4j++6TwlbxVYhFJY8L7XNw4lWkdKvu1Px65Q1xdZLMd26Fc0G6qxfZ0N7KG4FSi/EnFo8dBOqIc43gfdvFxMnkcq+fgNPZwNTlbCMoo5qC+UTl6B8lDKUmpLwCBq1jBBBor9pLeBFS2OJ/6hPnIACLU+Z+AXre48EANkH1n/KIWeU8LYiaDnDvRB0JBuJo3sEKCR+ttUKSdST/p+nCRZs0sUJ6m6mSqE30E3N+tfSpjdJE/9rFBUVsMaH2hf7yLr200UPrS8a3IpmRhvUmf6+PI76hsleXk90h5W2xNX/mR0AMH4SUINT7F+'
+  instance:
+    hostname: '{cipher}AQCTFU4pTnXTtd/Z+jnXPLp9OGB4TNwCBvNJRPkpuycMszKgcSGbcziqRO1MKXitqZH8OEgmCmUZQq0YLELAcZY8eJ5LL3+KbcyGfcfqFmddEorRnAM4CgdHI7GxqL6BZjw3STVE8kXcSiRzV+tVlVSKQyGyqkdp6MTMKI5HEEqTOZbFm6UNuZy1SfuNKqy3iapWHFAFAmrln3JMacwUf7QhtDcYil/rlvp5CnLrv6k4mD6SLwPF0q3AEsJz4Lw6scRjEpGFFnjRPaWs52EgqwgA4qgqQ+zCwm3xFYP95XMNfcWDAvvsF52FNissMXSQil9yE3INQwMDThu9RdsebUnjCvME+2eBhjaxK0IQ5fcFv9Su67od9F1+3bfSn92eXiSPAIWCyozukQLUBquRfT9g'
+    ip-address: 192.168.1.14
+    non-secure-port: ${server.port}
+    non-secure-port-enabled: false
+    secure-port-enabled: false
+
 logging:
   level:
     ROOT: info
@@ -34,6 +48,17 @@ logging:
 
 server:
   port: 8090
+
+security:
+  oauth2:
+    client:
+      client-id: internal-oauth2-client
+      client-secret: '{cipher}AQCCzDbf2pBkLvgzueDdnVIwen20kspj1RQ7p9KwB0520KNt0NO814Ek79QiL+wuoECxrzHUyIUjvgPLj5UFUYRuTR+Y8nwclYBY/EiBqQqjBn+eIlk0hVtwcBlsUE16txHohllDofy+ptGjWPt3SSl1vxsziuNdydLHFn0VcAIfpNzgCXjdL35o/evUfhW0XGCJowzDCkW1VajHA/lw1vzLZ/Dzk07nXgeiG9uyzXZXX6euVdEujOIgazeiPHcnsEd/ngDVA8K9zCYizc/ZSPW9Mei9mn6QrTYUzbE4S3oDie/E/uZkp+kFDD8LjDuIJPs/TP0RMmy6MPMr7XvZGSWw4MdF82fW9tuxxn1yvjzScHfHlpF6D+ug1IcXECY+06ExMw5j+rV9tU6LLvDB3t6b'
+    resource:
+      jwt:
+        key-uri: https://authman.bremersee.org/oauth/token_key
+      token-info-uri: https://authman.bremersee.org/oauth/check_token
+      prefer-token-info: true
 
 spring:
   jackson:
@@ -47,36 +72,6 @@ spring:
   zipkin:
     enabled: true
     base-url: '{cipher}AQBiv4CvdkrFhwKzFPfSAd3Q6nf6w7FZwxp7/E91ImQET7s/BA2xBR6RuxuO7q/FXZms3pqcOqXkBlkDIx9uxfLGJ/mF2Y8llNx9UVSN4bgww4s3TPr231y83b15LW+aoTI6Ps7ZhX9drMnSnN5zmWJtPHrCnuNeQuLZl6PAPrKAHyVQnSrSValZeZ3NT04fzI3UbJ8h/Z84ELnfEOjSERimEkchNCTdoSWGjywRQMIk4T9ndd7HpbX2j9fnXN/ibvrs0OxZikf5aWA3j+eC9trqNsmOSv5fMowmEsTApeef3kG0w9O1qNOYFDKFcqw7dcHFc6N3rp9J3YENjnYmFeyML/hi60qpVCEU1q4VikBc853OAKob0jLcoYlOgfAz7IGFXasjuvgHs88p5VlmOBjdQVfQO73+5VSxPRhdCKjvVsPtA4Cx1PH5Bue2Gtdd3so='
-
-eureka:
-  client:
-    enabled: true
-    register-with-eureka: true
-    prefer-same-zone-eureka: true
-    service-url:
-      defaultZone: http://192.168.1.16:8761/eureka/
-  instance:
-    hostname: dc.ad.bremersee.org
-    ip-address: 192.168.1.14
-    non-secure-port: ${server.port}
-    non-secure-port-enabled: false
-    secure-port-enabled: false
-
-management:
-  server:
-    servlet:
-      context-path: /management
-
-security:
-  oauth2:
-    client:
-      client-id: internal
-      client-secret: secret4INTERNAL
-    resource:
-      jwt:
-        key-uri: https://authman.bremersee.org/oauth/token_key
-      token-info-uri: https://authman.bremersee.org/oauth/check_token
-      prefer-token-info: true
 
 ---
 
