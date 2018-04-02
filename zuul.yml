@@ -1,24 +1,41 @@
+eureka:
+  client:
+    enabled: true
+    register-with-eureka: false
+    service-url:
+      defaultZone: '{cipher}AQBf7LJxonMDWosAEjtIKW5fA4YDvZ/EmhobJOfVw+PsbVCYBeOQGctVnU3sV3zwVxJY5CZLnRLGutIxvze09AIU9mgQfoMfEpAKUYA3xP5egZH7XzrhKN6nPyBQr1hKsFzqPGVxFyBaIA2wrGB+y+Y9aNn6qzkhQoMFaWkXjlajtMBkUKSOIagXXOU0TERGLqSxe+B3WJ0HxgBrKvDXLyGNKf/6ySSwAYVHHrTkCOQltYtDtLRCCdK4y1zQQ7VRjg+pBHdtT7lE7Y7NQ/KFvkhlZApZlxyv5IccJOk7MHL9pVKCIHvxDcVyZN0ytUKVzxC8pA5cR9pdegxb/2U51MFePuZukDlH8I2aILigIh/2nQLjlDQ8lybPUQ0Mj88V10oQtwfZMIybHMSTS2GPV20bIE3JzGwHx5NH7M8GWrWPuCI4Miuk1m0Med+YvyIw+D44Y6wm9Up0OCe6ldTRXsBW'
+
+logging:
+  level:
+    ROOT: INFO
+    org.springframework: INFO
+    org.bremersee: DEBUG
+
+management:
+  server:
+    servlet:
+      context-path: /management
+
 server:
-  port: ${SERVER_PORT:8765}
-  use-forward-headers: ${USE_FORWARD_HEADERS:true}
+  port: 8765
+  use-forward-headers: true
   tomcat:
     remote-ip-header: x-forwarded-for
     protocol-header: x-forwarded-proto
     port-header: x-forwarded-port
 
-logging:
-  level:
-    ROOT: ${LOG_LEVEL_ROOT:INFO}
-    org.springframework: ${LOG_LEVEL_SPRING:INFO}
-    org.bremersee: ${LOG_LEVEL_BREMERSEE:DEBUG}
-
-eureka:
-  client:
+spring:
+  jackson:
+    date-format: com.fasterxml.jackson.databind.util.ISO8601DateFormat
+    default-property-inclusion: non_null
+    property-naming-strategy: LOWER_CAMEL_CASE
+    locale: de_DE
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+    time-zone: Europe/Berlin
+  zipkin:
     enabled: true
-    register-with-eureka: false
-#    prefer-same-zone-eureka: true
-    serviceUrl:
-      defaultZone: '{cipher}AQBf7LJxonMDWosAEjtIKW5fA4YDvZ/EmhobJOfVw+PsbVCYBeOQGctVnU3sV3zwVxJY5CZLnRLGutIxvze09AIU9mgQfoMfEpAKUYA3xP5egZH7XzrhKN6nPyBQr1hKsFzqPGVxFyBaIA2wrGB+y+Y9aNn6qzkhQoMFaWkXjlajtMBkUKSOIagXXOU0TERGLqSxe+B3WJ0HxgBrKvDXLyGNKf/6ySSwAYVHHrTkCOQltYtDtLRCCdK4y1zQQ7VRjg+pBHdtT7lE7Y7NQ/KFvkhlZApZlxyv5IccJOk7MHL9pVKCIHvxDcVyZN0ytUKVzxC8pA5cR9pdegxb/2U51MFePuZukDlH8I2aILigIh/2nQLjlDQ8lybPUQ0Mj88V10oQtwfZMIybHMSTS2GPV20bIE3JzGwHx5NH7M8GWrWPuCI4Miuk1m0Med+YvyIw+D44Y6wm9Up0OCe6ldTRXsBW'
+    base-url: http://zipkin:9411
 
 zuul:
   sensitive-headers:
@@ -41,3 +58,14 @@ server:
     accesslog:
       enabled: true
       directory: /var/log/zuul
+
+---
+
+spring:
+  profiles: base
+
+spring:
+  zipkin:
+    base-url: '{cipher}AQBiv4CvdkrFhwKzFPfSAd3Q6nf6w7FZwxp7/E91ImQET7s/BA2xBR6RuxuO7q/FXZms3pqcOqXkBlkDIx9uxfLGJ/mF2Y8llNx9UVSN4bgww4s3TPr231y83b15LW+aoTI6Ps7ZhX9drMnSnN5zmWJtPHrCnuNeQuLZl6PAPrKAHyVQnSrSValZeZ3NT04fzI3UbJ8h/Z84ELnfEOjSERimEkchNCTdoSWGjywRQMIk4T9ndd7HpbX2j9fnXN/ibvrs0OxZikf5aWA3j+eC9trqNsmOSv5fMowmEsTApeef3kG0w9O1qNOYFDKFcqw7dcHFc6N3rp9J3YENjnYmFeyML/hi60qpVCEU1q4VikBc853OAKob0jLcoYlOgfAz7IGFXasjuvgHs88p5VlmOBjdQVfQO73+5VSxPRhdCKjvVsPtA4Cx1PH5Bue2Gtdd3so='
+
+

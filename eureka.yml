@@ -1,3 +1,18 @@
+logging:
+  level:
+    ROOT: INFO
+    org.springframework: INFO
+    org.bremersee: INFO
+
+eureka:
+  instance:
+    hostname: ${spring.application.name}
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:@{server.port}/eureka/
+
 server:
   port: 8761
   use-forward-headers: true
@@ -13,19 +28,10 @@ spring:
       password: '{cipher}AQA2mRu/pgoLZ4wyLwoXoj5yUuCMxpWN2gmyxRYQtmplBTDOrCRgcrr4fTuLAzkdQn+DBQo498NT+VMKG7LYze/A9I+rn/eGNLt+0S/MLYlWGxl2NR6RTncVlQhESp+OQqeAiefESbdudGXjQFOGlJdo/ZdZz0Kq7/DptXEpLReKs2FcTh5uKtit4zFsvOZq2Qb4Y+VxrJSi4uq1NfhKfTVfp4dvoQqb9UHStgcUUJb7hUaFd3K0cKlUZL3yvFAUnzjdZnWwKgLyJhDaLz+Ng/7QoHTUfw9k/QLZofumpfipfKxzlZl2dk1c768i6Wa7AEgzpxsAfmHM4oB+CEwyOkT8LMJQagKin5GzLqVHpK1HLmPe2BxDFIdO/cItu/1A25XufF3B/wYD+28njNQQ3wb1wZmxZKiiw5Q7X71syD3t/w=='
       roles: EUREKA
 
-logging:
-  level:
-    org.springframework: INFO
-    org.bremersee: INFO
+---
 
-eureka:
-  instance:
-    hostname: eureka.bremersee.org
-  client:
-    registerWithEureka: false
-    fetchRegistry: false
-    serviceUrl:
-      defaultZone: https://${spring.security.user.name}:${spring.security.user.password}@eureka.bremersee.org/eureka/
+spring:
+  profiles: base
 
 ---
 

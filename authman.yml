@@ -11,6 +11,11 @@ bremersee:
     realm: oauth2/client
     ssl-only: false
     token-key-access: permitAll()
+    internal-client:
+      client-id: internal-oauth2-client
+      client-secret: '{cipher}AQCCzDbf2pBkLvgzueDdnVIwen20kspj1RQ7p9KwB0520KNt0NO814Ek79QiL+wuoECxrzHUyIUjvgPLj5UFUYRuTR+Y8nwclYBY/EiBqQqjBn+eIlk0hVtwcBlsUE16txHohllDofy+ptGjWPt3SSl1vxsziuNdydLHFn0VcAIfpNzgCXjdL35o/evUfhW0XGCJowzDCkW1VajHA/lw1vzLZ/Dzk07nXgeiG9uyzXZXX6euVdEujOIgazeiPHcnsEd/ngDVA8K9zCYizc/ZSPW9Mei9mn6QrTYUzbE4S3oDie/E/uZkp+kFDD8LjDuIJPs/TP0RMmy6MPMr7XvZGSWw4MdF82fW9tuxxn1yvjzScHfHlpF6D+ug1IcXECY+06ExMw5j+rV9tU6LLvDB3t6b'
+      client-secret-encrypted: false
+      display-name: Inteneral OAuth2 Client
   oauth2:
     facebook:
       provider: facebook
@@ -74,9 +79,9 @@ bremersee:
       response-type: code
       scope: profile email
       additional-login-parameters:
-#          accessType:  offline
         includeGrantedScopes: false
-        accessType:  online
+        accessType: online
+#        accessType: offline
       token-url-template: "\
         https://www.googleapis.com/oauth2/v4/token\
         ?client_id={clientId}\
@@ -139,8 +144,13 @@ logging:
     org.bremersee: info
     org.springframework: info
 
+management:
+  server:
+    servlet:
+      context-path: /management
+
 server:
-  port: 8040
+  port: 8080
 
 spring:
   data:
