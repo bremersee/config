@@ -1,3 +1,9 @@
+info:
+  app:
+    name: ${spring.application.name}
+    version: 0.0.1-SNAPSHOT
+    description: This is the OAuth2 server of bremersee.
+
 bremersee:
   authorization-server:
     allow-form-authentication-for-clients: false
@@ -130,6 +136,13 @@ bremersee:
       email: '{cipher}AQCen65tYghJbzA0L6VkRO4GcC+RDJi8V/J0gUIEyl+6uOOPZ0oh9jlBjqlXHd9dikVwVQgsZ1r40JpuiRBPKvok5RXNChDfXm/fw1u03DQdZ5CZc9slX/2B2LYjnvEDQdOTZdX0SigqtVQAni+ZvihbuypfalZCvY2TE9mh0kpPxEUHb/2tuYxMhMJPInGZtjw0a4e7UpYYG0Iyh/wNr8LIvQOK5xnXwBZC+cGHi7aiAz7QY9cEvVGBavvLJIe2M1cQCPj/ZgkTctBYCEKzKa06ECQtJKRe4+zF3iEdsXg2Cz5/gt5J7tKl+olJlukVRy1Itt5+NHHeA2yzWwi5Ch/X+qyIcad1puKN0KISwtYRcc8EslhP60GfI/K6bg9dUVsbRTJiaTjyMlvlVQJUQPX7'
       preferred-locale: de_DE
       preferred-time-zone-id: Europe/Berlin
+    actuator:
+      user-name: '{cipher}AQB3zheUMt4P4iFEH/IXoelu8V3bTcZsbGxCpjISasmE4z/Dd7Rb7Jn2DMC75VEIqDQ++GGdKDmY49K2XdyEH5hzBDV91jy0FEH9TXyUMtlVnysnXzLuGywBL8L6DyRo02o/xcHg7/ufieci6b1tGreEyC94FG/XkQfK2HTILTEQ+WWGB7xIBgWvBz1AiHofEjhMv/9eZlRNSetVZClLwhwALnvu85SDTGL84WyCKzH/fcItHHk9Gi2mwA2f0yGO8MZvcB2ia/ff9l5Ag2W240sNYC2bJ1iGzhYB81Pn/+XTUgws//dzBxpRou+/bXGEH3nKaDwLxZMFczzEZ27XqvzgA3yRbbFAMhvjU/Jbnp2jmQx/C3WxzqEDT29hrPjUG6c='
+      password: '{cipher}AQCKY3d/Bg49RaRTGRM2mj5c5fwIYMZJlyo2rrl8a+Qpzbqg3rO4112PbdN1crKdjx1sfEBdDs4AmUqomwQ7c+cH433f8qCWADtZz6gST8IJe2o2LfYn0pOIktfBSlWTwr2P9M6fh6di/W0YYaJOVttp+6qK5uAK0WJ6mMGQQwpZG9unX53HHYCOzaoVTalNmOQ7lHg6AXx/BwX/WH9UnBiFJ8OOx0n4FgAX79AUuLOYO56oKiWP2chUT1L893iyAeevSXGtJfI1uVByFVbtTh0lzCNoWGrAtyb8+uov0C81xl/wA0Md4ATlQmJ+QhSHDgsgFnAh+9ThuuKWZ/C3LP3x/3LGWoisqUNLeLYJFIvqSQ98fuUM7wrTmNXxxKIRjYY='
+      display-name: '{cipher}AQCULxpoDCndhFJn+8S+UjyuCF05voEz6qbu9emUlFcQpqvtb1GIQtgr4/opIcZ+xwcGN1YhQYZfbu7ev78BDPH1/URtZgpQ09nVzVfr5E3x08dk4yaPHm/3KxfB1OMtO/ngUELHaeU2wmscYPUlWb0nt4wQ0Ztgrsgy8IRDvgiKm0nXeXyBZj5CXfSf4frgsluOnMpYOp6JteXfcxxbBzlJYUq9fy+GY2q9LD0ZhKkdFTW7038ghQl38PVZPvo1+ZU+/uQ1KAEVeKJaExYOldMNY7NSaK+vHNDiqICeqjKcz86bI0GxPCR847AVjrybQQJHGgpG2K52XBq4g7NH2HskHDXQQml08p0sEc3a/uRO3pTTEslj+VBrZtvGKE7rkig='
+      email: '{cipher}AQCKqog3LNORwD+ixiDTuI2zNKVq3sQjfa3hf6PuphV46zWbSAEQMDLYYsRybJeg9jgdQdnPRh0cTOK5ceda1WfbT03hZ2/sOIBUbcewGLJy4Q8BsgO8oehRnZRkF1VTI9Diodvr4cyrgCYWWOlKzlZqN4FZQtiOZvVRg0Rjaipozr5woQXq2Wsguv0amz50uHLUrjPRGjPbuYaCi7jLaAeTbYnYFUFk84rQEdgzvBUwtOZi7qy95BSVQLMwLLHTB96pJ6kEwMnea/SJshz5ctps2zBSO+JWBiSb61YDtFXqMBbN8EiH9ZOwZgCm1JnUACWSpLNYXDgb7AU1Bhufbrwc+4RO31uD4tsNPEX1TIsJFQTk/vfrhZM3Wt0AYUVI1JAUWJOLuAxlZNc1/Key9+gL'
+      preferred-locale: de_DE
+      preferred-time-zone-id: Europe/Berlin
   user-service:
     min-search-length: 3
 
@@ -152,9 +165,10 @@ logging:
     org.springframework: info
 
 management:
-  server:
-    servlet:
-      context-path: /management
+  endpoints:
+    web:
+      exposure:
+        include: health,info,env
 
 server:
   port: 8080

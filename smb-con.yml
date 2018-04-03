@@ -1,4 +1,16 @@
+info:
+  app:
+    name: ${spring.application.name}
+    version: 0.0.1-SNAPSHOT
+    description: Samba connector for 'authman'.
+
 bremersee:
+  actuator:
+    users:
+      - name: '{cipher}AQB3zheUMt4P4iFEH/IXoelu8V3bTcZsbGxCpjISasmE4z/Dd7Rb7Jn2DMC75VEIqDQ++GGdKDmY49K2XdyEH5hzBDV91jy0FEH9TXyUMtlVnysnXzLuGywBL8L6DyRo02o/xcHg7/ufieci6b1tGreEyC94FG/XkQfK2HTILTEQ+WWGB7xIBgWvBz1AiHofEjhMv/9eZlRNSetVZClLwhwALnvu85SDTGL84WyCKzH/fcItHHk9Gi2mwA2f0yGO8MZvcB2ia/ff9l5Ag2W240sNYC2bJ1iGzhYB81Pn/+XTUgws//dzBxpRou+/bXGEH3nKaDwLxZMFczzEZ27XqvzgA3yRbbFAMhvjU/Jbnp2jmQx/C3WxzqEDT29hrPjUG6c='
+        password: '{cipher}AQCKY3d/Bg49RaRTGRM2mj5c5fwIYMZJlyo2rrl8a+Qpzbqg3rO4112PbdN1crKdjx1sfEBdDs4AmUqomwQ7c+cH433f8qCWADtZz6gST8IJe2o2LfYn0pOIktfBSlWTwr2P9M6fh6di/W0YYaJOVttp+6qK5uAK0WJ6mMGQQwpZG9unX53HHYCOzaoVTalNmOQ7lHg6AXx/BwX/WH9UnBiFJ8OOx0n4FgAX79AUuLOYO56oKiWP2chUT1L893iyAeevSXGtJfI1uVByFVbtTh0lzCNoWGrAtyb8+uov0C81xl/wA0Md4ATlQmJ+QhSHDgsgFnAh+9ThuuKWZ/C3LP3x/3LGWoisqUNLeLYJFIvqSQ98fuUM7wrTmNXxxKIRjYY='
+        authorities:
+          - ROLE_ACTUATOR
   ldaptive:
     ldap-url: '{cipher}AQCXJHVIbKlAGbKs7uLbHGv46q1e97b+6TU2xtBRm4BUZyUY0DJ2+WdVcyiw79H9ftgUpOfi0tnQjAuXEDk1iF5BUAtBAHrug0uZKUynftNkvbcVVsxq3ion4A2sFF0sWyWh+SKPehZHk6r/vHKT/v1ySBren75+ILBtrm0Bx5GlnkjM22+/BffIW5EZ/8VSC6sHGlBhRKHZPMtCLuVeq2hVvt/7AnuTpmoeTeJckyGmLHxrVet0nvSlE6BLbKVGEKhgA6h8WhMpogt8LF86l2fSZuf3zZrwbOYHQbuPH+52CFvpenTh5z922BM7bXTXLPIaiVP4rytTMAKWzbtociH5XF3C0YKANklUcHJ0tDmXpmHfQu8jtwOj0rjRlZHxUhamfHanFUM8APON3OKxMsdO'
     use-ssl: true
@@ -39,12 +51,22 @@ eureka:
     non-secure-port: ${server.port}
     non-secure-port-enabled: false
     secure-port-enabled: false
+    health-check-url-path: /actuator/health
+    health-check-url: https://base-api.bremersee.org/smb-con/actuator/health
+    home-page-url-path: /actuator/info
+    home-page-url: https://base-api.bremersee.org/smb-con/actuator/info
 
 logging:
   level:
     ROOT: info
     org.bremersee: debug
     org.springframework: info
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,env
 
 server:
   port: 8090
