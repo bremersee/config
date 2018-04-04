@@ -65,6 +65,18 @@ server:
 ---
 
 spring:
+  profiles: api
+
+zuul:
+  routes:
+    zipkin:
+      path: /zipkin/**
+      url: http://zipkin
+      stripPrefix: true
+
+---
+
+spring:
   profiles: base
 
 spring:
