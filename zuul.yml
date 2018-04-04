@@ -71,7 +71,7 @@ zuul:
   routes:
     zipkin:
       path: /zipkin/**
-      url: http://zipkin
+      url: http://zipkin:9411
       stripPrefix: true
 
 ---
