@@ -1,0 +1,130 @@
+info:
+  app:
+    name: ${spring.application.name}
+    version: 0.0.1-SNAPSHOT
+    description: Mailcow connector for 'authman'.
+
+bremersee:
+  actuator:
+    users:
+      - name: '{cipher}AQB3zheUMt4P4iFEH/IXoelu8V3bTcZsbGxCpjISasmE4z/Dd7Rb7Jn2DMC75VEIqDQ++GGdKDmY49K2XdyEH5hzBDV91jy0FEH9TXyUMtlVnysnXzLuGywBL8L6DyRo02o/xcHg7/ufieci6b1tGreEyC94FG/XkQfK2HTILTEQ+WWGB7xIBgWvBz1AiHofEjhMv/9eZlRNSetVZClLwhwALnvu85SDTGL84WyCKzH/fcItHHk9Gi2mwA2f0yGO8MZvcB2ia/ff9l5Ag2W240sNYC2bJ1iGzhYB81Pn/+XTUgws//dzBxpRou+/bXGEH3nKaDwLxZMFczzEZ27XqvzgA3yRbbFAMhvjU/Jbnp2jmQx/C3WxzqEDT29hrPjUG6c='
+        password: '{cipher}AQCKY3d/Bg49RaRTGRM2mj5c5fwIYMZJlyo2rrl8a+Qpzbqg3rO4112PbdN1crKdjx1sfEBdDs4AmUqomwQ7c+cH433f8qCWADtZz6gST8IJe2o2LfYn0pOIktfBSlWTwr2P9M6fh6di/W0YYaJOVttp+6qK5uAK0WJ6mMGQQwpZG9unX53HHYCOzaoVTalNmOQ7lHg6AXx/BwX/WH9UnBiFJ8OOx0n4FgAX79AUuLOYO56oKiWP2chUT1L893iyAeevSXGtJfI1uVByFVbtTh0lzCNoWGrAtyb8+uov0C81xl/wA0Md4ATlQmJ+QhSHDgsgFnAh+9ThuuKWZ/C3LP3x/3LGWoisqUNLeLYJFIvqSQ98fuUM7wrTmNXxxKIRjYY='
+        authorities:
+          - ROLE_ACTUATOR
+
+eureka:
+  client:
+    enabled: true
+    register-with-eureka: true
+    prefer-same-zone-eureka: true
+    service-url:
+      defaultZone: '{cipher}AQBCaZZtBMrOk12lDEPYTzVYm+d0DAawMw+Y2MOnwqSDU+/3yqtgv4CeqogutyvU/OWsx3wUy/+zx0cNVEOGA1bSodjApr6444jdGz0s43w5VOundiaIWRSVsahIHjPk6x9xoLYRVvd3d8kOx9w3gT4Qbl4FRxmVl1if/9FHPxLjupKSOfn7TjXjbIYwUl3e8gHXKznmpjIw12PpIiL7pK3+wMz77uhJIiHZWZwm+cX0JtsbGfIzUDHEJSa7tFEiXg3wY6oxSObBfcsttE5eyqF+zZ7jB4K34jZQkAaPAu0U0O3PNigLi1WDu4D++26AMuSIRnfBAM1MlAvlrhC2d4RsYim9kEoeE3zTqGZtw7weN/MokIfYREZoVUdRRRaNOM9PqsSKwRoknuDitpRwPAYnHzXpbCTnxNoXi7YKTiYyLyX6eqAczwQV7IhwH6Sh0pp2ty2J1OK54mRY4Escmd/c'
+  instance:
+    hostname: mailcow-connector
+    non-secure-port: ${server.port}
+    non-secure-port-enabled: true
+    secure-port-enabled: false
+    health-check-url-path: /actuator/health
+    health-check-url: https://api.bremersee.org/mailcow-connector/actuator/health
+    home-page-url-path: /actuator/info
+    home-page-url: https://api.bremersee.org/mailcow-connector/actuator/info
+
+logging:
+  level:
+    ROOT: info
+    org.bremersee: debug
+    org.springframework.cloud.sleuth.zipkin2.sender: debug
+    org.springframework: info
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,env
+
+server:
+  port: 8091
+
+security:
+  oauth2:
+    client:
+      client-id: internal-oauth2-client
+      client-secret: '{cipher}AQCCzDbf2pBkLvgzueDdnVIwen20kspj1RQ7p9KwB0520KNt0NO814Ek79QiL+wuoECxrzHUyIUjvgPLj5UFUYRuTR+Y8nwclYBY/EiBqQqjBn+eIlk0hVtwcBlsUE16txHohllDofy+ptGjWPt3SSl1vxsziuNdydLHFn0VcAIfpNzgCXjdL35o/evUfhW0XGCJowzDCkW1VajHA/lw1vzLZ/Dzk07nXgeiG9uyzXZXX6euVdEujOIgazeiPHcnsEd/ngDVA8K9zCYizc/ZSPW9Mei9mn6QrTYUzbE4S3oDie/E/uZkp+kFDD8LjDuIJPs/TP0RMmy6MPMr7XvZGSWw4MdF82fW9tuxxn1yvjzScHfHlpF6D+ug1IcXECY+06ExMw5j+rV9tU6LLvDB3t6b'
+    resource:
+      jwt:
+        key-uri:
+        key-value: |
+          -----BEGIN PUBLIC KEY-----
+          MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApM/zEylsUfxlT7Je8UMJ
+          i+tVQjdto6PF8jrfeBivIR1rl1Jbhthx0V2jK92dnjyU6UTUxfP29axMNKRA8/tB
+          KlikYZoH4ZmWlx27K2G+49czfQPz0DO5Wn4P4d1ot3zgKNYVfqAjzrDwzAwMLnkm
+          X7eZyikhrptyG0war2ZGHJxm3VaENUch1XVVzl8nSeDIzs6Usn40N5IyTrEi5/yw
+          wFlGeB04mbulLT5uDZqjk6nBsB2n4vD2qhNSjA2q4BR4DlPLy9T1VlZM286cEk44
+          noQjHGhTdPQMG7nNeQL5rnG/7GGs5pJCd53JF3wKEugJxoT1DzTKGhRT0cDlHYyW
+          SQIDAQAB
+          -----END PUBLIC KEY-----
+      token-info-uri: https://authman.bremersee.org/oauth/check_token
+      prefer-token-info: true
+
+spring:
+  jackson:
+    date-format: com.fasterxml.jackson.databind.util.ISO8601DateFormat
+    default-property-inclusion: non_null
+    property-naming-strategy: LOWER_CAMEL_CASE
+    locale: de_DE
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+    time-zone: Europe/Berlin
+  sleuth:
+    sampler:
+      probability: 1.0
+  zipkin:
+    enabled: true
+    base-url: '{cipher}AQBiv4CvdkrFhwKzFPfSAd3Q6nf6w7FZwxp7/E91ImQET7s/BA2xBR6RuxuO7q/FXZms3pqcOqXkBlkDIx9uxfLGJ/mF2Y8llNx9UVSN4bgww4s3TPr231y83b15LW+aoTI6Ps7ZhX9drMnSnN5zmWJtPHrCnuNeQuLZl6PAPrKAHyVQnSrSValZeZ3NT04fzI3UbJ8h/Z84ELnfEOjSERimEkchNCTdoSWGjywRQMIk4T9ndd7HpbX2j9fnXN/ibvrs0OxZikf5aWA3j+eC9trqNsmOSv5fMowmEsTApeef3kG0w9O1qNOYFDKFcqw7dcHFc6N3rp9J3YENjnYmFeyML/hi60qpVCEU1q4VikBc853OAKob0jLcoYlOgfAz7IGFXasjuvgHs88p5VlmOBjdQVfQO73+5VSxPRhdCKjvVsPtA4Cx1PH5Bue2Gtdd3so='
+
+---
+
+spring:
+  profiles: mysql
+  datasource:
+    url: jdbc:mysql://mysql:3306/mailcow
+    username: mailcow
+    password: '{cipher}AQAtJ/mrpC+UkpKWxTEwoN/L/4LvL4MPxl9x8tc+plCKScdaPQIcsKafe77vYUEFD1NzUqnkXbfXo9WkS1I5LRYb+PEBri22NmZMmw4U929eQQmLsblbZVpoKy+Tdj8xdRm75NX7Oq3nZgW4X6XSNMMCnGqXWKrF6cLgj94p7Sv+QKiH8nCdMYhIvnKxaaUj/vXjorliV6EDywmmHjbpD8bIBYb9m4e84++32Ldzf7y8855UiBZjiyWVKQyZPjTOPmM/WmZYAhSmAz42NLJmojdVg6CuIeMUuoGSnB4/B3j8k5iTZiGu6tnjJbAIgbKtVGm+HHHcfGVUYVJbrXTk3QBh9hJPpAhrXpKUH+SbakWPfz/C1DhKj+egSQJsSmemoHO8gQQjBKgGQ5/zOAUNsSPB'
+    platform: mysql
+    # HikariCP is the new default connection pool,
+    # see: https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-sql.html
+    # see: https://github.com/brettwooldridge/HikariCP
+    #
+    hikari:
+      pool-name: mailcow
+      # If your driver supports JDBC4 we strongly recommend not setting this property.
+      # connectionTestQuery: SELECT 1
+    # Tomcat pooling DataSource is no longer the default one,
+    # see: https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-sql.html
+    # and: https://tomcat.apache.org/tomcat-8.0-doc/jdbc-pool.html#Common_Attributes
+    # Setting test-on-borrow = true is important because connections in the pool can expire and then no longer work.
+    # tomcat:
+    #   test-on-borrow: true
+    #   validation-query: SELECT 1
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+
+---
+
+spring:
+  profiles: logfiles
+
+logging:
+  path: /var/log/mailcow-connector
+  file:
+    max-history: 25
+
+server:
+  tomcat:
+    accesslog:
+      enabled: true
+      directory: /var/log/mailcow-connector

@@ -49,7 +49,7 @@ eureka:
     hostname: '{cipher}AQCTFU4pTnXTtd/Z+jnXPLp9OGB4TNwCBvNJRPkpuycMszKgcSGbcziqRO1MKXitqZH8OEgmCmUZQq0YLELAcZY8eJ5LL3+KbcyGfcfqFmddEorRnAM4CgdHI7GxqL6BZjw3STVE8kXcSiRzV+tVlVSKQyGyqkdp6MTMKI5HEEqTOZbFm6UNuZy1SfuNKqy3iapWHFAFAmrln3JMacwUf7QhtDcYil/rlvp5CnLrv6k4mD6SLwPF0q3AEsJz4Lw6scRjEpGFFnjRPaWs52EgqwgA4qgqQ+zCwm3xFYP95XMNfcWDAvvsF52FNissMXSQil9yE3INQwMDThu9RdsebUnjCvME+2eBhjaxK0IQ5fcFv9Su67od9F1+3bfSn92eXiSPAIWCyozukQLUBquRfT9g'
     ip-address: 192.168.1.14
     non-secure-port: ${server.port}
-    non-secure-port-enabled: false
+    non-secure-port-enabled: true
     secure-port-enabled: false
     health-check-url-path: /actuator/health
     health-check-url: https://base-api.bremersee.org/smb-con/actuator/health
