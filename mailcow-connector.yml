@@ -24,14 +24,18 @@ eureka:
     service-url:
       defaultZone: '{cipher}AQBCaZZtBMrOk12lDEPYTzVYm+d0DAawMw+Y2MOnwqSDU+/3yqtgv4CeqogutyvU/OWsx3wUy/+zx0cNVEOGA1bSodjApr6444jdGz0s43w5VOundiaIWRSVsahIHjPk6x9xoLYRVvd3d8kOx9w3gT4Qbl4FRxmVl1if/9FHPxLjupKSOfn7TjXjbIYwUl3e8gHXKznmpjIw12PpIiL7pK3+wMz77uhJIiHZWZwm+cX0JtsbGfIzUDHEJSa7tFEiXg3wY6oxSObBfcsttE5eyqF+zZ7jB4K34jZQkAaPAu0U0O3PNigLi1WDu4D++26AMuSIRnfBAM1MlAvlrhC2d4RsYim9kEoeE3zTqGZtw7weN/MokIfYREZoVUdRRRaNOM9PqsSKwRoknuDitpRwPAYnHzXpbCTnxNoXi7YKTiYyLyX6eqAczwQV7IhwH6Sh0pp2ty2J1OK54mRY4Escmd/c'
   instance:
+    lease-renewal-interval-in-seconds: 10
     hostname: mailcow-connector
     non-secure-port: ${server.port}
     non-secure-port-enabled: true
-    secure-port-enabled: false
     health-check-url-path: /actuator/health
     health-check-url: https://api.bremersee.org/mailcow-connector/actuator/health
     home-page-url-path: /actuator/info
     home-page-url: https://api.bremersee.org/mailcow-connector/actuator/info
+    secure-virtual-host-name: api.bremersee.org
+    secure-port: 443
+    secure-port-enabled: true
+    secure-health-check-url: https://api.bremersee.org/mailcow-connector/actuator/health
 
 logging:
   level:
@@ -44,7 +48,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: health,info,env
+        include: "*"
 
 server:
   port: 8091

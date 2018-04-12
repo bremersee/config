@@ -1,0 +1,41 @@
+eureka:
+  client:
+    enabled: true
+    register-with-eureka: false
+    service-url:
+      defaultZone: '{cipher}AQBf7LJxonMDWosAEjtIKW5fA4YDvZ/EmhobJOfVw+PsbVCYBeOQGctVnU3sV3zwVxJY5CZLnRLGutIxvze09AIU9mgQfoMfEpAKUYA3xP5egZH7XzrhKN6nPyBQr1hKsFzqPGVxFyBaIA2wrGB+y+Y9aNn6qzkhQoMFaWkXjlajtMBkUKSOIagXXOU0TERGLqSxe+B3WJ0HxgBrKvDXLyGNKf/6ySSwAYVHHrTkCOQltYtDtLRCCdK4y1zQQ7VRjg+pBHdtT7lE7Y7NQ/KFvkhlZApZlxyv5IccJOk7MHL9pVKCIHvxDcVyZN0ytUKVzxC8pA5cR9pdegxb/2U51MFePuZukDlH8I2aILigIh/2nQLjlDQ8lybPUQ0Mj88V10oQtwfZMIybHMSTS2GPV20bIE3JzGwHx5NH7M8GWrWPuCI4Miuk1m0Med+YvyIw+D44Y6wm9Up0OCe6ldTRXsBW'
+
+logging:
+  level:
+    ROOT: info
+    org.bremersee: debug
+    org.springframework: info
+
+server:
+  port: ${SERVER_PORT:8020}
+  tomcat:
+    remote-ip-header: x-forwarded-for
+    protocol-header: x-forwarded-proto
+    port-header: x-forwarded-port
+
+turbine:
+  aggregator:
+    cluster-config: BREMERSEE-API-AGGREGATE
+  app-config: BREMERSEE-API-AGGREGATE
+
+---
+
+spring:
+  profiles: logfiles
+
+logging:
+  path: /var/log/hystrix
+  file:
+    max-history: 25
+
+server:
+  tomcat:
+    accesslog:
+      enabled: true
+      directory: /var/log/hystrix
+

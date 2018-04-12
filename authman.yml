@@ -158,6 +158,27 @@ feign:
         connect-timeout: 5000
         read-timeout: 5000
 
+eureka:
+  client:
+    enabled: true
+    register-with-eureka: true
+    prefer-same-zone-eureka: true
+    service-url:
+      defaultZone: '{cipher}AQBCaZZtBMrOk12lDEPYTzVYm+d0DAawMw+Y2MOnwqSDU+/3yqtgv4CeqogutyvU/OWsx3wUy/+zx0cNVEOGA1bSodjApr6444jdGz0s43w5VOundiaIWRSVsahIHjPk6x9xoLYRVvd3d8kOx9w3gT4Qbl4FRxmVl1if/9FHPxLjupKSOfn7TjXjbIYwUl3e8gHXKznmpjIw12PpIiL7pK3+wMz77uhJIiHZWZwm+cX0JtsbGfIzUDHEJSa7tFEiXg3wY6oxSObBfcsttE5eyqF+zZ7jB4K34jZQkAaPAu0U0O3PNigLi1WDu4D++26AMuSIRnfBAM1MlAvlrhC2d4RsYim9kEoeE3zTqGZtw7weN/MokIfYREZoVUdRRRaNOM9PqsSKwRoknuDitpRwPAYnHzXpbCTnxNoXi7YKTiYyLyX6eqAczwQV7IhwH6Sh0pp2ty2J1OK54mRY4Escmd/c'
+  instance:
+    lease-renewal-interval-in-seconds: 10
+    hostname: authman
+    non-secure-port: ${server.port}
+    non-secure-port-enabled: true
+    health-check-url-path: /actuator/health
+    health-check-url: https://authman.bremersee.org/actuator/health
+    home-page-url-path: /actuator/info
+    home-page-url: https://authman.bremersee.org/actuator/info
+    secure-virtual-host-name: authman.bremersee.org
+    secure-port: 443
+    secure-port-enabled: true
+    secure-health-check-url: https://authman.bremersee.org/actuator/health
+
 logging:
   level:
     ROOT: info
@@ -168,7 +189,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: health,info,env
+        include: "*"
 
 server:
   port: 8080
