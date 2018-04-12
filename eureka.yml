@@ -1,6 +1,6 @@
 bremersee:
   access:
-    default-access: "hasIpAddress('127.0.0.1') or hasIpAddress('::1') or hasIpAddress('172.16.238.0/24') or hasAuthority('ROLE_EUREKA')"
+    default-access: "hasIpAddress('127.0.0.1') or hasIpAddress('::1') or hasIpAddress('172.16.238.0/24') or hasIpAddress('fd2d:6169:6c63:6f77::/64') or hasAuthority('ROLE_EUREKA')"
 
 logging:
   level:

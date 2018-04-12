@@ -3,7 +3,8 @@ eureka:
     enabled: true
     register-with-eureka: false
     service-url:
-      defaultZone: '{cipher}AQBf7LJxonMDWosAEjtIKW5fA4YDvZ/EmhobJOfVw+PsbVCYBeOQGctVnU3sV3zwVxJY5CZLnRLGutIxvze09AIU9mgQfoMfEpAKUYA3xP5egZH7XzrhKN6nPyBQr1hKsFzqPGVxFyBaIA2wrGB+y+Y9aNn6qzkhQoMFaWkXjlajtMBkUKSOIagXXOU0TERGLqSxe+B3WJ0HxgBrKvDXLyGNKf/6ySSwAYVHHrTkCOQltYtDtLRCCdK4y1zQQ7VRjg+pBHdtT7lE7Y7NQ/KFvkhlZApZlxyv5IccJOk7MHL9pVKCIHvxDcVyZN0ytUKVzxC8pA5cR9pdegxb/2U51MFePuZukDlH8I2aILigIh/2nQLjlDQ8lybPUQ0Mj88V10oQtwfZMIybHMSTS2GPV20bIE3JzGwHx5NH7M8GWrWPuCI4Miuk1m0Med+YvyIw+D44Y6wm9Up0OCe6ldTRXsBW'
+      defaultZone: http://eureka:8761/eureka/
+#      defaultZone: '{cipher}AQBCaZZtBMrOk12lDEPYTzVYm+d0DAawMw+Y2MOnwqSDU+/3yqtgv4CeqogutyvU/OWsx3wUy/+zx0cNVEOGA1bSodjApr6444jdGz0s43w5VOundiaIWRSVsahIHjPk6x9xoLYRVvd3d8kOx9w3gT4Qbl4FRxmVl1if/9FHPxLjupKSOfn7TjXjbIYwUl3e8gHXKznmpjIw12PpIiL7pK3+wMz77uhJIiHZWZwm+cX0JtsbGfIzUDHEJSa7tFEiXg3wY6oxSObBfcsttE5eyqF+zZ7jB4K34jZQkAaPAu0U0O3PNigLi1WDu4D++26AMuSIRnfBAM1MlAvlrhC2d4RsYim9kEoeE3zTqGZtw7weN/MokIfYREZoVUdRRRaNOM9PqsSKwRoknuDitpRwPAYnHzXpbCTnxNoXi7YKTiYyLyX6eqAczwQV7IhwH6Sh0pp2ty2J1OK54mRY4Escmd/c'
 
 logging:
   level:
