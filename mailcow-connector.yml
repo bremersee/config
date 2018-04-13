@@ -28,7 +28,7 @@ eureka:
     enabled: true
     register-with-eureka: true
     prefer-same-zone-eureka: true
-      defaultZone: http://eureka:8761/eureka/
+      defaultZone: "http://eureka:8761/eureka/"
 #      defaultZone: '{cipher}AQBCaZZtBMrOk12lDEPYTzVYm+d0DAawMw+Y2MOnwqSDU+/3yqtgv4CeqogutyvU/OWsx3wUy/+zx0cNVEOGA1bSodjApr6444jdGz0s43w5VOundiaIWRSVsahIHjPk6x9xoLYRVvd3d8kOx9w3gT4Qbl4FRxmVl1if/9FHPxLjupKSOfn7TjXjbIYwUl3e8gHXKznmpjIw12PpIiL7pK3+wMz77uhJIiHZWZwm+cX0JtsbGfIzUDHEJSa7tFEiXg3wY6oxSObBfcsttE5eyqF+zZ7jB4K34jZQkAaPAu0U0O3PNigLi1WDu4D++26AMuSIRnfBAM1MlAvlrhC2d4RsYim9kEoeE3zTqGZtw7weN/MokIfYREZoVUdRRRaNOM9PqsSKwRoknuDitpRwPAYnHzXpbCTnxNoXi7YKTiYyLyX6eqAczwQV7IhwH6Sh0pp2ty2J1OK54mRY4Escmd/c'
   instance:
     lease-renewal-interval-in-seconds: 10
@@ -36,13 +36,13 @@ eureka:
     non-secure-port: ${server.port}
     non-secure-port-enabled: true
     health-check-url-path: /actuator/health
-    health-check-url: https://api.bremersee.org/mailcow-connector/actuator/health
+    health-check-url: "https://api.bremersee.org/mailcow-connector/actuator/health"
     home-page-url-path: /actuator/info
-    home-page-url: https://api.bremersee.org/mailcow-connector/actuator/info
+    home-page-url: "https://api.bremersee.org/mailcow-connector/actuator/info"
     secure-virtual-host-name: api.bremersee.org
     secure-port: 443
     secure-port-enabled: true
-    secure-health-check-url: https://api.bremersee.org/mailcow-connector/actuator/health
+    secure-health-check-url: "https://api.bremersee.org/mailcow-connector/actuator/health"
 
 logging:
   level:
@@ -78,7 +78,7 @@ security:
           noQjHGhTdPQMG7nNeQL5rnG/7GGs5pJCd53JF3wKEugJxoT1DzTKGhRT0cDlHYyW
           SQIDAQAB
           -----END PUBLIC KEY-----
-      token-info-uri: https://authman.bremersee.org/oauth/check_token
+      token-info-uri: "https://authman.bremersee.org/oauth/check_token"
       prefer-token-info: true
 
 spring:
@@ -95,7 +95,7 @@ spring:
       probability: 1.0
   zipkin:
     enabled: true
-    base-url: http://zipkin:9411
+    base-url: "http://zipkin:9411"
 
 ---
 
@@ -103,7 +103,7 @@ spring:
   profiles: mysql
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://mysql:3306/mailcow
+    url: "jdbc:mysql://mysql:3306/mailcow"
     username: mailcow
     password: '{cipher}AQAtJ/mrpC+UkpKWxTEwoN/L/4LvL4MPxl9x8tc+plCKScdaPQIcsKafe77vYUEFD1NzUqnkXbfXo9WkS1I5LRYb+PEBri22NmZMmw4U929eQQmLsblbZVpoKy+Tdj8xdRm75NX7Oq3nZgW4X6XSNMMCnGqXWKrF6cLgj94p7Sv+QKiH8nCdMYhIvnKxaaUj/vXjorliV6EDywmmHjbpD8bIBYb9m4e84++32Ldzf7y8855UiBZjiyWVKQyZPjTOPmM/WmZYAhSmAz42NLJmojdVg6CuIeMUuoGSnB4/B3j8k5iTZiGu6tnjJbAIgbKtVGm+HHHcfGVUYVJbrXTk3QBh9hJPpAhrXpKUH+SbakWPfz/C1DhKj+egSQJsSmemoHO8gQQjBKgGQ5/zOAUNsSPB'
     platform: mysql
