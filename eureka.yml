@@ -87,4 +87,4 @@ eureka:
 
 bremersee:
   access:
-    default-access: "hasIpAddress('127.0.0.1') or hasIpAddress('172.18.0.0/16') or hasAuthority('ROLE_EUREKA')"
+    default-access: "hasIpAddress('127.0.0.1') or hasIpAddress('172.18.0.3') or hasIpAddress('172.18.0.0/16') or hasAuthority('ROLE_EUREKA')"
