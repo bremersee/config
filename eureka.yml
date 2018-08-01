@@ -37,6 +37,10 @@ spring:
 spring:
   profiles: base
 
+bremersee:
+  access:
+    default-access: "hasIpAddress('127.0.0.1') or hasIpAddress('172.18.0.0/16') or hasAuthority('ROLE_EUREKA')"
+
 ---
 
 spring:
@@ -84,7 +88,3 @@ eureka:
   client:
     service-url:
       defaultZone: https://${spring.security.user.name}:${spring.security.user.password}@eureka.bremersee.org/eureka/
-
-bremersee:
-  access:
-    default-access: "hasIpAddress('127.0.0.1') or hasIpAddress('172.18.0.3') or hasIpAddress('172.18.0.0/16') or hasAuthority('ROLE_EUREKA')"
