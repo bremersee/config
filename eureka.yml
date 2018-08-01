@@ -37,10 +37,6 @@ spring:
 spring:
   profiles: base
 
-bremersee:
-  access:
-    default-access: "hasIpAddress('127.0.0.1') or hasIpAddress('172.18.0.0/16') or hasAuthority('ROLE_EUREKA')"
-
 ---
 
 spring:
@@ -59,6 +55,7 @@ server:
 
 ---
 
+# this is currently not used
 spring:
   profiles: api-zone
 
@@ -75,6 +72,7 @@ eureka:
 
 ---
 
+# this is currently not used
 spring:
   profiles: base-api-zone
 
