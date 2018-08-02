@@ -1,2 +1,12 @@
-health:
-  indicator: https://cloud.spring.io/spring-cloud-config/single/spring-cloud-config.html#_health_indicator
+some:
+  key: '{cipher}AQCykFAsEFUKMakvFcsmumDsTh4rxuf8bhutyGkItUDAVgOdPbVNTMTUJwya2pot5wmPX4UEXhCShQ+aDu42CMQz4ap78QP7fdcruQYAbimbhGDmL9voyhNDCYQ6ywUQTXj8VfVo+KOL/LtQymoWljhhFHmzsXEG/cojvh0jpYKthPidWOpcmS10uMvrMgPQn9sCGGB/L1EBQjQsMGV+QnQHPn7dRhbmIlm6BJnOyrQPyUv+mqBLQEGoWxSBkm9TQPSyMHW926qpkL5gVHXzV/TDMbY3T5Te4eqv23QKTyuKMJ6usROsG1BJ1WH+fXTSt4gJtA2xJUm7DSIJfiUM0GkDqJ5A9S5uiHj0g9CptP4sXSK0HNnOiakVXU7SGEc4byA='
+
+---
+
+spring:
+  profiles: logfiles
+
+logging:
+  path: /var/log/my-app
+  file:
+    max-history: 25
