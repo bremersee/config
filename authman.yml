@@ -50,6 +50,7 @@ bremersee:
       client-id: '{cipher}AQCJSlZuBL1O6QwLnyoq3FSndx4AvJ0BwikqRXYvdPATnumKTgftvsfmpd1F8SgWe9TUCIxLcD2B0USTdkTq0ZKlM9Em/UsZrQ9PiYEUAaVuu5Au6InoU8glSwGCM7AHNWkG0eAkL+YfHw4BOThcyCx3DNGStrcz8TdtfYGQvQ9vmxB5s/b1WBsNdAqau2Gk9Ln7ofMTYFPYZ9KHhQfOHqb2GkDE0brm/iPdFiwExPVNohi2bOo6PRsdu0hl8XXofaXqRb9N4hTrEHPv7hPbE3awd19mDnBkelZN4kJID1pc+on6kka7sDX5gOBLR6qYGnTawQJkrW7NXtkpVivp5fAgDfrjvdNHif3KVONpCauByEKzvPuNVaGC5D7mGvdf9ScPIwv80hFluAwCkCYwXwyK'
       client-secret: '{cipher}AQCBEDuyEjPxeWy8UbcdkxC/5gydHGOkQ7gNDfWBHgTYcZQ4IuxUvepEmZi4qWRFoGwM01a8jYA/YdFgdjzQLdKncfUyPKwQz6lBik53DBKB3jCIyCZqKjIh+Agd6MUnsi0y2Cj1c/yc4D9EdgyY/AmXFlrLK0DhNiUKmkAPxSO4fmAokKBt8ca0tvymYlVsZjw+iwxD3wMZqjQao1mTX8+nCO9O4dqs+lIJ9Ub97018etK+pR6KZ2Fy1MhggK6w/1A+zV0Acl7O30vUmAK3R++3fFRcMEwaB0ITI77Pd0ZLfTkCajlNzn27SrirgOLYUDMiwQkzadeBof9r+yGU+Q+6IajjbURRE+K4LvF+u3/ZPTtOYGspT/Ry6yka1X4jGecZr72RiQkpVKVhSLyueifqplVlgTfj9tjKW7QdRCjwvQ=='
       redirect-uri: https://authman.bremersee.org/facebook/callback
+      redirect-uri-profile-connect: https://authman.bremersee.org/profile/facebook/callback
       response-type: code
       scope: public_profile,email
       token-url-template: "\
@@ -72,6 +73,7 @@ bremersee:
       client-id: '{cipher}AQCprsST6HE6WdU/Ly/MRxb/ipkXf5YhemnfW5wCGWkcz6mVuVuu2cRvLdICzLCTFTkH0tisldSfQ0AO+NvGy8LaJQPNKigHHB4wO/8oedNQUi7VCYWqMcRwc5X4Z76Tj4/Z121AuTKfWgUZBrPuLjvNmQRVBZaLOd/+9N8NZhGFnBi8gctgt6TW4W7J6JQ2+ovkbcsxM+xwjvxktTB31G61G9uHm/saQbOWINzqz5uZ/iwinKR3skMRlUDRb2vJChWE+kQVB6GLxSaGBtTRWFCa9ygzVLd3Pj+eJYydWOeXn/yJAVKb1hRibEEh7qRqkkS2IJjiOen2EQimkcPQG4t2qrhXzDrQARg+S094VPNqpV9W4aIyeAG1AlmSatUdSc9CYf0D7woSX1tYD5P0D+KH'
       client-secret: '{cipher}AQA71ObjJuoDU63eiuBOxU/BWoz2WZwNxHr2aHcs1lAoXXafePpBE/yCwM/eia9lum2RAv0JNw09nR/cFJWU08YN08Wzf4LvE1jEgKMJb9RSDaY4XHDWS3k/qsjN2Rbx3a+pqGKg3HQdSt5Anc6k/szx1jtTckWFREfh7TJFSr5pGv9N0guuNCtev863p2qG4f14l1e5Q/9+Ljz3hG615Cj7cnAYd1FJW7JtnVtXiTSZ23xPI/+GrMFO+Y2WqLyEfJc7sC5jDpWFrFrZNFZDkzf/6I3mCMIZaVvToq4e+Mks9kTa79P0sgmVU5UMh4hVq2uFrNTrkPQ+1qWCQkTyut2IptTf5fF6byy8HHyvm4FRIaH2iGQXRq5E5HV4km/2++yUdXauiKKLs5LrdM7067JaM9C0RZroetnM6LhE47pJ8g=='
       redirect-uri: https://authman.bremersee.org/github/callback
+      redirect-uri-profile-connect: https://authman.bremersee.org/github/callback/profile
       response-type: code
       scope: user
       token-url-template: "\
@@ -96,7 +98,8 @@ bremersee:
         &include_granted_scopes={includeGrantedScopes}"
       client-id: '{cipher}AQBvYZe4Zko0iuRVg+Ez4HHwdxyUgV9gKKN/+H2zScJLYvFQHxWKRvyOdXO4wWnGJ/grK26FM037gpgjFxMkVrLEUzz5elB6/rcvBS3Nlq22bV+uU0r9DTbSl+QB87k7aBUnUtDk7z4x2BZhiDl2KgV0OuYNsxZ54VwV19Apu6rgEqaj4Eq4cCUj8yoYfWJPrEN5i6sY2m826Z6t3W3mKwx0Nxa2NNoyZ2rDzyLLeI9ymeYmpGjZmWXgMScLhpqAZZ5nQpPK7ETjmdGlgHABZcbUkwAie6hqKzrc/phm6E4vXAohfn2OJss4KDyEGyqJ0p28ua6/Rb2Zc8FINn3BSBH5xZOvcDoy2RuK8+k8Cvu014/B8GjCkc0DS7Ckt8H6XiLlWZUQOYrxQGKaJkwRPdDmvJPCvrsCNYitnk2U7fhaJPqYD5KVdkPFUXkUMYg9cbvbKWLxQbhP/wjjxs2K99j2'
       client-secret: '{cipher}AQCooDLhtDlbi/gHzrEyZIGVI0gBwfa/rAifql6TjWErPLaWdk8Km9i5IROuwszdluZR3VhbEWX962pSo7R74wBdPAnPsQwm41v8UCE3/iirAFlshfQpL++OjRQrCn+VMxMSCWVX/cLzTNYOkyRP4DStfsAtVG59+TDwduX6uHdq1jgx0335pI8GMksJyWrocRIx+EuzBlLw2lzJeQl2AKlHfC+GgDZwH+62L4WAicaO3dONiRe68V1whUUMeiHKawKqe4KtCp3pGJqjeKW/kO0wVAGOJfUYRx7O05J7bdx+s6CxFVPK1Wp2s/vOdcnoTG7MQfx2cp2GqxpTH2YvSLN5ZNQDEuiClciIX1+p8fJjkmcoCBgi//Sf/VR9j5gGNeW9gbczB93spFWVQTf40dYD'
-      redirect-uri: https://authman.bremersee.org/authman/google/callback
+      redirect-uri: https://authman.bremersee.org/google/callback
+      redirect-uri-profile-connect: https://authman.bremersee.org/profile/google/callback
       response-type: code
       scope: profile email
       additional-login-parameters:
