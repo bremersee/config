@@ -1,12 +1,38 @@
+#
+# For bremersee's eureka version 1.1.0
+#
 bremersee:
   access:
-    default-access: "hasIpAddress('127.0.0.1') or hasIpAddress('::1') or hasIpAddress('172.16.238.0/24') or hasIpAddress('fd2d:6169:6c63:6f77::/64') or hasAuthority('ROLE_EUREKA')"
-
-logging:
-  level:
-    ROOT: INFO
-    org.springframework: INFO
-    org.bremersee: INFO
+    application:
+      authorities:
+      - "ROLE_EUREKA"
+      ip-addresses:
+      - "127.0.0.1"
+      - "::1"
+      - "172.16.238.0/24"
+      - "fd2d:6169:6c63:6f77::/64"
+    actuator:
+      authorities:
+      - "ROLE_ACTUATOR"
+      ip-addresses:
+      - "127.0.0.1"
+      - "::1"
+      - "172.16.238.0/24"
+      - "fd2d:6169:6c63:6f77::/64"
+    users:
+    - name: '{cipher}AQBZR2ZKdhEtiUQsPLLq1L6F+FpUpdBoK71svyRqz+XXcsV7QzTT2PF56UAle77ztR+9pKGsVjX+jf0PAhkrV2wA8NhpPdcGV0Ezsq99nwF/bPNnEhqWbiMUD6NLyeaUFu8lUpdL4vmEa3VUtc27mWY9N1ryT5v1a8jVCAmZWzz2AiLzDqwkw77eEYo4xB+p4+U8obuZoD9uEmISJ158/055o9DEix7xmMUR0scsl4LeENnIU/Ff+wjFukG552wGUFIeQrUAb82O3gAibbLwCFnUAbUNx2XAmvP3lKHOZjeSd23ApcwXaYoUfR+2+Y+IFpfDT9Olrh4MWnoojGy/nQfRQcGrz1HVUgkpjj9VT1RSzRVQ7bvj6KWXx2y3R+fFLmQ='
+      password: '{cipher}AQA2mRu/pgoLZ4wyLwoXoj5yUuCMxpWN2gmyxRYQtmplBTDOrCRgcrr4fTuLAzkdQn+DBQo498NT+VMKG7LYze/A9I+rn/eGNLt+0S/MLYlWGxl2NR6RTncVlQhESp+OQqeAiefESbdudGXjQFOGlJdo/ZdZz0Kq7/DptXEpLReKs2FcTh5uKtit4zFsvOZq2Qb4Y+VxrJSi4uq1NfhKfTVfp4dvoQqb9UHStgcUUJb7hUaFd3K0cKlUZL3yvFAUnzjdZnWwKgLyJhDaLz+Ng/7QoHTUfw9k/QLZofumpfipfKxzlZl2dk1c768i6Wa7AEgzpxsAfmHM4oB+CEwyOkT8LMJQagKin5GzLqVHpK1HLmPe2BxDFIdO/cItu/1A25XufF3B/wYD+28njNQQ3wb1wZmxZKiiw5Q7X71syD3t/w=='
+      authorities:
+      - "ROLE_EUREKA"
+    - name: '{cipher}AQB3zheUMt4P4iFEH/IXoelu8V3bTcZsbGxCpjISasmE4z/Dd7Rb7Jn2DMC75VEIqDQ++GGdKDmY49K2XdyEH5hzBDV91jy0FEH9TXyUMtlVnysnXzLuGywBL8L6DyRo02o/xcHg7/ufieci6b1tGreEyC94FG/XkQfK2HTILTEQ+WWGB7xIBgWvBz1AiHofEjhMv/9eZlRNSetVZClLwhwALnvu85SDTGL84WyCKzH/fcItHHk9Gi2mwA2f0yGO8MZvcB2ia/ff9l5Ag2W240sNYC2bJ1iGzhYB81Pn/+XTUgws//dzBxpRou+/bXGEH3nKaDwLxZMFczzEZ27XqvzgA3yRbbFAMhvjU/Jbnp2jmQx/C3WxzqEDT29hrPjUG6c='
+      password: '{cipher}AQCKY3d/Bg49RaRTGRM2mj5c5fwIYMZJlyo2rrl8a+Qpzbqg3rO4112PbdN1crKdjx1sfEBdDs4AmUqomwQ7c+cH433f8qCWADtZz6gST8IJe2o2LfYn0pOIktfBSlWTwr2P9M6fh6di/W0YYaJOVttp+6qK5uAK0WJ6mMGQQwpZG9unX53HHYCOzaoVTalNmOQ7lHg6AXx/BwX/WH9UnBiFJ8OOx0n4FgAX79AUuLOYO56oKiWP2chUT1L893iyAeevSXGtJfI1uVByFVbtTh0lzCNoWGrAtyb8+uov0C81xl/wA0Md4ATlQmJ+QhSHDgsgFnAh+9ThuuKWZ/C3LP3x/3LGWoisqUNLeLYJFIvqSQ98fuUM7wrTmNXxxKIRjYY='
+      authorities:
+      - "ROLE_ACTUATOR"
+    - name: '{cipher}AQCjoXtM2vJHWCpbxbtmQlG/GlHsuoT++/FA7UmDsr6obiTpfOpyoEES5hfDOeRkZIpZkn345TkrJOCul0o++Dkxep3LvGJEEz1Xc5YUbk6ZCROyBERvGbO2yD8oC+0iGWVbDW4rthLDUNoedgJwTuXIRRcXncL9NCjjMBQdcS0gZSoKasAssTj19AsITgvuE2LIeVpDveqZ7NhQTrIgf49tIvRtCocJoj3s13tCCXL5c+z4FZDzDO/Mc9xCdd7iIBrraeOIpzAgRvPJgWDQT95IoK6UBZw1w5HuXgEDTxu9EWGdUhaekO5SO10vGuMgL6ZTTlFkYM8aD0gexfeAi3pgaY8+Sc4XvE6r/DSvsRdqevmb0CN1Vlc3p5fOZdJVTiI='
+      password: '{cipher}AQCBDBBqfBE1H3GNQTdrMWrB+ou7Q00ZhYv+Yxh64xETOrPQa+pzg6hxoswZbeJ7wxRNjZC3ARN8p3Isn9XWqzbnReeDDbAIjWg5Y7bMfuhstTWNbf3Chq990wvoTFLhW2lKZAcLMdHKOeVcSYGJ9z5HRZJJ2fuGG3Qnx5BRgf0oH2hYU9qOogTBfI2w8KaJFvdvOMnVscyvItYSva7eVIU62PiqeDO8nG83hBt2cSGvsVNRMF8x8deR7dd8PAC+kS5CEpPJAIstvoLY9PixuRS23SlpTPDjjURg1tGWQRWigUVw45RAlY7GBa0CdJQnmaPmngx3cJABomATzjV7z8EWwpdb+9qPX8g13ufnhBCuhbwPv73N1l05+B6X89ggs9I='
+      authorities:
+      - "ROLE_EUREKA"
+      - "ROLE_ACTUATOR"
 
 eureka:
   instance:
@@ -17,6 +43,18 @@ eureka:
     serviceUrl:
       defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:${server.port}/eureka/
 
+logging:
+  level:
+    ROOT: INFO
+    org.springframework: INFO
+    org.bremersee: INFO
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
 server:
   port: 8761
   use-forward-headers: true
@@ -24,13 +62,6 @@ server:
     remote-ip-header: x-forwarded-for
     protocol-header: x-forwarded-proto
     port-header: x-forwarded-port
-
-spring:
-  security:
-    user:
-      name: '{cipher}AQBZR2ZKdhEtiUQsPLLq1L6F+FpUpdBoK71svyRqz+XXcsV7QzTT2PF56UAle77ztR+9pKGsVjX+jf0PAhkrV2wA8NhpPdcGV0Ezsq99nwF/bPNnEhqWbiMUD6NLyeaUFu8lUpdL4vmEa3VUtc27mWY9N1ryT5v1a8jVCAmZWzz2AiLzDqwkw77eEYo4xB+p4+U8obuZoD9uEmISJ158/055o9DEix7xmMUR0scsl4LeENnIU/Ff+wjFukG552wGUFIeQrUAb82O3gAibbLwCFnUAbUNx2XAmvP3lKHOZjeSd23ApcwXaYoUfR+2+Y+IFpfDT9Olrh4MWnoojGy/nQfRQcGrz1HVUgkpjj9VT1RSzRVQ7bvj6KWXx2y3R+fFLmQ='
-      password: '{cipher}AQA2mRu/pgoLZ4wyLwoXoj5yUuCMxpWN2gmyxRYQtmplBTDOrCRgcrr4fTuLAzkdQn+DBQo498NT+VMKG7LYze/A9I+rn/eGNLt+0S/MLYlWGxl2NR6RTncVlQhESp+OQqeAiefESbdudGXjQFOGlJdo/ZdZz0Kq7/DptXEpLReKs2FcTh5uKtit4zFsvOZq2Qb4Y+VxrJSi4uq1NfhKfTVfp4dvoQqb9UHStgcUUJb7hUaFd3K0cKlUZL3yvFAUnzjdZnWwKgLyJhDaLz+Ng/7QoHTUfw9k/QLZofumpfipfKxzlZl2dk1c768i6Wa7AEgzpxsAfmHM4oB+CEwyOkT8LMJQagKin5GzLqVHpK1HLmPe2BxDFIdO/cItu/1A25XufF3B/wYD+28njNQQ3wb1wZmxZKiiw5Q7X71syD3t/w=='
-      roles: EUREKA
 
 ---
 
