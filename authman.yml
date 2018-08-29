@@ -114,6 +114,12 @@ bremersee:
       token-method: POST
       api-base-url: https://www.googleapis.com
       profile-path-template: /plus/v1/people/me?access_token={accessToken}
+  password-reset:
+    link: http://authman.bremersee.org/password-reset?hash={requestHash}
+    sender: no-reply@bremersee.org
+    subject-code: password.reset.request.subject
+    life-time: 7
+    life-time-unit: days
   registration:
     life-time: 30
     life-time-unit: days
