@@ -47,7 +47,7 @@ eureka:
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
-      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
 
 logging:
   level:
@@ -74,6 +74,16 @@ server:
 spring:
   profiles: base
 
+eureka:
+  instance:
+    hostname: 192.168.1.16
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: '{cipher}AQCqhuTLzSGQnXFBHYc0OFDLs86bqyeQByhrnuHPsja7OSBa8BiPCFtGZd80WeNNmeqd695pz+hYj4QhHAdNZUJALsAbnStkg4uHNIRMKn5tpDWAX1ZHjRFoggKztmyu088CzRxZwZLCmM42onUX/4lXIG6MLTT4gDFi9mW2NPNQKMmPJxKmQrPoP7zY1cKGYtybnYOSidX4HR01ztcs9Vq2fbESt7lQ/FPoQU3OKkNKIJIpC4ItQM3kwE9eZXEQ5e6w43JZ6ho3FA9nZJAajBJPSTlxdF6pXYRAeSCpDj/y3iWrhDhCIOd0EivVZ7L99s1SUDyC92no7KBX6VJkhEDIdHSgfpw/y7Q8rhY+iES6EUna5YNgKhO8S5OKRiFUy2cTnetbCiQAkO13UkdKRbN1fbEnXvwxIdpJ2klnqHvweDdRPpje1WAv1GPeaTTtPUVrKQ0IPX6um2qGLIAn5Uxr'
+      # http://{user}:{password}@192.168.1.16:8761/eureka
+
 ---
 
 spring:
@@ -89,37 +99,3 @@ server:
     accesslog:
       enabled: true
       directory: /var/log/eureka
-
----
-
-# this is currently not used
-spring:
-  profiles: api-zone
-
-eureka:
-  instance:
-    hostname: eureka.bremersee.org
-    non-secure-port: 80
-    non-secure-port-enabled: false
-    secure-port: 443
-    secure-port-enabled: true
-  client:
-    service-url:
-      defaultZone: https://${spring.security.user.name}:${spring.security.user.password}@base-eureka.bremersee.org/eureka/
-
----
-
-# this is currently not used
-spring:
-  profiles: base-api-zone
-
-eureka:
-  instance:
-    hostname: base-eureka.bremersee.org
-    non-secure-port: 80
-    non-secure-port-enabled: false
-    secure-port: 443
-    secure-port-enabled: true
-  client:
-    service-url:
-      defaultZone: https://${spring.security.user.name}:${spring.security.user.password}@eureka.bremersee.org/eureka/
