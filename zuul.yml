@@ -1,6 +1,12 @@
 #
 # For bremersee's zuul version 1.1.0
 #
+info:
+  app:
+    name: ${spring.application.name}
+    version: 1.1.0
+    description: Bremersee's Spring Zuul Server.
+
 bremersee:
   access:
     ip-addresses:

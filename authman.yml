@@ -2,7 +2,7 @@ info:
   app:
     name: ${spring.application.name}
     version: 0.0.1-SNAPSHOT
-    description: This is the OAuth2 server of bremersee.
+    description: Bremersee's OAuth2 Server.
 
 bremersee:
   access:

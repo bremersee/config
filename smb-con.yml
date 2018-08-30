@@ -2,7 +2,7 @@ info:
   app:
     name: ${spring.application.name}
     version: 0.0.1-SNAPSHOT
-    description: Samba connector for 'authman'.
+    description: Bremersee's samba connector.
 
 bremersee:
   access:

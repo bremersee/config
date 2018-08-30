@@ -2,7 +2,7 @@ info:
   app:
     name: ${spring.application.name}
     version: 0.0.1-SNAPSHOT
-    description: Mailcow connector for 'authman'.
+    description: Bremersee's Mailcow Connector.
 
 bremersee:
   access:
