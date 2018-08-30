@@ -96,6 +96,6 @@ spring:
   zipkin:
     base-url: '{cipher}AQBiv4CvdkrFhwKzFPfSAd3Q6nf6w7FZwxp7/E91ImQET7s/BA2xBR6RuxuO7q/FXZms3pqcOqXkBlkDIx9uxfLGJ/mF2Y8llNx9UVSN4bgww4s3TPr231y83b15LW+aoTI6Ps7ZhX9drMnSnN5zmWJtPHrCnuNeQuLZl6PAPrKAHyVQnSrSValZeZ3NT04fzI3UbJ8h/Z84ELnfEOjSERimEkchNCTdoSWGjywRQMIk4T9ndd7HpbX2j9fnXN/ibvrs0OxZikf5aWA3j+eC9trqNsmOSv5fMowmEsTApeef3kG0w9O1qNOYFDKFcqw7dcHFc6N3rp9J3YENjnYmFeyML/hi60qpVCEU1q4VikBc853OAKob0jLcoYlOgfAz7IGFXasjuvgHs88p5VlmOBjdQVfQO73+5VSxPRhdCKjvVsPtA4Cx1PH5Bue2Gtdd3so='
     service:
-      name: ${spring.application.name}
+      name: base-${spring.application.name}
 
 
