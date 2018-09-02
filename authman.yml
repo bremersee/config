@@ -114,18 +114,28 @@ bremersee:
       token-method: POST
       api-base-url: https://www.googleapis.com
       profile-path-template: /plus/v1/people/me?access_token={accessToken}
-  password-reset:
-    link: http://authman.bremersee.org/password-reset?hash={requestHash}
-    sender: no-reply@bremersee.org
-    subject-code: password.reset.request.subject
-    life-time: 7
-    life-time-unit: days
   registration:
     life-time: 30
     life-time-unit: days
     link: https://authman.bremersee.org/register?hash={registrationHash}
     sender: no-reply@bremersee.org
     subject-code: userRegistrationService.sendValidationEmail.subject
+  password-reset:
+    link: https://authman.bremersee.org/password-reset?hash={requestHash}
+    sender: no-reply@bremersee.org
+    subject-code: password.reset.request.subject
+    life-time: 7
+    life-time-unit: days
+  email-change:
+    link: https://authman.bremersee.org/email-change?hash={requestHash}
+    sender: no-reply@bremersee.org
+    subjectCode: email.change.request.subject
+    life-time: 7
+    life-time-unit: days
+  mobile-change:
+    life-time: 15
+    life-time-unit: minutes
+    hash-length: 6
   samba-connector:
     name: smb-con
     url: https://base-api.bremersee.org/smb-con
@@ -157,6 +167,13 @@ bremersee:
       email: '{cipher}AQCKqog3LNORwD+ixiDTuI2zNKVq3sQjfa3hf6PuphV46zWbSAEQMDLYYsRybJeg9jgdQdnPRh0cTOK5ceda1WfbT03hZ2/sOIBUbcewGLJy4Q8BsgO8oehRnZRkF1VTI9Diodvr4cyrgCYWWOlKzlZqN4FZQtiOZvVRg0Rjaipozr5woQXq2Wsguv0amz50uHLUrjPRGjPbuYaCi7jLaAeTbYnYFUFk84rQEdgzvBUwtOZi7qy95BSVQLMwLLHTB96pJ6kEwMnea/SJshz5ctps2zBSO+JWBiSb61YDtFXqMBbN8EiH9ZOwZgCm1JnUACWSpLNYXDgb7AU1Bhufbrwc+4RO31uD4tsNPEX1TIsJFQTk/vfrhZM3Wt0AYUVI1JAUWJOLuAxlZNc1/Key9+gL'
       preferred-locale: de_DE
       preferred-time-zone-id: Europe/Berlin
+  user-listener:
+    http-listeners:
+    - feign-name: mailcow-connector
+      feign-logger-level: BASIC
+      enabled: true
+      client-id: ${bremersee.authorization-server.internal-client.client-id}
+      token-endpoint: https://authman.bremersee.org/oauth/token
   user-service:
     min-search-length: 3
 

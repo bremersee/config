@@ -87,7 +87,7 @@ spring:
     locale: de_DE
     serialization:
       WRITE_DATES_AS_TIMESTAMPS: false
-    time-zone: Europe/Berlin
+    time-zone: GMT
   sleuth:
     sampler:
       probability: 1.0
