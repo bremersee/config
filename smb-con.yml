@@ -83,7 +83,17 @@ security:
       client-secret: '{cipher}AQCCzDbf2pBkLvgzueDdnVIwen20kspj1RQ7p9KwB0520KNt0NO814Ek79QiL+wuoECxrzHUyIUjvgPLj5UFUYRuTR+Y8nwclYBY/EiBqQqjBn+eIlk0hVtwcBlsUE16txHohllDofy+ptGjWPt3SSl1vxsziuNdydLHFn0VcAIfpNzgCXjdL35o/evUfhW0XGCJowzDCkW1VajHA/lw1vzLZ/Dzk07nXgeiG9uyzXZXX6euVdEujOIgazeiPHcnsEd/ngDVA8K9zCYizc/ZSPW9Mei9mn6QrTYUzbE4S3oDie/E/uZkp+kFDD8LjDuIJPs/TP0RMmy6MPMr7XvZGSWw4MdF82fW9tuxxn1yvjzScHfHlpF6D+ug1IcXECY+06ExMw5j+rV9tU6LLvDB3t6b'
     resource:
       jwt:
-        key-uri: https://authman.bremersee.org/oauth/token_key
+        #key-uri: https://authman.bremersee.org/oauth/token_key
+        key-value: |
+          -----BEGIN PUBLIC KEY-----
+          MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApM/zEylsUfxlT7Je8UMJ
+          i+tVQjdto6PF8jrfeBivIR1rl1Jbhthx0V2jK92dnjyU6UTUxfP29axMNKRA8/tB
+          KlikYZoH4ZmWlx27K2G+49czfQPz0DO5Wn4P4d1ot3zgKNYVfqAjzrDwzAwMLnkm
+          X7eZyikhrptyG0war2ZGHJxm3VaENUch1XVVzl8nSeDIzs6Usn40N5IyTrEi5/yw
+          wFlGeB04mbulLT5uDZqjk6nBsB2n4vD2qhNSjA2q4BR4DlPLy9T1VlZM286cEk44
+          noQjHGhTdPQMG7nNeQL5rnG/7GGs5pJCd53JF3wKEugJxoT1DzTKGhRT0cDlHYyW
+          SQIDAQAB
+          -----END PUBLIC KEY-----
       token-info-uri: https://authman.bremersee.org/oauth/check_token
       prefer-token-info: true
 
