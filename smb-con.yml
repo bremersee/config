@@ -75,6 +75,11 @@ management:
 
 server:
   port: 8090
+  use-forward-headers: true
+  tomcat:
+    remote-ip-header: x-forwarded-for
+    protocol-header: x-forwarded-proto
+    port-header: x-forwarded-port
 
 security:
   oauth2:
