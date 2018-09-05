@@ -100,7 +100,7 @@ security:
           SQIDAQAB
           -----END PUBLIC KEY-----
       token-info-uri: https://authman.bremersee.org/oauth/check_token
-      prefer-token-info: true
+      prefer-token-info: false
 
 spring:
   jackson:
