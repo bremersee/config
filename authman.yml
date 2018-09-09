@@ -203,13 +203,15 @@ eureka:
     non-secure-port: ${server.port}
     non-secure-port-enabled: true
     health-check-url-path: /actuator/health
-    health-check-url: https://authman.bremersee.org/actuator/health
+#    health-check-url: https://authman.bremersee.org/actuator/health
     home-page-url-path: /actuator/info
-    home-page-url: https://authman.bremersee.org/actuator/info
-    secure-virtual-host-name: authman.bremersee.org
-    secure-port: 443
-    secure-port-enabled: true
-    secure-health-check-url: https://authman.bremersee.org/actuator/health
+#    home-page-url: https://authman.bremersee.org/actuator/info
+    metadata-map:
+      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
+#    secure-virtual-host-name: authman.bremersee.org
+#    secure-port: 443
+#    secure-port-enabled: true
+#    secure-health-check-url: https://authman.bremersee.org/actuator/health
 
 logging:
   level:

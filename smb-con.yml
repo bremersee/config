@@ -55,11 +55,13 @@ eureka:
     ip-address: 192.168.1.5
     non-secure-port: ${server.port}
     non-secure-port-enabled: true
-    secure-port-enabled: false
+    metadata-map:
+      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
+#    secure-port-enabled: false
     health-check-url-path: /actuator/health
-    health-check-url: https://base-api.bremersee.org/smb-con/actuator/health
+#    health-check-url: https://base-api.bremersee.org/smb-con/actuator/health
     home-page-url-path: /actuator/info
-    home-page-url: https://base-api.bremersee.org/smb-con/actuator/info
+#    home-page-url: https://base-api.bremersee.org/smb-con/actuator/info
 
 logging:
   level:
