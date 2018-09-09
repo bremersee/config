@@ -215,6 +215,7 @@ eureka:
 
 logging:
   level:
+    org.bremersee.authman.listener: debug
     org.bremersee.smbcon: debug
     org.bremersee: info
     org.springframework: info
