@@ -186,8 +186,8 @@ feign:
         read-timeout: 5000
       smb-con:
         logger-level: FULL
-        connect-timeout: 5000
-        read-timeout: 5000
+        connect-timeout: 5555
+        read-timeout: 5555
 
 eureka:
   client:
