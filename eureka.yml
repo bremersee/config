@@ -43,6 +43,7 @@ bremersee:
 eureka:
   instance:
     hostname: ${spring.application.name}
+    lease-renewal-interval-in-seconds: 10
   client:
     registerWithEureka: false
     fetchRegistry: false

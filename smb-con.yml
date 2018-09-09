@@ -51,6 +51,7 @@ eureka:
       defaultZone: '{cipher}AQB2Yv2xI9kHk+uB1HV2Ez79QNFRyot6/XYXydX3QzdW2aodCYUjeFw9BfHvvWdKJpdfkbqFyE3tVJkjS2lOJjp4ojtjXfArTusVmm56BehsvTwX4InO7/2xtLXIPMicdIsXwby3EgrcxnpZQsO+A/ZtfdRbc5fq4j++6TwlbxVYhFJY8L7XNw4lWkdKvu1Px65Q1xdZLMd26Fc0G6qxfZ0N7KG4FSi/EnFo8dBOqIc43gfdvFxMnkcq+fgNPZwNTlbCMoo5qC+UTl6B8lDKUmpLwCBq1jBBBor9pLeBFS2OJ/6hPnIACLU+Z+AXre48EANkH1n/KIWeU8LYiaDnDvRB0JBuJo3sEKCR+ttUKSdST/p+nCRZs0sUJ6m6mSqE30E3N+tfSpjdJE/9rFBUVsMaH2hf7yLr200UPrS8a3IpmRhvUmf6+PI76hsleXk90h5W2xNX/mR0AMH4SUINT7F+'
   instance:
     hostname: '{cipher}AQCx1bQ+0JFTMDzgjJO469rpHSgcGfLCqKvDmhhjkz9/EgUgXuRoaQJJKXX+MlSPFAuPaJ7Vgba6605Cw5VoZusdpGd9KNtJlvb+DkRP9ZSYu9+B4vB4F2xxUVXi4CAiMcBZCuIQhm41vxYYdvCdUzTpzLc8laTRZXCWrDho73pg+yLEKBQEQ1RuGp2ABak5J+ahE4fkcS2ZKQH9VQKfvXLOmlUVgPqdeIbEUfKQWn3/z6Ou39vwbyCybjfXT0ZspAJ7X3EuspSoM8fU3rJGCM/trRnfo1R7jSQMNaRIYN07Y73XPIEjOf/aSQ1ypWK6qSy2LWp3ppb6vl1pXdJt6OMp3rHaPCiSFa/4ZC8b03hmBngNOJQ7V1z09o/QavKpdZgA3SsOXmt+ALGBtwXioU5o'
+    lease-renewal-interval-in-seconds: 10
     ip-address: 192.168.1.5
     non-secure-port: ${server.port}
     non-secure-port-enabled: true
