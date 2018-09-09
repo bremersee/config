@@ -170,6 +170,7 @@ bremersee:
   user-listener:
     http-listeners:
     - feign-name: mailcow-connector
+      feign-url: http://mailcow-connector
       feign-logger-level: FULL
       enabled: true
       client-id: ${bremersee.authorization-server.internal-client.client-id}
