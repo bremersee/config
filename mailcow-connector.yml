@@ -37,10 +37,12 @@ eureka:
     health-check-url: "https://api.bremersee.org/mailcow-connector/actuator/health"
     home-page-url-path: /actuator/info
     home-page-url: "https://api.bremersee.org/mailcow-connector/actuator/info"
-    secure-virtual-host-name: api.bremersee.org
-    secure-port: 443
-    secure-port-enabled: true
-    secure-health-check-url: "https://api.bremersee.org/mailcow-connector/actuator/health"
+    metadata-map:
+      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
+#    secure-virtual-host-name: api.bremersee.org
+#    secure-port: 443
+#    secure-port-enabled: false
+#    secure-health-check-url: "https://api.bremersee.org/mailcow-connector/actuator/health"
 
 logging:
   level:
