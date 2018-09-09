@@ -215,9 +215,10 @@ eureka:
 
 logging:
   level:
-    ROOT: info
+    org.bremersee.smbcon: debug
     org.bremersee: info
     org.springframework: info
+    ROOT: info
 
 management:
   endpoints:
