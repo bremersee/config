@@ -168,6 +168,8 @@ bremersee:
       preferred-locale: de_DE
       preferred-time-zone-id: Europe/Berlin
   user-listener:
+    hystrix-enabled: false
+    ribbon-enabled: true
     http-listeners:
     - feign-name: mailcow-connector
       feign-url: http://mailcow-connector
