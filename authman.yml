@@ -39,12 +39,12 @@ bremersee:
     facebook:
       provider: facebook
       login-url-template: "\
-        https://www.facebook.com/v2.8/dialog/oauth\
+        https://www.facebook.com/v3.1/dialog/oauth\
         ?client_id={clientId}\
-        &redirect_uri={redirectUri}\
         &response_type={responseType}\
         &scope={scope}\
-        &state={state}"
+        &state={state}\
+        &redirect_uri={redirectUri}"
       client-id: '{cipher}AQCJSlZuBL1O6QwLnyoq3FSndx4AvJ0BwikqRXYvdPATnumKTgftvsfmpd1F8SgWe9TUCIxLcD2B0USTdkTq0ZKlM9Em/UsZrQ9PiYEUAaVuu5Au6InoU8glSwGCM7AHNWkG0eAkL+YfHw4BOThcyCx3DNGStrcz8TdtfYGQvQ9vmxB5s/b1WBsNdAqau2Gk9Ln7ofMTYFPYZ9KHhQfOHqb2GkDE0brm/iPdFiwExPVNohi2bOo6PRsdu0hl8XXofaXqRb9N4hTrEHPv7hPbE3awd19mDnBkelZN4kJID1pc+on6kka7sDX5gOBLR6qYGnTawQJkrW7NXtkpVivp5fAgDfrjvdNHif3KVONpCauByEKzvPuNVaGC5D7mGvdf9ScPIwv80hFluAwCkCYwXwyK'
       client-secret: '{cipher}AQCBEDuyEjPxeWy8UbcdkxC/5gydHGOkQ7gNDfWBHgTYcZQ4IuxUvepEmZi4qWRFoGwM01a8jYA/YdFgdjzQLdKncfUyPKwQz6lBik53DBKB3jCIyCZqKjIh+Agd6MUnsi0y2Cj1c/yc4D9EdgyY/AmXFlrLK0DhNiUKmkAPxSO4fmAokKBt8ca0tvymYlVsZjw+iwxD3wMZqjQao1mTX8+nCO9O4dqs+lIJ9Ub97018etK+pR6KZ2Fy1MhggK6w/1A+zV0Acl7O30vUmAK3R++3fFRcMEwaB0ITI77Pd0ZLfTkCajlNzn27SrirgOLYUDMiwQkzadeBof9r+yGU+Q+6IajjbURRE+K4LvF+u3/ZPTtOYGspT/Ry6yka1X4jGecZr72RiQkpVKVhSLyueifqplVlgTfj9tjKW7QdRCjwvQ=='
       redirect-uri: https://authman.bremersee.org/facebook/callback
@@ -52,12 +52,12 @@ bremersee:
       response-type: code
       scope: public_profile,email
       token-url-template: "\
-        https://graph.facebook.com/v2.8/oauth/access_token\
+        https://graph.facebook.com/v3.1/oauth/access_token\
         ?client_id={clientId}\
-        &redirect_uri={redirectUri}\
         &client_secret={clientSecret}\
-        &code={code}"
-      api-base-url: https://graph.facebook.com/v2.8
+        &code={code}\
+        &redirect_uri={redirectUri}"
+      api-base-url: https://graph.facebook.com/v3.1
       profile-path-template: "/me?access_token={accessToken}\
         &fields=id,name,gender,first_name,middle_name,last_name,name_format,email,locale,timezone,verified,website"
     github:
