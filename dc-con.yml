@@ -13,7 +13,7 @@ bremersee:
     api-paths:
       - /api/**
   ldaptive:
-    ldap-url: '{cipher}AQBDCSyUpsuAVxOrJ61cOv2uUt084d9p9Hw+2dQyn6hhBAA08jURbs8RLNS23BJrEEUIzA2NS2GYO/+d70g9ZKOw2np3WzXuWi82NTyFU2PprfOKfG0HRRbPli1eGc7eWnB3FoyJq9WshcEbkyaNSNGukxtL8YaDtJvTEUmHHeDL+UfaCPAr2Au3ATxcuLntHdjy98qjotNjLLCK7xSkftXh9fffphyRItVVpfPjdJcnwgEUG6l2oxKuhP8GGs5yjS76WWpj2mjKvF3gVlQHuahcQvPY8Xzn1JkiZQ0ZC8mGafGvFmwJtMYRsNypCGLfqd4CB44dnJiaMOp5HBb/KNxXPvUVBjXerbR7hLx8AJaKGWb42snGG7G273i5w/G2XhZwVnrJ+KlHBXOONqhdLtESzME4jRUFOEJj7iKNIHYzbA=='
+    ldap-url: ${LDAP_URL:ldaps://example.org:636}
     use-ssl: true
     use-start-tls: false
     bind-dn: '{cipher}AQBAyUg8HKpK2KNQxr89z/3tnpEuVuT4+2kbdgNq/ezxdi0254pRXn0GNOjTkIOT01tMrKPUcUBgZj/1WFkSuBD7H3Q0WR/tYMT644pZzwC4Jpn/j8SWRcHqJKDAq72W3tbVdOzG7v0mu+29hY6qcVx8/9+cZPYyScLz4CGUvSIx+xq1Hlv4hIbixvVCOPzJWoTpTuqGrYwXu0O3G1Wru+GhK0tfRlwnCbKyiac4yIa+HBAahMV548+oQqiD7AXXp6BDYIODo7kBBsQk3aFWIu9PdFZKeQrXgQ7zZ8SS0HPJ+mESt96nT+xDkur5PgwnmQUc6mEoNDGCoQBRpMEseAaS1HjiJCPs/ry9IyRtj1n9vLmkuTXHNc6351NtKZy4s4T6n+hA4zJdO1Gas4CPPJvPRjzNeLye78UiKXlR43X96g=='
