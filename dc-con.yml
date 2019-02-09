@@ -57,7 +57,7 @@ logging:
     ROOT: info
     org.bremersee: debug
     org.springframework: info
-    org.springframework.security.oauth2: debug
+#    org.springframework.security.oauth2: debug
 
 management:
   endpoints:
@@ -105,3 +105,15 @@ server:
     accesslog:
       enabled: true
       directory: /var/log/dc-con
+
+---
+
+spring:
+  profiles: ide
+
+logging:
+  level:
+    ROOT: info
+    org.bremersee: debug
+    org.springframework: info
+    org.springframework.security.oauth2: debug
