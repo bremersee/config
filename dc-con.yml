@@ -13,6 +13,7 @@ bremersee:
     api-paths:
       - /api/**
   ldaptive:
+    ldap-url: ${LDAP_URL:ldaps://example.org:636}
     use-ssl: true
     use-start-tls: false
     bind-dn: '{cipher}AQBAyUg8HKpK2KNQxr89z/3tnpEuVuT4+2kbdgNq/ezxdi0254pRXn0GNOjTkIOT01tMrKPUcUBgZj/1WFkSuBD7H3Q0WR/tYMT644pZzwC4Jpn/j8SWRcHqJKDAq72W3tbVdOzG7v0mu+29hY6qcVx8/9+cZPYyScLz4CGUvSIx+xq1Hlv4hIbixvVCOPzJWoTpTuqGrYwXu0O3G1Wru+GhK0tfRlwnCbKyiac4yIa+HBAahMV548+oQqiD7AXXp6BDYIODo7kBBsQk3aFWIu9PdFZKeQrXgQ7zZ8SS0HPJ+mESt96nT+xDkur5PgwnmQUc6mEoNDGCoQBRpMEseAaS1HjiJCPs/ry9IyRtj1n9vLmkuTXHNc6351NtKZy4s4T6n+hA4zJdO1Gas4CPPJvPRjzNeLye78UiKXlR43X96g=='
@@ -56,7 +57,7 @@ logging:
     ROOT: info
     org.bremersee: debug
     org.springframework: info
-#    org.springframework.security.oauth2: debug
+    org.springframework.security.oauth2: debug
 
 management:
   endpoints:
