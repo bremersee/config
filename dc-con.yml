@@ -110,10 +110,3 @@ server:
 
 spring:
   profiles: ide
-
-logging:
-  level:
-    ROOT: info
-    org.bremersee: debug
-    org.springframework: info
-    org.springframework.security.oauth2: debug
