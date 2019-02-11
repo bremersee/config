@@ -7,7 +7,7 @@ bremersee:
     oauth2:
       password-flow:
         client-id: omnia
-        client-secret: '{cipher}AQAZ0QFGpTLgyBL6K8uilJuAaa7/09WpZ4FMcfEfHJOkkj7/aBWsa9cEgfynH6M3y4ns1UnTcenPvF0Gx0zlFu+ipOtfTL9udlzeCgXHHs775FYwlyH3NU1TVHQGwFEkXVaOUuN5tanvO+Vay9LK9LdRPmtIucqEesjICOpy6rBz0LMTYchwx6rtP9+6zIhFiKH3LtN0ZRM/de9+GlCmDb5NYlz7VYA6qkdl2BmaqGPUHjus21dwL1bh67X7YXxfLOPFr4d6b3IEORm7LoGFVdJhOH8YM/r1UM32IQv/Shy2XdOLnfl1KW1kTXRa/tRYNf0bUKh79vGmaYdzXCMrdjsE26LqEYn7nmc57UIwztYnIzA7VraVsvGABS8ekb1vCeFAnx5WWyHD/cvI+3/C5SwkfOZDlaGRxL7sVe3TWR4qUQ=='
+        client-secret: '{cipher}AQAlg0j2ygkthXyK3O/6C/Nq29SJbKzwWxcz3cUb6Ihevsw9i3Fy+pu9EurbNxcGFoDvOFwpVfGhuVTHnZTYSrZn/dcP35j7gXC0/5IxCe9WTOyoDsifeL36BvdLuSgjKiZMytyho2b0+hDK1fkNNuUZ5pnnTRqDna8SUFCC5rCyquwmhM/rzzVmnl9h+b408ILC8ZeSdfo7Y0t4Cxv92cJCpQEwlRtTIdGS/CVns9l0ySFdQR25eNf+WtWiFyDEsOAt/4fv26jYjLuJ8XsvXtI/mXK3Ifejxh9e92JaLt2kctxNmzUz4rJw8rhAH/rRpxSoCOvKMzHaCXvtShJGQNpCSDQL/UPL30eGx3rc3UtMOwxFxV0uWaDd+7SYXYQW2C8Vrkb9HqBOv00Fl9UDPjVHnQ9MxlJ09o+xMDqEuG6eKA=='
         token-endpoint: https://openid.dev.bremersee.org/auth/realms/omnia/protocol/openid-connect/token
   exception-mapping:
     api-paths:
