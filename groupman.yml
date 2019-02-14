@@ -81,7 +81,7 @@ bremersee:
       search-request:
         base-dn: '{cipher}AQA53HABfWRhUyGzZwk69utGvRG9gC5FbuTKfNw6nUqizsWSLghVsxdMHTrh2SwqaTYu1igPIkvsxo2Md6UPLmKARfvkc3uWD1YU2Xp+o4/+EpLas2d61tTfbCmgW5dMVqLd9fwmj036XL54AHNo34UkEJVuyalxtc1Ka6PdZIYzePCd6vpZYKHyeikbVTN0NB9pxJbqyxKl3ewM5pLBvjYGI5kMtpxs7x5R2cehl/mBSMvsy0zO6P5A762G43NBUy1xSfc7j8vLlaWyZ1xGI7LmYpS/btz/GfdBWitBqnDKdIBwQnuxYupBku77RLLwlLax81AFn1vxyjbmFlpq+1iDKc22DjOOcGRGJp6a0oneYPcQqOOI1kQG7EMFMsB8DO7FEpipriuOvI+c6BkUBxdg'
         search-filter:
-          filter: ${LDAP_VALIDATION_FILTER:(cn=Administrator)}
+          filter: '(cn=Administrator)'
         size-limit: 1
         search-scope: ONELEVEL
         return-attributes:
@@ -106,6 +106,24 @@ bremersee:
       - 'RAS and IAS Servers'
       - 'Read-only Domain Controllers'
       - 'xxx'
+
+---
+
+spring:
+  profiles: dev
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: https://openid.dev.bremersee.org/auth/realms/omnia/protocol/openid-connect/certs
+
+bremersee:
+  security:
+    oauth2:
+      password-flow:
+        client-id: omnia
+        client-secret: '{cipher}AQB8JweoVtCLnpj5fbjSJk+5chSTYfewd9iyw4OGktef73BplB4Qp0br4j33y4koFpWgEknSWJaQC4PB1z6TQQUHKfiut8XnmvJf6LcrT7Jk4fg5dGu6xbwe2QBcs352rv5PgnYg7aWRcxMfIie1ukI+nE46F0nRXv0JxBNMMI1KCRHSjtkNxNAsiWKa4VR3gNzPCg3HXbh0xzvJcKu/tkiQbzgZhcF3uuaX0Wl99c2oCwwqfg9nvZy+0v7hlb86bES9DbkCtVG1WiDIG86MSn4gSXk0NrxWux0XlZRdgxNCgZ1IHr+X3UWtpbyiZ58T69AkWD5FmvI89cEWwqnhnqHlibjwbLPM5WXhnKSm8gcZnivAx1r4M0tX0TL3v46+8C0azrJXaL5TwTcn3IBLRk7X5IigQgixQ+5b5VgN5fkuzg=='
+        token-endpoint: https://openid.dev.bremersee.org/auth/realms/omnia/protocol/openid-connect/token
 
 ---
 
