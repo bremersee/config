@@ -121,7 +121,7 @@ spring:
           jwk-set-uri: https://openid.dev.bremersee.org/auth/realms/omnia/protocol/openid-connect/certs
   data:
     mongodb:
-      uri: '{cipher}AQBiZNTKUA/jWwlVgoX/xnQYMAukNOOM/upfHXsGmrhCvqB1hwpD91YxJQ7LNXd4QLfDZD/bNlML5hCH2aWBx4DU7dgXAvgQn2E567oayNpqaqfoPtwrQwFWsm2qdThD2PZpm2bE6l4yRKUvkwNKhOUHz0j+7J+18D506nY4bR8bXA9P3V/3Bm+XXQzKq60ZSglCBjTTO7Use68H1vLr49GE373MTAoPpf8ubFkB6I5oG48Ozx3DktlGunWIiXFQ5HNCuBJNfRrYqNN5iOHDyhjjFG+ES5tKewZkpyvuX9RJm3QJCtvQ8tZG4hFIdRHz4at3qgT/Nbn4y2qhpXf9ArQeIiaNe9EEsokJRYJYjD++OIe+3PMpP+xWcxjompXtZC78sEDR9UWBKp05wyvZbe0tUVEUHEfDia+IpnGpFkxJZMWa658CaIFXDBVohdgT2XrvcKs3BrXGwaRydiU6JqbKcOboy2hGlxuh9U9z5KekGXxbQ06cNhepsaa+cxzuvHs='
+      uri: '{cipher}AQCbnYFiBxE18sjDdSq2b8GLcFVKuTibVb/5HiC87R60ZN7uu4VUDfN+lZMuzV7XxXITP9/mLooOsr9D8pBf4uzelmpR2HcHR1Xpf+nO8o5iDclhiMcDhaMs4x3uX9yuFETYP0fPO2IrfWEL/wFer6kOxvWoHAhoM3mKujkLhg/IzVNOBV8Dww0jnqxBPrSeH6w0dJIBFxLDGA4fiwffANO0TCSuyXuzffAYeXtv1XeMI1cEYTSDrn5lDQMcI3LkR4B7buIs24f+Z7B+maDs4udTfmsxIkprQTYUpgOp3OenWcBLJWSNN07NgGsgxKY52yirE0Ax/bx8kWnKffxooFeFfoTFh8x7EnSfJXCOOb6FQJKcR7X5kc/i7y35uGqZfUHg/fuiZwujCCxSWrS9eOEfDCeV2iLSow+Kl/QKjg5+ox1t78Xtc0xlscAGYQSDia2mcTtZ8zdfcYfNyzKdvYxh'
 
 bremersee:
   security:
