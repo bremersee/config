@@ -88,7 +88,6 @@ bremersee:
           - cn
   domain-controller:
     group-base-dn: '{cipher}AQBzcR5wqtrTPMinMCauElYfv0gIrssuefcqEyEDRvRLjlO7xBFwiPaoTQqSSLjaHi9hfFp/e2a/JDQIondWwXjDoXclP07lku8MW/HUyI8ekM/ZThuCLKbXo9X8uQu6qlRxn+LegifqyW4acypKlyN1ayRJYbZ9D71225FJ8W1myRaslAIripY7X1jmosHvHN8s+brK4vdWvqv1Im/OBSITq2kpELre3ncdYGs3lSZ0HR6s/Ygxr8pFd9uNpV2xlFTur5pNeF1CTc7g5vqpMRLrBdSxNR2WIN7ilI+pMiHcGNvsieYJ7Zrvu0mdMpmha/n1Lvz7lChaTyyL7QZMHg98Qbl/IEJdBj/IZsL0XBMkc3yn90dCS4BlKwkudBMzNY3RiqvOmr+niiyaO92TqAmoucxcooe0rniHyN2gTrEHbA=='
-    user-base-dn: '{cipher}AQCwRh/8z7UomaFJ6cTregkGjtLrWgskasEol7M4ahCeDJuqa098m9B+iv3cI4TurFbHr8B04o0on1dwBhnRcDjET0qGWr1Njsu7gwyu2arLmFBUyfbaE8+NU5vGLgLYPKoA4ZpvYWdufGMcyXYz3dZOM1qy4W/zBUBWaibbhXMNi/Sa9l/4ysL9ObA90LXpbaSUtp5Z3QPACzV93CMdqHtzlfe7ha56HEPYYQTo5XUFvKbAncCgLfVGPYCc2xcEygYQaVbxRt2+N4fMjGU2O6uSELY86CXrs7OuevMvWc8OAc2GghQUY2kPdRHpJsViWSI/MafUhngAofYr8Ln3LV62IqJ3mCkVnsqDdO5U2ehvWW1iC/BdRbrxuevg/7+WH0niRXV+p8t9H0mCs7fB0o11rbG4R/8MQAOGPAlkjzmr5w=='
     admin-name: 'Administrator'
     ignored-ldap-groups:
       - 'Allowed RODC Password Replication Group'
