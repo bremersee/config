@@ -63,11 +63,11 @@ spring:
 
 bremersee:
   ldaptive:
-    ldap-url: ${LDAP_URL:ldaps://example.org:636}
-    use-ssl: ${LDAP_SSL:true}
-    use-start-tls: ${LDAP_START_TLS:false}
-    bind-dn: ${LDAP_BIND_DN:areader@example.org}
-    bind-credential: ${LDAP_BIND_PASSWORD:changeit}
+    ldap-url: '{cipher}AQCAzciHu4kyZ1hngpAQs8IppxzBP6QpfqDV9ZwIUXGTNS5NetIHWyDCQvx9/7xU/TSu3t6msBxrIwN41eq+fzAC42cS4I6dLWCuf3uiJDzo5D7FkIRgADCB3AIek8Ow9+j09KKTrzNnDLZbgpIXXSwb56d/rZYMOtbP8VZekzUyGVA7DpMOO5ehUxxy2mKW41xvYdhdYRQPXa3HsLFyAdOwPzDK3ogFHdUPQy5yZmNHNTMo/hZYpVHcUaHQtL85FXki6xnGsUEOzVkJ2Oy7HTlVouZRdTC3ouavofXON3jxKa1OqOMYm6r5H3IC65VH6Ky7H0bTVUYLFnjT0k9HkYUPyBer98gHBqM5yI71T+Ol9EyeN8wfZDFgFmwi7Kp7N4w/zUewaq+jBnPXJg6bTD0aC0WxJbLzRa5Kg5skOaeRUA=='
+    use-ssl: true
+    use-start-tls: false
+    bind-dn: '{cipher}AQBAyUg8HKpK2KNQxr89z/3tnpEuVuT4+2kbdgNq/ezxdi0254pRXn0GNOjTkIOT01tMrKPUcUBgZj/1WFkSuBD7H3Q0WR/tYMT644pZzwC4Jpn/j8SWRcHqJKDAq72W3tbVdOzG7v0mu+29hY6qcVx8/9+cZPYyScLz4CGUvSIx+xq1Hlv4hIbixvVCOPzJWoTpTuqGrYwXu0O3G1Wru+GhK0tfRlwnCbKyiac4yIa+HBAahMV548+oQqiD7AXXp6BDYIODo7kBBsQk3aFWIu9PdFZKeQrXgQ7zZ8SS0HPJ+mESt96nT+xDkur5PgwnmQUc6mEoNDGCoQBRpMEseAaS1HjiJCPs/ry9IyRtj1n9vLmkuTXHNc6351NtKZy4s4T6n+hA4zJdO1Gas4CPPJvPRjzNeLye78UiKXlR43X96g=='
+    bind-credential: '{cipher}AQBFsE6aRbmoiZfWYqR80BKl6mLOgB58tJ82RaKUScgqnNBXW+qBoXzkNwiQfWbahH3lGWRsV6QgZJOyXBWP0tB5ePRAhJCZcRi67zVyBXzqlvAXGn0RF97Qf260yBKoBVFrdEcGUODruuG0vb9SiGfLuxhSxhE0iGl4ubhWucDnS8bKiH3wW6qB0t7HYfHsHg/YkIgZDD0vgOpvAG+7ckIR9NXsH6LPCf4ai80KVC3ShPD8/gMGhv6DrSLAHoItxyO0u//Kb7iRPaVLvFh4RWd2KVhAbzeQAR3xYKLUkJGkpGd1WarKGDbkB2THaM6s2PL3toIwMMka6L7gYYj4GIIsJNZ3EDswKcDdpYcjZ53nGb1ZLF7ZKcYFKzOiHNPW+nZFpMZN7Iz/GR7OXj/Q/hP1'
     pooled: true
     min-pool-size: 3
     max-pool-size: 10
@@ -79,7 +79,7 @@ bremersee:
     block-wait-time: 10000
     search-validator:
       search-request:
-        base-dn: ${LDAP_BASE_DN:dc=example,dc=org}
+        base-dn: '{cipher}AQA53HABfWRhUyGzZwk69utGvRG9gC5FbuTKfNw6nUqizsWSLghVsxdMHTrh2SwqaTYu1igPIkvsxo2Md6UPLmKARfvkc3uWD1YU2Xp+o4/+EpLas2d61tTfbCmgW5dMVqLd9fwmj036XL54AHNo34UkEJVuyalxtc1Ka6PdZIYzePCd6vpZYKHyeikbVTN0NB9pxJbqyxKl3ewM5pLBvjYGI5kMtpxs7x5R2cehl/mBSMvsy0zO6P5A762G43NBUy1xSfc7j8vLlaWyZ1xGI7LmYpS/btz/GfdBWitBqnDKdIBwQnuxYupBku77RLLwlLax81AFn1vxyjbmFlpq+1iDKc22DjOOcGRGJp6a0oneYPcQqOOI1kQG7EMFMsB8DO7FEpipriuOvI+c6BkUBxdg'
         search-filter:
           filter: ${LDAP_VALIDATION_FILTER:(cn=Administrator)}
         size-limit: 1
@@ -87,8 +87,8 @@ bremersee:
         return-attributes:
           - cn
   domain-controller:
-    group-base-dn: ${LDAP_GROUP_DN:cn=Groups,dc=example,dc=org}
-    user-base-dn: ${LDAP_USER_DN:cn=Users,dc=example,dc=org}
+    group-base-dn: '{cipher}AQBzcR5wqtrTPMinMCauElYfv0gIrssuefcqEyEDRvRLjlO7xBFwiPaoTQqSSLjaHi9hfFp/e2a/JDQIondWwXjDoXclP07lku8MW/HUyI8ekM/ZThuCLKbXo9X8uQu6qlRxn+LegifqyW4acypKlyN1ayRJYbZ9D71225FJ8W1myRaslAIripY7X1jmosHvHN8s+brK4vdWvqv1Im/OBSITq2kpELre3ncdYGs3lSZ0HR6s/Ygxr8pFd9uNpV2xlFTur5pNeF1CTc7g5vqpMRLrBdSxNR2WIN7ilI+pMiHcGNvsieYJ7Zrvu0mdMpmha/n1Lvz7lChaTyyL7QZMHg98Qbl/IEJdBj/IZsL0XBMkc3yn90dCS4BlKwkudBMzNY3RiqvOmr+niiyaO92TqAmoucxcooe0rniHyN2gTrEHbA=='
+    user-base-dn: '{cipher}AQCwRh/8z7UomaFJ6cTregkGjtLrWgskasEol7M4ahCeDJuqa098m9B+iv3cI4TurFbHr8B04o0on1dwBhnRcDjET0qGWr1Njsu7gwyu2arLmFBUyfbaE8+NU5vGLgLYPKoA4ZpvYWdufGMcyXYz3dZOM1qy4W/zBUBWaibbhXMNi/Sa9l/4ysL9ObA90LXpbaSUtp5Z3QPACzV93CMdqHtzlfe7ha56HEPYYQTo5XUFvKbAncCgLfVGPYCc2xcEygYQaVbxRt2+N4fMjGU2O6uSELY86CXrs7OuevMvWc8OAc2GghQUY2kPdRHpJsViWSI/MafUhngAofYr8Ln3LV62IqJ3mCkVnsqDdO5U2ehvWW1iC/BdRbrxuevg/7+WH0niRXV+p8t9H0mCs7fB0o11rbG4R/8MQAOGPAlkjzmr5w=='
     admin-name: 'Administrator'
     ignored-ldap-groups:
       - 'Allowed RODC Password Replication Group'
@@ -105,6 +105,7 @@ bremersee:
       - 'Group Policy Creator Owners'
       - 'RAS and IAS Servers'
       - 'Read-only Domain Controllers'
+      - 'xxx'
 
 ---
 
