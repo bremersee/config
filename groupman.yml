@@ -106,3 +106,27 @@ bremersee:
       - 'RAS and IAS Servers'
       - 'Read-only Domain Controllers'
 
+---
+
+spring:
+  profiles: local
+  sleuth:
+    enabled: false
+  zipkin:
+    enabled: false
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: ${OPENID_KEYS_URI:https://openid.dev.bremersee.org/auth/realms/omnia/protocol/openid-connect/certs}
+  data:
+    mongodb:
+      uri: mongodb://user:secret@192.168.1.40:27017,192.168.1.40:27018,192.168.1.40:27019/groupman
+
+bremersee:
+  security:
+    oauth2:
+      password-flow:
+        client-id: ${OPENID_CLIENT_ID:omnia}
+        client-secret: ${OPENID_CLIENT_SECRET:changeit}
+        token-endpoint: ${OPENID_TOKEN_ENDPOINT:https://openid.dev.bremersee.org/auth/realms/omnia/protocol/openid-connect/token}
