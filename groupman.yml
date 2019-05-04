@@ -59,14 +59,6 @@ bremersee:
 ---
 
 spring:
-  profiles: mongodb
-
-  data:
-    mongodb:
-      uri: '{cipher}AQBxQ1zlu+amMiwD/7JYbjkikIkHXPd7UtNdtMaktBCwpniCW56iw7Kb/GFpe0J3r5K0JmUGNcR9bEAAHaqwzy+dhaPWPJcdmE+qFmBss/UBIDg77pEhulmf0EjeqXF1afrLxj3h+vb+QgAnxDgwjhPv0imR0MjGz5dhX0VW/LIuujcDC75vdp5CY6HNyjekCT440UUhy08Y14Nbhc3Zwz9E/d9b/T9dSbOcR3uccKYPE8FkyFPYCqLeXuHuaT59DqLdbyhV4eEFOfJ45S1KtECFVoVKL6t4Fu42awdXYWG1YHCixb/M3MgrBl7WS9eW5UoeUtKzXCwCGyEVYqWK+Ee+Au13/OZXa3R1HfXR0rzme8eFsZrRbC3Oa8cb5aI6Ginzk80JTIUIcDBSfReGOw9BKcX9s1PD7eMaQJri0ZlaYKcQy5TUlg+QsX0LHHRQ/s7+tmEMLyUfGVxve2nZlI3BkB4y2G79wC+f78wES2xndr5qWI15c4ttmyy3LwL4l25ic7UkYmmvNI2q2Ppbm64M'
----
-
-spring:
   profiles: ldap
 
 bremersee:
@@ -124,6 +116,10 @@ spring:
       resourceserver:
         jwt:
           jwk-set-uri: https://openid.dev.bremersee.org/auth/realms/omnia/protocol/openid-connect/certs
+
+  data:
+    mongodb:
+      uri: '{cipher}AQBxQ1zlu+amMiwD/7JYbjkikIkHXPd7UtNdtMaktBCwpniCW56iw7Kb/GFpe0J3r5K0JmUGNcR9bEAAHaqwzy+dhaPWPJcdmE+qFmBss/UBIDg77pEhulmf0EjeqXF1afrLxj3h+vb+QgAnxDgwjhPv0imR0MjGz5dhX0VW/LIuujcDC75vdp5CY6HNyjekCT440UUhy08Y14Nbhc3Zwz9E/d9b/T9dSbOcR3uccKYPE8FkyFPYCqLeXuHuaT59DqLdbyhV4eEFOfJ45S1KtECFVoVKL6t4Fu42awdXYWG1YHCixb/M3MgrBl7WS9eW5UoeUtKzXCwCGyEVYqWK+Ee+Au13/OZXa3R1HfXR0rzme8eFsZrRbC3Oa8cb5aI6Ginzk80JTIUIcDBSfReGOw9BKcX9s1PD7eMaQJri0ZlaYKcQy5TUlg+QsX0LHHRQ/s7+tmEMLyUfGVxve2nZlI3BkB4y2G79wC+f78wES2xndr5qWI15c4ttmyy3LwL4l25ic7UkYmmvNI2q2Ppbm64M'
 
 bremersee:
   security:

@@ -49,21 +49,15 @@ bremersee:
     exception-mappings:
       - exception-class-name: org.springframework.dao.DuplicateKeyException
         status: 409
-        message: "Group already exists."
+        message: "Entry already exists."
         code: "PER:1000"
       - exception-class-name: org.springframework.dao.OptimisticLockingFailureException
         status: 409
         message: "Version is not up to date."
         code: "PER:1001"
+  tomtom:
+    key: '{cipher}AQCf7fnCGm4+fSS+xejcWjlwhwpCUPHRRpSaNc3G22nXH1UIsC5IkAVCQ2COcExPycThS3v1WNS+Abtip2WdfNBjXVo0mWgEWVox3H8Ht3ZxVvdywzS68yrLJSbF6gLtSR0xSoi0xiYs8KHcWJKycaIGMFk+a9/3ig0uf6IfNLGNb+LsO4sV9ndJjCNby0CjSFB8b4RHYf9FqZ7E6yXW46jpUjMXeMNJQcd/fJskpO1xV7+/RKvME4GOfjA2oFxW2jdni5oW5tuayeaqJUL6S3mC/Ux4EPJPr4kwFqCGFuvEZS9SUKK3nbyos2BjiJBLYHkqNmbU/apcXKqNbcZb7bx9vCFEV0oqc/e9WJ6AtN1SqSIhaoaq20zBeakQP9p8krqqW14ESI15QQiEPZPLj/xjfbqu0SMaieSGDXt6eqXm1Q=='
 
----
-
-spring:
-  profiles: mongodb
-
-  data:
-    mongodb:
-      uri: '{cipher}AQBgm4gfpGHCHVwi/pLPyDlJJHNoTRT6qO+zZaAyNfzjvqOhit7ZUhxPnzdc+Mtc4JqWXWrX/4cPgFwb54sJfo2w8FL6olLL9yP4/2SI7pcWNf0KFuoRLQsPYbVofg5G/juLKwRMiM3LSce5YEkictMDtnCH4FE97hF3cBuWadg8XnAdLD1Mav3F+UyS6QCt1AMZ7LjcR+CKkTJ9ZEBUjabTlodtKIS/6vclUiek6/u+X7eVkTJxmyRDC/TFK1WdjToZb0FXSk4KhvQNo95l6iRN7yPR3ZYU/BY8M7D5n96/0MR3UWN/sR5Lzx/6oo9L6H7Uo7CGobmNxj+nAVETMeUEIqkeu+DG+olo4fdTZETgiJ4WBydBtPbA1hIdNHK/RblhbaLE9hm+IoBEphMGoWxAkgIphaQ6ivRFt27poX5wrJPXx/NVi1+RSk2pL+tYWk5SzzW1ACLjIo6pGDpK4pF4LxN1Vhqarm5OHpDUUuv9owgjWd02tV2aRj+i255kQ2QCtOgpsz3h3A02h1hjUqg6'
 ---
 
 spring:
@@ -74,30 +68,9 @@ spring:
         jwt:
           jwk-set-uri: https://openid.dev.bremersee.org/auth/realms/omnia/protocol/openid-connect/certs
 
-bremersee:
-  security:
-    oauth2:
-      password-flow:
-        client-id: omnia
-        client-secret: '{cipher}AQB8JweoVtCLnpj5fbjSJk+5chSTYfewd9iyw4OGktef73BplB4Qp0br4j33y4koFpWgEknSWJaQC4PB1z6TQQUHKfiut8XnmvJf6LcrT7Jk4fg5dGu6xbwe2QBcs352rv5PgnYg7aWRcxMfIie1ukI+nE46F0nRXv0JxBNMMI1KCRHSjtkNxNAsiWKa4VR3gNzPCg3HXbh0xzvJcKu/tkiQbzgZhcF3uuaX0Wl99c2oCwwqfg9nvZy+0v7hlb86bES9DbkCtVG1WiDIG86MSn4gSXk0NrxWux0XlZRdgxNCgZ1IHr+X3UWtpbyiZ58T69AkWD5FmvI89cEWwqnhnqHlibjwbLPM5WXhnKSm8gcZnivAx1r4M0tX0TL3v46+8C0azrJXaL5TwTcn3IBLRk7X5IigQgixQ+5b5VgN5fkuzg=='
-        token-endpoint: https://openid.dev.bremersee.org/auth/realms/omnia/protocol/openid-connect/token
-
----
-
-spring:
-  profiles: local
-  sleuth:
-    enabled: false
-  zipkin:
-    enabled: false
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          jwk-set-uri: https://openid.dev.bremersee.org/auth/realms/omnia/protocol/openid-connect/certs
   data:
     mongodb:
-      uri: '{cipher}AQAvWJ4iz1BTDUy0WzpS1LoOYOQ1y6fk2QDSiM/jPIq7zE1kgvt3qrssukVsWcWm4IhWZxJBV9ZBSWvZqs5U3wKKhCIcD/75scND1E2Bf8twRCUPmONZlrK3KFD/SFQAPBY+cqfhaNTDvxZSgfwKU6xuPERvMBmkQSNW1xzt1XW+4YLQmDw3p7uRhiqxSSBwOQUQKYMToZblLZ0YOMIM/HssQWs7oRDvnBx/Rei8nRfxz/4scOSVoXLuX0imBQ4rf/jmR1cbuqcCPdPnk/iRyUih5u+JVB9yCjYeMlKaZ/IvgL4nJ3C/pX/LgFR7zPUqrUHkH9vAp3PZ5/aqPBFDOmRUckEvZ1qYJQdK/f8t1fXvXn9foKnmvHwAxcBIJu8IFan1bC77DO56Q31quGB8jfaK/RNU/L/YSvoBUz9jgNj5jzEn1JE/yJAdwJ8Ohi3nkgce9In+qos4T+iU0D6me59o9te9Vy+p6TKHU+xxigdXSg=='
+      uri: '{cipher}AQBgm4gfpGHCHVwi/pLPyDlJJHNoTRT6qO+zZaAyNfzjvqOhit7ZUhxPnzdc+Mtc4JqWXWrX/4cPgFwb54sJfo2w8FL6olLL9yP4/2SI7pcWNf0KFuoRLQsPYbVofg5G/juLKwRMiM3LSce5YEkictMDtnCH4FE97hF3cBuWadg8XnAdLD1Mav3F+UyS6QCt1AMZ7LjcR+CKkTJ9ZEBUjabTlodtKIS/6vclUiek6/u+X7eVkTJxmyRDC/TFK1WdjToZb0FXSk4KhvQNo95l6iRN7yPR3ZYU/BY8M7D5n96/0MR3UWN/sR5Lzx/6oo9L6H7Uo7CGobmNxj+nAVETMeUEIqkeu+DG+olo4fdTZETgiJ4WBydBtPbA1hIdNHK/RblhbaLE9hm+IoBEphMGoWxAkgIphaQ6ivRFt27poX5wrJPXx/NVi1+RSk2pL+tYWk5SzzW1ACLjIo6pGDpK4pF4LxN1Vhqarm5OHpDUUuv9owgjWd02tV2aRj+i255kQ2QCtOgpsz3h3A02h1hjUqg6'
 
 bremersee:
   security:
@@ -106,3 +79,5 @@ bremersee:
         client-id: omnia
         client-secret: '{cipher}AQB8JweoVtCLnpj5fbjSJk+5chSTYfewd9iyw4OGktef73BplB4Qp0br4j33y4koFpWgEknSWJaQC4PB1z6TQQUHKfiut8XnmvJf6LcrT7Jk4fg5dGu6xbwe2QBcs352rv5PgnYg7aWRcxMfIie1ukI+nE46F0nRXv0JxBNMMI1KCRHSjtkNxNAsiWKa4VR3gNzPCg3HXbh0xzvJcKu/tkiQbzgZhcF3uuaX0Wl99c2oCwwqfg9nvZy+0v7hlb86bES9DbkCtVG1WiDIG86MSn4gSXk0NrxWux0XlZRdgxNCgZ1IHr+X3UWtpbyiZ58T69AkWD5FmvI89cEWwqnhnqHlibjwbLPM5WXhnKSm8gcZnivAx1r4M0tX0TL3v46+8C0azrJXaL5TwTcn3IBLRk7X5IigQgixQ+5b5VgN5fkuzg=='
         token-endpoint: https://openid.dev.bremersee.org/auth/realms/omnia/protocol/openid-connect/token
+  peregrinus:
+    groupman-base-uri: https://api.dev.bremersee.org/groupman
