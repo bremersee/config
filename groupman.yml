@@ -29,6 +29,10 @@ management:
         allowed-headers: "*"
         allowed-methods: "*"
         allowed-origins: "*"
+  metrics:
+    distribution:
+      percentiles:
+        http.server.requests: 0.5, 0.95
 
 server:
   port: ${SERVER_PORT:8080}
