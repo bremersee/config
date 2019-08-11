@@ -12,6 +12,8 @@ bremersee:
   exception-mapping:
     api-paths:
       - /api/**
+    default-exception-mapping-config:
+      include-stack-trace: true
   ldaptive:
     ldap-url: ${LDAP_URL:ldaps://example.org:636}
     use-ssl: true
