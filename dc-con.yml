@@ -116,3 +116,21 @@ server:
 
 spring:
   profiles: ide
+
+---
+
+spring:
+  profiles: dc1
+
+bremersee:
+  domain-controller:
+    name-server-host: '{cipher}AQCWug0WcPyzL3uj+xKsGYSySqCzS7doO6RMEeUnQPO2hOSr7tRP0MP1seeOx+zl+un3ih9tGCCvcgaJVwF/ti+zrPPpGDXnbkedETnN/F3cW/PYb+dvFkqiCo62CjE3IRKsa9MQ51wZO8CwqQebbXLRLjPbcQWqkHOt6a4tpPLZgjRWHijcLGv/6+2rbhPlAGG1hBe7Lr76erDuYF9qqvk96640Uq5sFh5tPEFkqyrqfPF3mmyaUYXyX4xCupGQhbQ6TKHaVgw6KsN1e6BjhTt2YP2Ov6bQ1QvpP/9tzUdZGjfKhjpvf8hXODGvcupcD1K2HaTvyIIwJ7hVza/ecd406T11hr1CChaoaJQyzs0r44MWRRD8aL94O40IOaJzGdsyDLZ/TjZRmmXErMpmQWfg'
+
+---
+
+spring:
+  profiles: dc2
+
+bremersee:
+  domain-controller:
+    name-server-host: '{cipher}AQAX5lkVm4r+4yKzL0vAjb+C9DNVGw203SiE4famsf83kbz3kg2L/+YWcSGS6yNw2OfVgj/FfAJoaXCSRqE+vcrUO9HN4zxyA13rjpiYMbt8nJ1gNAkHnuUakg4jvDg065GjTFv8Fu2NP12Ulv1otWUSDbsD9/+BV60t4AS+YmJo3eXD78P6Mec61eL3weNbvj6MDwU3haJU8saPWSqSv0U8+PPGsqFxfxV0GBmDvWfzqxnGoKLAkO4M/VWibGcy/mQ5C4hXwlXlDpalQU5+VcGS38nh8hV/DIdS+Ioj+D6sXzvUhQNS2wKFWUGvgcKjbk39Aa2DGArNM2kAUORNRNW75m8ZEhHu8ZCBwf0HmT70G6jU+6WY/vsvs/kjPZnAbfzQMtxv7gIFQD+6f//nCJs2'
