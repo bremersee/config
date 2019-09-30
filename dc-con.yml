@@ -93,7 +93,7 @@ bremersee:
     block-wait-time: 10000
     search-validator:
       search-request:
-        base-dn: '{cipher}AQA53HABfWRhUyGzZwk69utGvRG9gC5FbuTKfNw6nUqizsWSLghVsxdMHTrh2SwqaTYu1igPIkvsxo2Md6UPLmKARfvkc3uWD1YU2Xp+o4/+EpLas2d61tTfbCmgW5dMVqLd9fwmj036XL54AHNo34UkEJVuyalxtc1Ka6PdZIYzePCd6vpZYKHyeikbVTN0NB9pxJbqyxKl3ewM5pLBvjYGI5kMtpxs7x5R2cehl/mBSMvsy0zO6P5A762G43NBUy1xSfc7j8vLlaWyZ1xGI7LmYpS/btz/GfdBWitBqnDKdIBwQnuxYupBku77RLLwlLax81AFn1vxyjbmFlpq+1iDKc22DjOOcGRGJp6a0oneYPcQqOOI1kQG7EMFMsB8DO7FEpipriuOvI+c6BkUBxdg'
+        base-dn: '{cipher}AQBp1vdrl/J43sscxYkYtDoyvtm8UCgmxznDrSpiwrh24yJd5ltHW2cHamcOojU1Ro+h3gYLJqVY2dT17i19OHKxSBXQAUUTMmWazwOeFpqLAFBS21PWKt4j0rkDLTxq7FbNmpXhjWwap/5lPyjV8BHJkmJl27DRpb6yqqQ14LBf8XLaCm4GJn32wWCUkFI7TOXo5RbTO/0ggqbk+K2vHrSbI2bczfVjFrXOHbVOIPIB7eSi3o5oe+O9N/wkTO7mI7qvoByw1QFDyDgHbFxwePkmQKNQb+u3csGdgK7GiOnDJveIo9ASBR/1d9fcAP5cwdn0p4/211T1mznlC4J9vC2u7reCAq34/q7Sq1VvnTjhcNUSRJvxOwo9Uja6xEB9KRA2bYQk7nv2g4ikZU8x3DaO/GAxHrRbDGYL0KfilC1UwA=='
         search-filter:
           filter: (cn=Administrator)}
         size-limit: 1
