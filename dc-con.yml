@@ -95,7 +95,7 @@ bremersee:
       search-request:
         base-dn: '{cipher}AQBp1vdrl/J43sscxYkYtDoyvtm8UCgmxznDrSpiwrh24yJd5ltHW2cHamcOojU1Ro+h3gYLJqVY2dT17i19OHKxSBXQAUUTMmWazwOeFpqLAFBS21PWKt4j0rkDLTxq7FbNmpXhjWwap/5lPyjV8BHJkmJl27DRpb6yqqQ14LBf8XLaCm4GJn32wWCUkFI7TOXo5RbTO/0ggqbk+K2vHrSbI2bczfVjFrXOHbVOIPIB7eSi3o5oe+O9N/wkTO7mI7qvoByw1QFDyDgHbFxwePkmQKNQb+u3csGdgK7GiOnDJveIo9ASBR/1d9fcAP5cwdn0p4/211T1mznlC4J9vC2u7reCAq34/q7Sq1VvnTjhcNUSRJvxOwo9Uja6xEB9KRA2bYQk7nv2g4ikZU8x3DaO/GAxHrRbDGYL0KfilC1UwA=='
         search-filter:
-          filter: (cn=Administrator)}
+          filter: (cn=Administrator)
         size-limit: 1
         search-scope: ONELEVEL
         return-attributes:
