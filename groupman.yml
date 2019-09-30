@@ -97,7 +97,7 @@ bremersee:
     block-wait-time: 10000
     search-validator:
       search-request:
-        base-dn: '{cipher}AQA53HABfWRhUyGzZwk69utGvRG9gC5FbuTKfNw6nUqizsWSLghVsxdMHTrh2SwqaTYu1igPIkvsxo2Md6UPLmKARfvkc3uWD1YU2Xp+o4/+EpLas2d61tTfbCmgW5dMVqLd9fwmj036XL54AHNo34UkEJVuyalxtc1Ka6PdZIYzePCd6vpZYKHyeikbVTN0NB9pxJbqyxKl3ewM5pLBvjYGI5kMtpxs7x5R2cehl/mBSMvsy0zO6P5A762G43NBUy1xSfc7j8vLlaWyZ1xGI7LmYpS/btz/GfdBWitBqnDKdIBwQnuxYupBku77RLLwlLax81AFn1vxyjbmFlpq+1iDKc22DjOOcGRGJp6a0oneYPcQqOOI1kQG7EMFMsB8DO7FEpipriuOvI+c6BkUBxdg'
+        base-dn: '{cipher}AQCkR8AGNdk6bICBa7h79sYDpW7bNTl7vMpm0BxlDj2b38CdjbaCKdK5BU9aN5K1N+ol1a2gkXw2mcdUMQHD9CPIbr2/VAQ/glvha9zo/AuAOagA0pKXITvsH/ouQ6MyhNKw0nNdlqWVvfaj01yigpzkJW5db2NutD/5YwwgLo/5FP6WSWFN6blaU9xEdgRNGI6kZpkq+Ks/l0EYYqACr/0jtb4ra4KpoOena/IjsKsn+N2lU11yWaMjrQ0PbBKENUN6baKQFhH9Y8OE9UHx5IAWNmqGB2V2i2QLB2Y4mtTEX6azaiO58qlrZtea8ftbPa2rtEHMWqaVpAYWyFG0a6f3xu99OtFOzVKMcjs2NVDcAtgSFgPRrF5NakeTLbqS/VlUqrZgehva1N9uBbUY31sDzh1n1cgi5tVqfNC1nHyJqA=='
         search-filter:
           filter: '(cn=Administrator)'
         size-limit: 1
