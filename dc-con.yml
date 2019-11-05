@@ -57,6 +57,14 @@ spring:
     serialization:
       WRITE_DATES_AS_TIMESTAMPS: false
     time-zone: GMT
+  mail:
+    host: mail.bremersee.org
+    port: 465
+    username: no-reply@bremersee.org
+    password: '{cipher}AQCP/t3GBpADnw6mnzNm1t5EJFev/nKgCWDEvFNNzj7nPU762hbW8B7YyRQKDuvETwPmQXy0CeJBGkcBdpswG+LpP1octk8AYNhNxkiyYHkdk0UV1vmEQG/Ho1Epfia2h/YIq24OlsdKC2MNzKYUGAoD9Rn+6BHxqfm9u5N5CCNJ/TX6xCvIoEhlMjnqvjOUOA7+sVILit7ZV0FoNoc5w0FfP7iSSePV5B3QAwbpQc1/EAk1ZBdCLCjNzytWLUYDSSwob7ZuX6xKAcvi7OTpqPEV/0BBGN9GcS11L4OyeaRkIte5fe9VJZEZ7Af4GA5tZPYAKFD1novgCXu4gD0mHkaJIuoCXvKvOAntKCRJ79d9TZFMgLSuMoNbNbduTgPiavU='
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.ssl.enable: true
   sleuth:
     enabled: false
     sampler:
