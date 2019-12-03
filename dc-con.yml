@@ -134,3 +134,45 @@ server:
     accesslog:
       enabled: true
       directory: /var/log/dc-con
+
+---
+
+spring:
+  profiles: demo
+
+  mail:
+    host: false
+  sleuth:
+    enabled: ${SLEUTH_ENABLED:false}
+    sampler:
+      probability: ${SLEUTH_PROBABILITY:1.0}
+  zipkin:
+    enabled: ${ZIPKIN_ENABLED:false}
+    base-url: ${ZIPKIN_BASE_URL:http://localhost:9411/}
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: https://openid.dev.bremersee.org/auth/realms/demo/protocol/openid-connect/certs
+
+bremersee:
+  access:
+    ip-addresses:
+      - "127.0.0.1/32"
+      - "::1"
+  security:
+    oauth2:
+      password-flow:
+        client-id: demo
+        client-secret: '{cipher}AQBy7NWE4WYjBKrEYhbYGiEp3BSAsN0nKe2VWAB9zqHtOL1RI8Ip+DmDOOx0EGZbYwT9eG1Rg9F5m98dCmRGcMLwb3PhLe29U9s8Llj8jZjF8QY/yOs89qwaAOe536ivGnO8Yx0Pfl6oGsAKS/iqk6luPNaoCdppjGuiuB1ILeL+mKj+v1EyAG6vzhZLGONRoILU8rcHVzdJ27Ll7Fs5ysV3oZKUT5pQhKlktxDZ1VBfkHzSqHRlJIy9JN/+WXFyMN1Q5bA50Hb6N9KvosDiUi7ZAaH3Vw7M4DUP2Gj7fZN6df0kIlB2MaUJWcutswlTJiG2Uhk6JwYtcEEI4NaXLGkttER04DveK2yeRX1U9zgjGePQUWh/OG3jdKPjCU7ZSR65pghaik3PAiI11IapwRpA6TqWCL8SFYwhiNuBvTG6jA=='
+        token-endpoint: https://openid.dev.bremersee.org/auth/realms/demo/protocol/openid-connect/token
+  domain-controller:
+    company-name: example.org
+    company-url: https://example.org
+    name-server-host: ns.example.org
+    default-zone: dev.example.org
+
+server:
+  port: 8080
+
+
