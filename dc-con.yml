@@ -50,9 +50,6 @@ management:
       exposure:
         include: "*"
 
-server:
-  port: 8090
-
 spring:
   jackson:
     date-format: com.fasterxml.jackson.databind.util.ISO8601DateFormat
@@ -171,8 +168,3 @@ bremersee:
     company-url: https://example.org
     name-server-host: ns.example.org
     default-zone: dev.example.org
-
-server:
-  port: 8080
-
-
