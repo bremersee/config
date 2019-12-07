@@ -24,7 +24,7 @@ bremersee:
     default-zone: '{cipher}AQABH6jsa9LIsR4CV+k3PAb4RcyJ561XSIPs1A1fWynR6AKVMcnQmC7CoOTaKzf6uKrdozRGGfleTu0CapvNscHjq69WStklzFIj1hEfa4IqgzYCnO0Tz8lMJUqnMdjpQLVeyWgy0666EbOo1ME3/N/fXhnRHcFt4Ich4UpC3+9s4x4K3ofwjpq6yROyoU6ePtaGQAkTKyMw30x8/t6tybucod7N9IbBpQbUs4Iqz+dvqykaWkO8OlDq+LMM2ANvepKvgGq4yP1WiR4vGl2Js45zw8TdgGjKyXBIBV3CTd1sXYKxsk3xxtoWWxDyPb//4Sv61kURz3ISJZkV7KOMrYVZ1Xy2WMj1m1guoYUCsBSfpik4AHYd1aMVGoSoRo3IoR3Z38cmB9lRjp5zZ1T7V/fA'
     mail-with-credentials:
       sender: ${spring.mail.username:no-reply@bremersee.org}
-      login-url: http://localhost:4200
+      login-url: https://web.dev.bremersee.org/dc-con-web/change-password
 
 eureka:
   client:
