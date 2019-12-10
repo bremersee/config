@@ -166,5 +166,5 @@ bremersee:
   domain-controller:
     company-name: example.org
     company-url: https://example.org
-    name-server-host: ns.example.org
-    default-zone: dev.example.org
+    name-server-host: ns.samdom.example.org
+    default-zone: samdom.example.org
