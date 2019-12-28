@@ -1,19 +1,16 @@
 bremersee:
-  access:
-    ip-addresses:
-      - "127.0.0.1/32"
-      - "::1"
   security:
-    oauth2:
+    authentication:
+      enable-keycloak-support: true
       password-flow:
         client-id: omnia
         client-secret: '{cipher}AQAlg0j2ygkthXyK3O/6C/Nq29SJbKzwWxcz3cUb6Ihevsw9i3Fy+pu9EurbNxcGFoDvOFwpVfGhuVTHnZTYSrZn/dcP35j7gXC0/5IxCe9WTOyoDsifeL36BvdLuSgjKiZMytyho2b0+hDK1fkNNuUZ5pnnTRqDna8SUFCC5rCyquwmhM/rzzVmnl9h+b408ILC8ZeSdfo7Y0t4Cxv92cJCpQEwlRtTIdGS/CVns9l0ySFdQR25eNf+WtWiFyDEsOAt/4fv26jYjLuJ8XsvXtI/mXK3Ifejxh9e92JaLt2kctxNmzUz4rJw8rhAH/rRpxSoCOvKMzHaCXvtShJGQNpCSDQL/UPL30eGx3rc3UtMOwxFxV0uWaDd+7SYXYQW2C8Vrkb9HqBOv00Fl9UDPjVHnQ9MxlJ09o+xMDqEuG6eKA=='
         token-endpoint: https://openid.dev.bremersee.org/auth/realms/omnia/protocol/openid-connect/token
-  exception-mapping:
-    api-paths:
-      - /api/**
-    default-exception-mapping-config:
-      include-stack-trace: true
+      actuator:
+        roles:
+          - "ROLE_ACTUATOR"
+          - "ROLE_ADMIN"
+          - "ROLE_DC_ADMIN"
   domain-controller:
     company-name: bremersee.org
     company-url: https://bremersee.org
@@ -25,40 +22,7 @@ bremersee:
     mail-with-credentials:
       sender: ${spring.mail.username:no-reply@bremersee.org}
       login-url: https://web.dev.bremersee.org/dc-con-web/change-password
-
-eureka:
-  client:
-    enabled: false
-#    register-with-eureka: true
-#    prefer-same-zone-eureka: true
-#    service-url:
-#      defaultZone: ${EUREKA_CLIENT_DEFAULT_ZONE:http://192.168.1.16:8761/eureka/}
-#  instance:
-#    health-check-url-path: /actuator/health
-#    home-page-url-path: /actuator/info
-
-logging:
-  level:
-    ROOT: info
-    org.bremersee: debug
-    org.springframework: info
-#    org.springframework.security.oauth2: debug
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-
 spring:
-  jackson:
-    date-format: com.fasterxml.jackson.databind.util.ISO8601DateFormat
-    default-property-inclusion: non_null
-    property-naming-strategy: LOWER_CAMEL_CASE
-    locale: de_DE
-    serialization:
-      WRITE_DATES_AS_TIMESTAMPS: false
-    time-zone: GMT
   mail:
     host: mail.bremersee.org
     port: 465
@@ -67,13 +31,6 @@ spring:
     properties:
       mail.smtp.auth: true
       mail.smtp.ssl.enable: true
-  sleuth:
-    enabled: false
-    sampler:
-      probability: 1.0
-  zipkin:
-    enabled: false
-    base-url: http://localhost:9411/
   security:
     oauth2:
       resourceserver:
@@ -114,57 +71,37 @@ bremersee:
 ---
 
 spring:
-  profiles: cli
-
----
-
-spring:
-  profiles: debian9
-
-logging:
-  path: /var/log/dc-con
-  file:
-    max-history: 25
-
-server:
-  tomcat:
-    accesslog:
-      enabled: true
-      directory: /var/log/dc-con
-
----
-
-spring:
   profiles: demo
 
   mail:
-    host: false
-  sleuth:
-    enabled: ${SLEUTH_ENABLED:false}
-    sampler:
-      probability: ${SLEUTH_PROBABILITY:1.0}
-  zipkin:
-    enabled: ${ZIPKIN_ENABLED:false}
-    base-url: ${ZIPKIN_BASE_URL:http://localhost:9411/}
+    host: "false"
   security:
     oauth2:
       resourceserver:
         jwt:
-          jwk-set-uri: https://openid.dev.bremersee.org/auth/realms/demo/protocol/openid-connect/certs
+          jwk-set-uri: "https://openid.dev.bremersee.org/auth/realms/demo/protocol/openid-connect/certs"
 
 bremersee:
-  access:
-    ip-addresses:
-      - "127.0.0.1/32"
-      - "::1"
   security:
-    oauth2:
+    authentication:
+      enable-keycloak-support: true
       password-flow:
-        client-id: demo
+        client-id: "demo"
         client-secret: '{cipher}AQBy7NWE4WYjBKrEYhbYGiEp3BSAsN0nKe2VWAB9zqHtOL1RI8Ip+DmDOOx0EGZbYwT9eG1Rg9F5m98dCmRGcMLwb3PhLe29U9s8Llj8jZjF8QY/yOs89qwaAOe536ivGnO8Yx0Pfl6oGsAKS/iqk6luPNaoCdppjGuiuB1ILeL+mKj+v1EyAG6vzhZLGONRoILU8rcHVzdJ27Ll7Fs5ysV3oZKUT5pQhKlktxDZ1VBfkHzSqHRlJIy9JN/+WXFyMN1Q5bA50Hb6N9KvosDiUi7ZAaH3Vw7M4DUP2Gj7fZN6df0kIlB2MaUJWcutswlTJiG2Uhk6JwYtcEEI4NaXLGkttER04DveK2yeRX1U9zgjGePQUWh/OG3jdKPjCU7ZSR65pghaik3PAiI11IapwRpA6TqWCL8SFYwhiNuBvTG6jA=='
-        token-endpoint: https://openid.dev.bremersee.org/auth/realms/demo/protocol/openid-connect/token
+        token-endpoint: "https://openid.dev.bremersee.org/auth/realms/demo/protocol/openid-connect/token"
+      actuator:
+        roles:
+          - "ROLE_ACTUATOR"
+          - "ROLE_ADMIN"
+          - "ROLE_DC_ADMIN"
   domain-controller:
-    company-name: example.org
-    company-url: https://example.org
-    name-server-host: ns.samdom.example.org
-    default-zone: samdom.example.org
+    company-name: "example.org"
+    company-url: "https://example.org"
+    name-server-host: "ns.samdom.example.org"
+    default-zone: "samdom.example.org"
+    group-base-dn: "ou=users,dc=example.org"
+    user-base-dn: "ou=users,dc=example.org"
+    dns-zone-base-dn: "ou=samdom,dc=example,dc=org"
+    mail-with-credentials:
+      sender: "no-reply@example.org"
+      login-url: "https://web.dev.bremersee.org/dc-con-web/change-password"
