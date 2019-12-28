@@ -1,78 +1,8 @@
-spring:
-  jackson:
-    date-format: com.fasterxml.jackson.databind.util.ISO8601DateFormat
-    default-property-inclusion: non_null
-    property-naming-strategy: LOWER_CAMEL_CASE
-    locale: de_DE
-    serialization:
-      WRITE_DATES_AS_TIMESTAMPS: false
-    time-zone: GMT
-  sleuth:
-    enabled: ${SLEUTH_ENABLED:false}
-    sampler:
-      probability: ${SLEUTH_PROBABILITY:1.0}
-  zipkin:
-    enabled: ${ZIPKIN_ENABLED:false}
-    base-url: ${ZIPKIN_BASE_URL:http://localhost:9411/}
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          jwk-set-uri: ${OPENID_KEYS_URI:https://openid.dev.bremersee.org/auth/realms/omnia/protocol/openid-connect/certs}
-
 management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-      cors:
-        allowed-headers: "*"
-        allowed-methods: "*"
-        allowed-origins: "*"
   metrics:
     distribution:
       percentiles:
         http.server.requests: 0.5, 0.95
-
-server:
-  port: ${SERVER_PORT:8080}
-
-logging:
-  level:
-    ROOT: info
-    org.bremersee: debug
-    reactor: info
-    org.springframework: info
-
-bremersee:
-  security:
-    cors:
-      allow-all: false
-      configs:
-        - path-pattern: "/**"
-          allowed-origins:
-            - "*"
-          allowed-methods:
-            - "*"
-          allowed-headers:
-            - "*"
-    authentication:
-      password-flow:
-        client-id: ${OPENID_CLIENT_ID:omnia}
-        client-secret: ${OPENID_CLIENT_SECRET:changeit}
-        token-endpoint: ${OPENID_TOKEN_ENDPOINT:https://openid.dev.bremersee.org/auth/realms/omnia/protocol/openid-connect/token}
-  exception-mapping:
-    api-paths:
-      - /api/**
-    exception-mappings:
-      - exception-class-name: org.springframework.dao.DuplicateKeyException
-        status: 409
-        message: "Group already exists."
-        code: "GRP:1000"
-      - exception-class-name: org.springframework.dao.OptimisticLockingFailureException
-        status: 409
-        message: "Version is not up to date."
-        code: "GRP:1001"
 
 ---
 
@@ -81,6 +11,7 @@ spring:
 
 bremersee:
   ldaptive:
+    enabled: true
     ldap-url: '{cipher}AQAmq1LkoaXAgtUJAY3IlDHI/vopAFLnPJ8TDWyRFPEZ1ML1gMppK5yPUxfqt9+umm2l5q8M95Hs0AYGx3SPoFI3hlzVK8yF8FvBeu5W9ZCxXsxHKNdLRYNnhIV8PPuK78CzKpnHkWWdtRfCRIu0fe5SB9jzg4RkUhyGFS7qYrgYqP7hZ3hvrxln6aQkzi4ArMb6G6J8X5jdruCl2P3RtVU/UrAkMZFzV9T57Irb+PSQgyt3JniJfgVKChIM8o//pKd916Ns3jG+zPhZmYK7qUXRm8P13euCDeKmJIt6HIXupb6bNTGUxdyjt9KTgILiFp8ThaYWySUVPZ8lMhrDBjv0KXv0KDQRAwM7QbmCRQlU1usJnheufu+jkuiu2kl/IidXzsLPkDNzQUqGKIeGsp6kBqd0WZUa0Tm+QTm5WJdPZA=='
     use-ssl: true
     use-start-tls: false
@@ -142,6 +73,7 @@ spring:
 bremersee:
   security:
     authentication:
+      enable-keycloak-support: true
       password-flow:
         client-id: omnia
         client-secret: '{cipher}AQB8JweoVtCLnpj5fbjSJk+5chSTYfewd9iyw4OGktef73BplB4Qp0br4j33y4koFpWgEknSWJaQC4PB1z6TQQUHKfiut8XnmvJf6LcrT7Jk4fg5dGu6xbwe2QBcs352rv5PgnYg7aWRcxMfIie1ukI+nE46F0nRXv0JxBNMMI1KCRHSjtkNxNAsiWKa4VR3gNzPCg3HXbh0xzvJcKu/tkiQbzgZhcF3uuaX0Wl99c2oCwwqfg9nvZy+0v7hlb86bES9DbkCtVG1WiDIG86MSn4gSXk0NrxWux0XlZRdgxNCgZ1IHr+X3UWtpbyiZ58T69AkWD5FmvI89cEWwqnhnqHlibjwbLPM5WXhnKSm8gcZnivAx1r4M0tX0TL3v46+8C0azrJXaL5TwTcn3IBLRk7X5IigQgixQ+5b5VgN5fkuzg=='
@@ -151,10 +83,6 @@ bremersee:
 
 spring:
   profiles: local
-  sleuth:
-    enabled: false
-  zipkin:
-    enabled: false
   security:
     oauth2:
       resourceserver:
@@ -162,12 +90,12 @@ spring:
           jwk-set-uri: https://openid.dev.bremersee.org/auth/realms/omnia/protocol/openid-connect/certs
   data:
     mongodb:
-#      uri: mongodb://localhost:27017/groupman
       uri: '{cipher}AQAi0S0YK3xXoT8Mt4tKnUNXBZ0ho2HKfQQoXWvd1KXTFnCDsVgi4BJ7bG4y9VnONx89Nw2TThQxjF+0PdZtGpwKYYJVFixd63MhruEProUkSbdHXPayHCYx33rYowg1z7GI0mxuJ3euDOaOOy7kpTMpC7ZQJ2+wqBi7EYeDVKmji0V4NVnhtYjgDFbPGymvj/GXN6/Pgfud0AUD4jWTe1XR2q7cU6r3W+6dlMF3Q5fygNrz/29VJpoeUuC3bqjKeFoe6V1BQXZr8BdhuMx92fvi/KORKiVwPmb9HqMC0ZultRfOfokbZ/Nn1G6cEvp5wWU4V+AhE/5VUr04weaG67Z/Cqd8heffpptk9ISpS+m256s236sOaoJwZFvVmhz+4R6IlPPUllLQq6EisD5Rar6hfXlg+rjfcOUjq97VkoxurmBExDKT1TkapzRryo/3f5ZnuStZQ6fPtDbpO7v0ckhd6bsZKidnGjjcH/zIZMTUKQ=='
 
 bremersee:
   security:
     authentication:
+      enable-keycloak-support: true
       password-flow:
         client-id: omnia
         client-secret: '{cipher}AQB8JweoVtCLnpj5fbjSJk+5chSTYfewd9iyw4OGktef73BplB4Qp0br4j33y4koFpWgEknSWJaQC4PB1z6TQQUHKfiut8XnmvJf6LcrT7Jk4fg5dGu6xbwe2QBcs352rv5PgnYg7aWRcxMfIie1ukI+nE46F0nRXv0JxBNMMI1KCRHSjtkNxNAsiWKa4VR3gNzPCg3HXbh0xzvJcKu/tkiQbzgZhcF3uuaX0Wl99c2oCwwqfg9nvZy+0v7hlb86bES9DbkCtVG1WiDIG86MSn4gSXk0NrxWux0XlZRdgxNCgZ1IHr+X3UWtpbyiZ58T69AkWD5FmvI89cEWwqnhnqHlibjwbLPM5WXhnKSm8gcZnivAx1r4M0tX0TL3v46+8C0azrJXaL5TwTcn3IBLRk7X5IigQgixQ+5b5VgN5fkuzg=='
