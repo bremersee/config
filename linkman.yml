@@ -1,0 +1,50 @@
+management:
+  metrics:
+    distribution:
+      percentiles:
+        http.server.requests: 0.5, 0.95
+
+---
+
+spring:
+  profiles: dev
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: https://openid.dev.bremersee.org/auth/realms/omnia/protocol/openid-connect/certs
+
+  data:
+    mongodb:
+      uri: '{cipher}AQAjJGH7zYa5FXj7GGvRePTIv9D9e1+CQyLY6RuCDVIh+/nWymVijWttfiSM1qfcuuKNYJhzgYjfqBaGhCIlGTrpVopXc18k9dmsA17dXTIo+WFp4GOBLpSFpk3+vhYM/2ZL3DIqg9PK+QjKuzg7Ro8bjM01qudaUEzJ/t9Z7Ukx1Z4hsPOOzD9iLAqh7BVtdzcvpEASXiguQ7kIdmVpHkaOdQ+GXGZGKhCbiYPrB+C3lY2W7ubFj63GBiNQlyQmwB+TwvhD+eGb0ZWNJftjMVbF7x92Ydpe4AB0wNBYmRACJ6EKbEPlLbPnfDWfTNXRq7EOURz4UOtTNu+A1Oaqy4q5CgErETWWOtwYYooz7mMOTHp0x5OuwvMs3MF5fgVaBXub3NUvse+cgsaIGeqMnBCO9fWKT9phogBHG+1cLBl1lNvDWoHNmBXfo12pkHZKFgeKXhcRV9Z47ts56y1T4VhGVLQEfP8sxyX+L5ch/8Lbb5qR3h18w9iwOishMCSoLLIPADJobWsrJLMaE/6JmeBK'
+
+bremersee:
+  security:
+    authentication:
+      enable-jwt-support: true
+      password-flow:
+        client-id: omnia
+        client-secret: '{cipher}AQB8JweoVtCLnpj5fbjSJk+5chSTYfewd9iyw4OGktef73BplB4Qp0br4j33y4koFpWgEknSWJaQC4PB1z6TQQUHKfiut8XnmvJf6LcrT7Jk4fg5dGu6xbwe2QBcs352rv5PgnYg7aWRcxMfIie1ukI+nE46F0nRXv0JxBNMMI1KCRHSjtkNxNAsiWKa4VR3gNzPCg3HXbh0xzvJcKu/tkiQbzgZhcF3uuaX0Wl99c2oCwwqfg9nvZy+0v7hlb86bES9DbkCtVG1WiDIG86MSn4gSXk0NrxWux0XlZRdgxNCgZ1IHr+X3UWtpbyiZ58T69AkWD5FmvI89cEWwqnhnqHlibjwbLPM5WXhnKSm8gcZnivAx1r4M0tX0TL3v46+8C0azrJXaL5TwTcn3IBLRk7X5IigQgixQ+5b5VgN5fkuzg=='
+        token-endpoint: https://openid.dev.bremersee.org/auth/realms/omnia/protocol/openid-connect/token
+
+---
+
+spring:
+  profiles: local
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: https://openid.dev.bremersee.org/auth/realms/omnia/protocol/openid-connect/certs
+  data:
+    mongodb:
+      uri: '{cipher}AQBU5XAoGBzC5aajDANwjhZaivLUJ0euEFBOaxyKYxkAdPBsXWEXBkcMbmdfOI4XoUCISZ+/QXKLdfRBITX0GRmaCyZtfFNqv2bZe7YjSNO6zcTQdaxZJo0kMCyUVUqUIwpa+c9O11ucc2jjLFSwy9yG3Dony2P9i9w8sxiPHqH1/zK51L9pyLK2NMAfCp0K46crtVxoBvsD817gljLjhXt6Bqg4QSMcUY9ofEAb6PXoXw3XL46yegCmJZ78ueU+0Tucib5wlFdxoh1xA8H8ohCSPlRa7m7RZVAxonJtlSXe2eZWIzHhqrxQpaIoJOvVMQpDgUgSJthc7PMQcPtLsCjNGX1a8otEf4KYuXxqrZYASlXxY5uzKPY8g/pBmKdOzgzsajbn0U1VgswlVaWgNWhXo/ZWUtKqKdCeMHUTTJRm9tpeFJ33TGBcLpwxtiwH6+YHAHQYxqgkFrR5yyCsplHfsqL9BYYPqtJCJSpYlFbehg=='
+
+bremersee:
+  security:
+    authentication:
+      enable-jwt-support: true
+      password-flow:
+        client-id: omnia
+        client-secret: '{cipher}AQB8JweoVtCLnpj5fbjSJk+5chSTYfewd9iyw4OGktef73BplB4Qp0br4j33y4koFpWgEknSWJaQC4PB1z6TQQUHKfiut8XnmvJf6LcrT7Jk4fg5dGu6xbwe2QBcs352rv5PgnYg7aWRcxMfIie1ukI+nE46F0nRXv0JxBNMMI1KCRHSjtkNxNAsiWKa4VR3gNzPCg3HXbh0xzvJcKu/tkiQbzgZhcF3uuaX0Wl99c2oCwwqfg9nvZy+0v7hlb86bES9DbkCtVG1WiDIG86MSn4gSXk0NrxWux0XlZRdgxNCgZ1IHr+X3UWtpbyiZ58T69AkWD5FmvI89cEWwqnhnqHlibjwbLPM5WXhnKSm8gcZnivAx1r4M0tX0TL3v46+8C0azrJXaL5TwTcn3IBLRk7X5IigQgixQ+5b5VgN5fkuzg=='
+        token-endpoint: https://openid.dev.bremersee.org/auth/realms/omnia/protocol/openid-connect/token
