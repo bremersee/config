@@ -3,6 +3,29 @@ management:
     distribution:
       percentiles:
         http.server.requests: 0.5, 0.95
+bremersee:
+  linkman:
+    excluded-roles:
+      - "offline_access"
+      - "uma_authorization"
+    excluded-groups:
+      - "Allowed RODC Password Replication Group"
+      - "Cert Publishers"
+      - "Denied RODC Password Replication Group"
+      - "DnsAdmins"
+      - "DnsUpdateProxy"
+      - "Domain Admins"
+      - "Domain Computers"
+      - "Domain Controllers"
+      - "Domain Guests"
+      - "Domain Users"
+      - "Enterprise Admins"
+      - "Enterprise Read-only Domain Controllers"
+      - "Group Policy Creator Owners"
+      - "RAS and IAS Servers"
+      - "Read-only Domain Controllers"
+      - "Schema Admins"
+      - "xxx"
 
 ---
 
@@ -28,6 +51,8 @@ bremersee:
         token-endpoint: https://openid.dev.bremersee.org/auth/realms/omnia/protocol/openid-connect/token
   linkman:
     groupman-base-uri: https://api.dev.bremersee.org/groupman
+    keycloak-base-uri: https://openid.dev.bremersee.org/auth
+    keycloak-realm: omnia
 
 ---
 
@@ -52,3 +77,5 @@ bremersee:
         token-endpoint: https://openid.dev.bremersee.org/auth/realms/omnia/protocol/openid-connect/token
   linkman:
     groupman-base-uri: https://api.dev.bremersee.org/groupman
+    keycloak-base-uri: https://openid.dev.bremersee.org/auth
+    keycloak-realm: omnia
