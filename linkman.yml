@@ -3,6 +3,7 @@ management:
     distribution:
       percentiles:
         http.server.requests: 0.5, 0.95
+
 bremersee:
   linkman:
     excluded-roles:
