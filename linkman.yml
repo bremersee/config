@@ -52,6 +52,8 @@ bremersee:
         token-endpoint: https://openid.dev.bremersee.org/auth/realms/omnia/protocol/openid-connect/token
   linkman:
     groupman-base-uri: https://api.dev.bremersee.org/groupman
+    keycloak-base-uri: https://openid.dev.bremersee.org/auth
+    keycloak-realm: omnia
 
 ---
 
@@ -76,3 +78,5 @@ bremersee:
         token-endpoint: https://openid.dev.bremersee.org/auth/realms/omnia/protocol/openid-connect/token
   linkman:
     groupman-base-uri: https://api.dev.bremersee.org/groupman
+    keycloak-base-uri: https://openid.dev.bremersee.org/auth
+    keycloak-realm: omnia
