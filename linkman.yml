@@ -23,11 +23,13 @@ bremersee:
     authentication:
       enable-jwt-support: true
       password-flow:
-        client-id: omnia
-        client-secret: '{cipher}AQB8JweoVtCLnpj5fbjSJk+5chSTYfewd9iyw4OGktef73BplB4Qp0br4j33y4koFpWgEknSWJaQC4PB1z6TQQUHKfiut8XnmvJf6LcrT7Jk4fg5dGu6xbwe2QBcs352rv5PgnYg7aWRcxMfIie1ukI+nE46F0nRXv0JxBNMMI1KCRHSjtkNxNAsiWKa4VR3gNzPCg3HXbh0xzvJcKu/tkiQbzgZhcF3uuaX0Wl99c2oCwwqfg9nvZy+0v7hlb86bES9DbkCtVG1WiDIG86MSn4gSXk0NrxWux0XlZRdgxNCgZ1IHr+X3UWtpbyiZ58T69AkWD5FmvI89cEWwqnhnqHlibjwbLPM5WXhnKSm8gcZnivAx1r4M0tX0TL3v46+8C0azrJXaL5TwTcn3IBLRk7X5IigQgixQ+5b5VgN5fkuzg=='
+        client-id: linkman
+        client-secret: '{cipher}AQCPW4oqXuUNQnqz0UPZNyll6j5myoFxn4ZuGyurmLQpmeZQGzI4HMBkIFdkdpQon5pRcRiForykbBV2RVBYoxDBg2P1NV7LuWQQdXepbPrgK4r2O57qbx2mid3fa8sOTBZSX3cS6Q3Zo/VcuNWOLAlgdenRNfUnT8/R17Y+SKujNpIZBNj4XtjeCM/Df9Q2V/pTJvueoY5zfUclB5uQ8l+chkzckvdShby6j3ZoNjepYOeQm//wDYR0NK21Svl4AtUy77XJmSu5OVAslyMpxj9mIkbY1nqa0y87r+ugByeyhlpD8lbEpOjeg24fSKb2CT+OwR6P2Cju+QU+Agmb5QqVVFJvOqmdTzQGTaf/inRsDsq3WP6BfyMUIVPUC7c700/NLOip2jSMXVjYANPdKjNowzbIQuCWJcpkds0Ru26jCg=='
         token-endpoint: https://openid.dev.bremersee.org/auth/realms/omnia/protocol/openid-connect/token
   linkman:
     groupman-base-uri: https://api.dev.bremersee.org/groupman
+    keycloak-base-uri: https://openid.dev.bremersee.org/auth
+    keycloak-realm: omnia
 
 ---
 
@@ -47,8 +49,10 @@ bremersee:
     authentication:
       enable-jwt-support: true
       password-flow:
-        client-id: omnia
-        client-secret: '{cipher}AQB8JweoVtCLnpj5fbjSJk+5chSTYfewd9iyw4OGktef73BplB4Qp0br4j33y4koFpWgEknSWJaQC4PB1z6TQQUHKfiut8XnmvJf6LcrT7Jk4fg5dGu6xbwe2QBcs352rv5PgnYg7aWRcxMfIie1ukI+nE46F0nRXv0JxBNMMI1KCRHSjtkNxNAsiWKa4VR3gNzPCg3HXbh0xzvJcKu/tkiQbzgZhcF3uuaX0Wl99c2oCwwqfg9nvZy+0v7hlb86bES9DbkCtVG1WiDIG86MSn4gSXk0NrxWux0XlZRdgxNCgZ1IHr+X3UWtpbyiZ58T69AkWD5FmvI89cEWwqnhnqHlibjwbLPM5WXhnKSm8gcZnivAx1r4M0tX0TL3v46+8C0azrJXaL5TwTcn3IBLRk7X5IigQgixQ+5b5VgN5fkuzg=='
+        client-id: linkman
+        client-secret: '{cipher}AQCPW4oqXuUNQnqz0UPZNyll6j5myoFxn4ZuGyurmLQpmeZQGzI4HMBkIFdkdpQon5pRcRiForykbBV2RVBYoxDBg2P1NV7LuWQQdXepbPrgK4r2O57qbx2mid3fa8sOTBZSX3cS6Q3Zo/VcuNWOLAlgdenRNfUnT8/R17Y+SKujNpIZBNj4XtjeCM/Df9Q2V/pTJvueoY5zfUclB5uQ8l+chkzckvdShby6j3ZoNjepYOeQm//wDYR0NK21Svl4AtUy77XJmSu5OVAslyMpxj9mIkbY1nqa0y87r+ugByeyhlpD8lbEpOjeg24fSKb2CT+OwR6P2Cju+QU+Agmb5QqVVFJvOqmdTzQGTaf/inRsDsq3WP6BfyMUIVPUC7c700/NLOip2jSMXVjYANPdKjNowzbIQuCWJcpkds0Ru26jCg=='
         token-endpoint: https://openid.dev.bremersee.org/auth/realms/omnia/protocol/openid-connect/token
   linkman:
     groupman-base-uri: https://api.dev.bremersee.org/groupman
+    keycloak-base-uri: https://openid.dev.bremersee.org/auth
+    keycloak-realm: omnia
