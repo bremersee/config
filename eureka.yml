@@ -16,9 +16,9 @@ eureka:
   instance:
     prefer-ip-address: true
   client:
-    registerWithEureka: true
-    fetchRegistry: true
-    serviceUrl:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
       defaultZone: "http://${bremersee.access.client-user-name}:${bremersee.access.client-user-password}@eureka1:8761/eureka/,http://${bremersee.access.client-user-name}:${bremersee.access.client-user-password}@eureka2:8762/eureka/,http://${bremersee.access.client-user-name}:${bremersee.access.client-user-password}@eureka3:8763/eureka/"
 
 ---
