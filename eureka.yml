@@ -1,7 +1,7 @@
 bremersee:
   access:
-    application-access: "hasIpAddress('127.0.0.1/32') or hasIpAddress('::1') or hasIpAddress('172.16.0.0/16')"
-    actuator-access: "hasIpAddress('127.0.0.1/32') or hasIpAddress('::1') or hasIpAddress('172.16.0.0/16')"
+    application-access: "hasIpAddress('127.0.0.1/32') or hasIpAddress('::1')"
+    actuator-access: "hasIpAddress('127.0.0.1/32') or hasIpAddress('::1')"
     client-user-name: "eureka"
     client-user-password: '{cipher}AQBSTXFR5pCi01YxMJ7APS/OHt+dopgHHaKjl7irWamHxXYbJixsccArznT+LNWKzJoAYcx98KLoLVyMLbTs0HkS9ru2PnkvsWmhgnwcfcQwysTyxLNba/2NOIT6riujcvggJNxFhkT0iRhuF4Hk74gK64DBqYxbi99voGMQC6OI4FDYBb8ci6UxZsIVTkUYLHPv2nW9ympf/wUlgp2GBJh0IsCYQztXF1pTTlKXGly+Q6VlhwNlFZvQSE6jri17ANUoAG78247DIoDc1U/8OsHViVCcTVJA/Nl+D7fey7s99qAQBtzFW0Lz7rHf5wNn2nIUeCul9+ai9afWlF7m8iBGW/JhtNXf/9cRDc91jKhGfwqin48OYYnb+8oRkD/plWzw84e32c8SK6qr7D/aGri9'
     actuator-user-name: "actuator"
@@ -12,6 +12,9 @@ bremersee:
 eureka:
   server:
     enable-self-preservation: true
+    eviction-interval-timer-in-ms: 1000
+  instance:
+    prefer-ip-address: true
   client:
     registerWithEureka: true
     fetchRegistry: true
@@ -65,3 +68,32 @@ eureka:
 
 server:
   port: 8763
+
+---
+
+spring:
+  profiles: dev
+  cloud:
+    inetutils:
+      preferred-networks:
+        - 10.0.7
+
+bremersee:
+  access:
+    application-access: "hasIpAddress('127.0.0.1/32') or hasIpAddress('::1') or hasIpAddress('10.0.7.0/24')"
+    actuator-access: "hasIpAddress('127.0.0.1/32') or hasIpAddress('::1') or hasIpAddress('10.0.7.0/24')"
+
+---
+
+spring:
+  profiles: prod
+  cloud:
+    inetutils:
+      preferred-networks:
+        - 172.16.1
+
+
+bremersee:
+  access:
+    application-access: "hasIpAddress('127.0.0.1/32') or hasIpAddress('::1') or hasIpAddress('172.16.1.0/24')"
+    actuator-access: "hasIpAddress('127.0.0.1/32') or hasIpAddress('::1') or hasIpAddress('172.16.1.0/24')"
