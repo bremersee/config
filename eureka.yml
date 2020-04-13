@@ -10,6 +10,8 @@ bremersee:
     admin-user-password: '{cipher}AQBrRsPHgo6S/bpBP43qspnwiyqH7PX3R55qZ9P6kHqn5dGIu+e9QBPoVZQDnmwuhm699jj+GlCJZC+PnKZeYifIoibCOO+Ar+YBs718v7Dmt7H/2YsiVag5xp9NsyNBuDNsw7fMYOLKYbPV3/bz6I6RaKzm89j3KM0Fx4FGvqDUhnawRj/9EmlXLpCX4dZdYyVFhfZ1VeFwx+m5I11fnENvTj0aqlbetpk/4NEgVxRrC6IFl8k7VVkEdyACB9Uq9odyQNE6JFahfcZR4mddRz1VJT1dXBMv1/SWOE4eoW+yDTrb3Uk5xA9hCqIYQnb6NETWjJ/UEMBSjZS3y81Sk5Re+7dCMQuuZ/srSIBZm931ECfDDWLduhFnoiEnkSuuxIs='
 
 eureka:
+  server:
+    enable-self-preservation: true
   client:
     registerWithEureka: true
     fetchRegistry: true
