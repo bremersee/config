@@ -33,6 +33,7 @@ info:
 eureka:
   instance:
     hostname: eureka1
+    instance-id: eureka1
 
 server:
   port: 8761
@@ -49,6 +50,7 @@ info:
 eureka:
   instance:
     hostname: eureka2
+    instance-id: eureka2
 
 server:
   port: 8762
@@ -65,6 +67,7 @@ info:
 eureka:
   instance:
     hostname: eureka3
+    instance-id: eureka3
 
 server:
   port: 8763
