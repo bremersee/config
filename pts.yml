@@ -3,6 +3,7 @@ eureka:
     prefer-ip-address: true
     hostname: ${HOST_NAME:localhost}
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+    non-secure-port: ${server.port:80}
 
   client:
     enabled: true
@@ -10,6 +11,13 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: "http://eureka1:8761/eureka/,http://eureka2:8762/eureka/,http://eureka3:8763/eureka/"
+
+logging:
+  file:
+    path: /opt/logs
+    name: ${spring.application.name}.log
+  pattern:
+    file: %clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%5p) %clr(${PID}){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n%wEx
 
 ---
 
