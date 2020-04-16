@@ -1,8 +1,8 @@
 eureka:
   instance:
     prefer-ip-address: true
-    hostname: ${HOST_NAME:localhost}
-    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+    hostname: ${HOSTNAME:unknown}
+    instance-id: ${spring.application.name}:${eureka.instance.hostname}
     non-secure-port: ${server.port:80}
 
   client:
