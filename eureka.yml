@@ -24,7 +24,7 @@ management:
 server:
   tomcat:
     accesslog:
-      enabled: ${ACCESS_LOG_ENABLED:true}
+      enabled: true
       directory: /opt/log
       prefix: ${HOSTNAME}_access_log
 
