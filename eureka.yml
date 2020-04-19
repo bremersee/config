@@ -107,7 +107,7 @@ bremersee:
 eureka:
   client:
     service-url:
-      defaultZone: "http://${bremersee.security.eureka.username}:${bremersee.security.eureka.password}@eureka_peer1/eureka/,http://${bremersee.security.eureka.username}:${bremersee.security.eureka.password}@eureka_peer2/eureka/,http://${bremersee.security.eureka.username}:${bremersee.security.eureka.password}@eureka_peer3/eureka/"
+      defaultZone: http://${bremersee.security.eureka.username}:${bremersee.security.eureka.password}@eureka_peer1/eureka/,http://${bremersee.security.eureka.username}:${bremersee.security.eureka.password}@eureka_peer2/eureka/,http://${bremersee.security.eureka.username}:${bremersee.security.eureka.password}@eureka_peer3/eureka/
 
 ---
 
