@@ -4,15 +4,15 @@ eureka:
     eviction-interval-timer-in-ms: 60000
   instance:
     prefer-ip-address: true
-    hostname: ${HOSTNAME}
-    instance-id: ${HOSTNAME}
+    hostname: ${HOST_NAME}
+    instance-id: ${HOST_NAME}
   client:
     register-with-eureka: true
     fetch-registry: true
 
 logging:
   file:
-    name: /opt/log/${HOSTNAME}.log
+    name: /opt/log/${HOST_NAME}.log
 
 management:
   endpoint:
@@ -26,7 +26,7 @@ server:
     accesslog:
       enabled: true
       directory: /opt/log
-      prefix: ${HOSTNAME}_access_log
+      prefix: ${HOST_NAME}_access_log
 
 ---
 
