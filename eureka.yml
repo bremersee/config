@@ -25,6 +25,11 @@ eureka:
 logging:
   file:
     name: /opt/log/${HOST_NAME}.log
+  level:
+    ROOT: INFO
+    com.netflix.eureka.registry: WARN
+    com.netflix.discovery.shared.resolver: WARN
+    org.springframework.cloud.configclient: WARN
 
 management:
   endpoint:
