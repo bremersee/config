@@ -83,7 +83,7 @@ spring:
   boot:
     admin:
       ui:
-        public-url: https://web.dev.bremersee.org/admin/
+        public-url: /admin
   security:
     oauth2:
       resourceserver:
