@@ -82,7 +82,6 @@ spring:
         - 10.0.7
   boot:
     admin:
-      context-path: /admin
       ui:
         public-url: https://web.dev.bremersee.org/admin
   security:
