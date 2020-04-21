@@ -66,14 +66,14 @@ management:
 
 server:
   forward-headers-strategy: framework
-#  tomcat:
-#    remote-ip-header: x-forwarded-for
-#    protocol-header: x-forwarded-proto
-#    port-header: x-forwarded-port
-#    accesslog:
-#      enabled: true
-#      directory: /opt/log
-#      prefix: ${eureka.instance.instance-id}_access_log
+  tomcat:
+    remote-ip-header: x-forwarded-for
+    protocol-header: x-forwarded-proto
+    port-header: x-forwarded-port
+    accesslog:
+      enabled: true
+      directory: /opt/log
+      prefix: ${eureka.instance.instance-id}_access_log
 
 ---
 
