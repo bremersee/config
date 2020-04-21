@@ -1,16 +1,24 @@
 spring:
   profiles: swarm
-  sleuth:
-    enabled: true
-    sampler:
-      probability: 1.0
-  zipkin:
-    enabled: false
-    base-url: http://localhost:9411/
   cloud:
     loadbalancer:
       ribbon:
         enabled: false
+  boot:
+    admin:
+      notify:
+        mail:
+          enabled: true
+          from: ${spring.mail.username}
+          to: '{cipher}AQAOyoDZMPpOUiofgFPgprgCM9A4t4zHo+HK2HUVCVIBwX5j+DK9HMVQ/1DPdy1hAuhFTtP+uA2qEihsCSkR35zHuXQgHBRIjXeaqaDrP30/R7leiegCVVNxBCE/Kx6Gk1D/HpjmvwH9ZYB/BI748U5Jd/TIZLhVZQq5TZmrx4KmIvOW+kZCByY3lGlBj6mrInMFBhZ3QNyAK+K6/W2GvCbuEXSoH+ZROUMC9jjTu5oXwcXTfOBEmi5kbgLGzCGeMheJgAN/9WvvU37iBg/o4krBCpANu95tvKGGxYGXprmXuAh6zqq91naWts3BqXRwnwySWfmhGL5ah0rJqYo9ZV2Gg+VIumiIUnamohQZX1KrAA80xbeoJNVZ/1H8aRaIBQlp4IuVXWqEPILa7OLgL8Pi'
+  mail:
+    host: '{cipher}AQCkzaB7YDvrTxNYvLEK6+8MmBja7tSvgqrjy+yjsbwfFbRFD2xsWoZzP/HAgHvj4ZNEfZz7vhIW5LnF6NS+lXgQBcZ7nKK/TrcnBkkv6xb2dVXif5EGrzYKlZj4fmR8d3O8YT/GoTSYn06DNLBbiukviTlmcLfj+8oZc+kNyvcmwKXOp+xIOc6XeNbT5b6qBLvGoazeiv8e6PbQYhPMZNKG+iGI2M2O6zvOfX6mSe1fJFfBlEoum15MErsv2iFhCbqzl3MD9Hk51U0l6kT0zqXEc5jSuhPupnzyImdZy4hA+e5m9xB3ywYWwOG1yhHmU4IwgqiyB97mbHAomUSshbY5xtn5cVZxECD7/jpBqwViHwmtmmQ4VBbBJ3YgnM4ZcyJI2dxVz2uesSglB37Zr2hi'
+    port: 465
+    username: '{cipher}AQAMUNHL9CxvnXO401Rep+Ww9mkEew1JHmRhdlwtUCbEdVxqg+BHRc5LXhMCEMuON+Qg3lCmaGS173xtUmhNvbM+q8Gjv3Q9uqOpnOmuPnhD8yHiN5uhDqxslftxnZ+wdWjxNX5ydirgiJN+xiw6wY6kBjxyrXfYtwPt7dBW6V1fqor3juelWFtfnNoD4FCOdtiVSyp1wdp/dBXC/nGflsXKivkE1zmsW1VhlSfYO1GiefH0w5/usGFfCgqvyBezwkSQNyzsup/GsTqCGFEix6YwiKVernuzhLZ8lpLYnhCG/2VJllDwo4UrrIDNLGpeOcSU6o3P00uUGP5Rf0GcAEASQdt3R2ya1nA8fP9y56T6V1ZDpDOMf98WK/syMKmNGJF5z08BdxZ+SrRrsNA/1Fug'
+    password: '{cipher}AQCP/t3GBpADnw6mnzNm1t5EJFev/nKgCWDEvFNNzj7nPU762hbW8B7YyRQKDuvETwPmQXy0CeJBGkcBdpswG+LpP1octk8AYNhNxkiyYHkdk0UV1vmEQG/Ho1Epfia2h/YIq24OlsdKC2MNzKYUGAoD9Rn+6BHxqfm9u5N5CCNJ/TX6xCvIoEhlMjnqvjOUOA7+sVILit7ZV0FoNoc5w0FfP7iSSePV5B3QAwbpQc1/EAk1ZBdCLCjNzytWLUYDSSwob7ZuX6xKAcvi7OTpqPEV/0BBGN9GcS11L4OyeaRkIte5fe9VJZEZ7Af4GA5tZPYAKFD1novgCXu4gD0mHkaJIuoCXvKvOAntKCRJ79d9TZFMgLSuMoNbNbduTgPiavU='
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.ssl.enable: true
 
 bremersee:
   security:
@@ -30,9 +38,6 @@ eureka:
     hostname: ${HOSTNAME:unknown}
     instance-id: ${spring.application.name}_${eureka.instance.hostname}
     non-secure-port: ${server.port:80}
-    metadata-map:
-      user.name: '{cipher}AQBtTH9N2P5gRb1w27Snd4O0eben9jBkpWvLcaq8XO2MIO4O22tsNiQUIKBwYV6FulzQvy5hV5yRthjkgznJ0U6YzZB86WhijHxDG39fJ33OBTrnDid5MBMnDtE1TDbNz5QQwKrLgGsY+sNfXwyrAtpivPsk3yq0NxJDaqm5Dcix5M0oxAr4qyBQ4bVf6D/NuXb4hmWJtsa+yFI6gwsZimvVKVJaks4n6ruGEaJzgZuaCcAog2YtgF6B3v2xIaoKfyoRD2BwrfE+w4Hwy7Z0DjHxNFpQv6P1zJEUuqks/tuadhYSjxsUFB4ZHD8vfB1hyRQZbAcwvmJEwY2RoxuI4cUcD16byfFutq70WFISnl3ZeC9ebQBEFhuMiCO7fp9NryE='
-      user.password: '{cipher}AQA+8KzLCa8EvZiGfF1089gugs09TduEFNy4d8QhCOtmKcly+sBM9HWPusazZjkDHE52m6tznRip4Wkcv9LbRvsevnZK0Cq3SkxB55ZTM+Mn0WzZMO9NEYv1H2DcX+sD+Ykr7RBuZTU1uYKvOMe+TpR24LBkg/Aa+1/xFdcrRwtNY5jRTCoUpzxI2ECT0zS/NL/21zuDBgj9QrPyHWUXVHd29icI4klF+pRfyCZrzx5J9lrd5lMQqU6eUfwPlfCGiKMdxftcINOXtkKywcBt+9LuEWQQTRKze1Vws9N2Hm2A0aQa/+0bgsmZcJ03i9saiHdyztj4PHnC9XxdkThfSlIslI/Qw7bLSRRHDAiv18rgxfytz8eiuytV8zOQW6IBByY='
   client:
     enabled: true
     register-with-eureka: true
@@ -55,6 +60,17 @@ management:
       show-details: when_authorized
     logfile:
       external-file: ${logging.file.name}
+  health:
+    mail:
+      enabled: false
+
+server:
+  forward-headers-strategy: native
+  tomcat:
+    accesslog:
+      enabled: true
+      directory: /opt/log
+      prefix: ${eureka.instance.instance-id}_access_log
 
 ---
 
@@ -64,6 +80,10 @@ spring:
     inetutils:
       preferred-networks:
         - 10.0.7
+  boot:
+    admin:
+      ui:
+        public-url: https://web.dev.bremersee.org/admin
   security:
     oauth2:
       resourceserver:
@@ -73,12 +93,16 @@ spring:
 bremersee:
   security:
     authentication:
+      application:
+        admin-roles:
+          - "ROLE_ADMIN"
+          - "ROLE_DEV_ADMIN"
       eureka:
         username: '{cipher}AQBWGFbNNMTwWBU5Pqf9M2C5I3sazPDF6qPpVTCGhKtsvEHPBleMD3mYUfDwCFzZEgDoHEjjW1eVILrib+S1JrNbOwdkkg8QY7S1DgOEeiy6qNHUspI8j5bMCvoYkx/m0umGh6NfOUNCxk34PDjF6hH9K5kppRhAANUeLF/vtji/NF9WRl0jrmf79aHUyxVvu87Vpd70KdlP3s2UhADa5b6ePwLWwcfczQX5ibxnobXEaeOoPNFaKOXoC9SG7BACsgT3KPW0DIfu/GXi/skbAg0QZnvRn1uBYIXfkf8ix//lZFZ57M2WQDcHgdHlNf+/oOoo7IoTT4kjKuIwzUd9EK+aJYRtSez8VFk/rk+vG4E+UShfveH9WbJHY4UzIlWuNu8='
         password: '{cipher}AQBSTXFR5pCi01YxMJ7APS/OHt+dopgHHaKjl7irWamHxXYbJixsccArznT+LNWKzJoAYcx98KLoLVyMLbTs0HkS9ru2PnkvsWmhgnwcfcQwysTyxLNba/2NOIT6riujcvggJNxFhkT0iRhuF4Hk74gK64DBqYxbi99voGMQC6OI4FDYBb8ci6UxZsIVTkUYLHPv2nW9ympf/wUlgp2GBJh0IsCYQztXF1pTTlKXGly+Q6VlhwNlFZvQSE6jri17ANUoAG78247DIoDc1U/8OsHViVCcTVJA/Nl+D7fey7s99qAQBtzFW0Lz7rHf5wNn2nIUeCul9+ai9afWlF7m8iBGW/JhtNXf/9cRDc91jKhGfwqin48OYYnb+8oRkD/plWzw84e32c8SK6qr7D/aGri9'
       password-flow:
-        client-id: '{cipher}AQBamfxmN7Kh18ITIt98EiMKyz+vWdSR3S0rtdbfS5OSL4V6Z1LJMZmpk+2pF9hC+GP3jDsVwnRy1X8HHmR6Zxr/QbooTT9q+y++w2KTTfYJBVSNsqDrmYIhVshdTlxQOjR1qsSSaIIjNtgvSU2PSkeXV2KqGG5937PSA/jj7KCQkMZQqT3I1RdQa6YFgvyAjU8PanRyM/3HroFKYIhKZp9mkPp5EbzNlPHxSVx9w3faOZr2Ivw+V3UPPS0w/+3Td4jvhaK2O+Q+ANeY7SFmQc6ArtAy1pUAEhEfoSw5m1TMPlkJMB29gVYk4pkuyCWwR8dfPyTv/1YRGpLGCxx6IxnFIVgIicieW+jb29Haw+UsTVF9OVt6Dik6j7ZmsR2NSAQ='
-        client-secret: '{cipher}AQBE8x7C6zByo12NFl4JQK48V/Kmkv0CvMd/s/ts6/ldNveXhz2LMWXGe2RUYC/jjfHuXCtQtX9QX84UDL4KuUkv83zTlKEOvZDu/bKeYlehVui0XtjFjqxfva87q529rvKAFptIz1PQWbdMVQD0TVygUkGvqLIMt1yaoi7pKfFMgAnlJh4usmdtvu80rO7QRYp5o52pCYuMvO3uRtWy2cnrH8QWFUwxZrPBz+uSmn/KtNQwgVyfbQBJhr+1T95p2rM0lX7YIQ+JyhxlXAaibaqyKlM7xX7/3o7TWjJVGZsRJq7iLFzSAd4JM3WbB+AJmomvXTqGVeit4E1UCV5NYl9ZsC84dBsq2DLUMkgGKXb0i2LIv67PnAMzzOkMH+SqmZ9VyoBk/hgbzHXaoe7XO+nAvZ0XWFxGc/nRC0DeKtpFYg=='
+        client-id: '{cipher}'
+        client-secret: '{cipher}'
         token-endpoint: https://openid.dev.bremersee.org/auth/realms/omnia/protocol/openid-connect/token
 
 eureka:

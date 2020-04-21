@@ -18,6 +18,9 @@ eureka:
     prefer-ip-address: true
     hostname: ${HOST_NAME}
     instance-id: ${HOST_NAME}
+    metadata-map:
+      user.name: '{cipher}AQBtTH9N2P5gRb1w27Snd4O0eben9jBkpWvLcaq8XO2MIO4O22tsNiQUIKBwYV6FulzQvy5hV5yRthjkgznJ0U6YzZB86WhijHxDG39fJ33OBTrnDid5MBMnDtE1TDbNz5QQwKrLgGsY+sNfXwyrAtpivPsk3yq0NxJDaqm5Dcix5M0oxAr4qyBQ4bVf6D/NuXb4hmWJtsa+yFI6gwsZimvVKVJaks4n6ruGEaJzgZuaCcAog2YtgF6B3v2xIaoKfyoRD2BwrfE+w4Hwy7Z0DjHxNFpQv6P1zJEUuqks/tuadhYSjxsUFB4ZHD8vfB1hyRQZbAcwvmJEwY2RoxuI4cUcD16byfFutq70WFISnl3ZeC9ebQBEFhuMiCO7fp9NryE='
+      user.password: '{cipher}AQA+8KzLCa8EvZiGfF1089gugs09TduEFNy4d8QhCOtmKcly+sBM9HWPusazZjkDHE52m6tznRip4Wkcv9LbRvsevnZK0Cq3SkxB55ZTM+Mn0WzZMO9NEYv1H2DcX+sD+Ykr7RBuZTU1uYKvOMe+TpR24LBkg/Aa+1/xFdcrRwtNY5jRTCoUpzxI2ECT0zS/NL/21zuDBgj9QrPyHWUXVHd29icI4klF+pRfyCZrzx5J9lrd5lMQqU6eUfwPlfCGiKMdxftcINOXtkKywcBt+9LuEWQQTRKze1Vws9N2Hm2A0aQa/+0bgsmZcJ03i9saiHdyztj4PHnC9XxdkThfSlIslI/Qw7bLSRRHDAiv18rgxfytz8eiuytV8zOQW6IBByY='
   client:
     register-with-eureka: true
     fetch-registry: true
@@ -43,7 +46,7 @@ management:
 server:
   tomcat:
     accesslog:
-      enabled: true
+      enabled: false
       directory: /opt/log
       prefix: ${HOST_NAME}_access_log
 
