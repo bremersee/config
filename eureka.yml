@@ -1,5 +1,9 @@
 spring:
   profiles: swarm
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
 
 bremersee:
   security:
