@@ -1,0 +1,73 @@
+spring:
+  profiles: swarm
+
+bremersee:
+  security:
+    authentication:
+      enable-jwt-support: true
+      actuator:
+        roles:
+          - "ROLE_ADMIN"
+          - "ROLE_ACTUATOR"
+        admin-roles:
+          - "ROLE_ADMIN"
+          - "ROLE_ACTUATOR_ADMIN"
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    hostname: ${HOSTNAME:unknown}
+    instance-id: ${spring.application.name}_${eureka.instance.hostname}
+    non-secure-port: ${server.port:80}
+  client:
+    enabled: true
+    register-with-eureka: true
+    fetch-registry: true
+
+logging:
+  file:
+    name: /opt/log/${eureka.instance.instance-id}.log
+  pattern:
+    file: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%5p) %clr(${PID}){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n%wEx"
+  level:
+    ROOT: INFO
+    com.netflix.eureka.registry: WARN
+    com.netflix.discovery.shared.resolver: WARN
+    org.springframework.cloud.configclient: WARN
+
+management:
+  endpoint:
+    health:
+      show-details: when_authorized
+    logfile:
+      external-file: ${logging.file.name}
+
+---
+
+spring:
+  profiles: dev
+  cloud:
+    inetutils:
+      preferred-networks:
+        - 10.0.7
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: https://openid.dev.bremersee.org/auth/realms/omnia/protocol/openid-connect/certs
+
+bremersee:
+  security:
+    authentication:
+      eureka:
+        username: '{cipher}AQBWGFbNNMTwWBU5Pqf9M2C5I3sazPDF6qPpVTCGhKtsvEHPBleMD3mYUfDwCFzZEgDoHEjjW1eVILrib+S1JrNbOwdkkg8QY7S1DgOEeiy6qNHUspI8j5bMCvoYkx/m0umGh6NfOUNCxk34PDjF6hH9K5kppRhAANUeLF/vtji/NF9WRl0jrmf79aHUyxVvu87Vpd70KdlP3s2UhADa5b6ePwLWwcfczQX5ibxnobXEaeOoPNFaKOXoC9SG7BACsgT3KPW0DIfu/GXi/skbAg0QZnvRn1uBYIXfkf8ix//lZFZ57M2WQDcHgdHlNf+/oOoo7IoTT4kjKuIwzUd9EK+aJYRtSez8VFk/rk+vG4E+UShfveH9WbJHY4UzIlWuNu8='
+        password: '{cipher}AQBSTXFR5pCi01YxMJ7APS/OHt+dopgHHaKjl7irWamHxXYbJixsccArznT+LNWKzJoAYcx98KLoLVyMLbTs0HkS9ru2PnkvsWmhgnwcfcQwysTyxLNba/2NOIT6riujcvggJNxFhkT0iRhuF4Hk74gK64DBqYxbi99voGMQC6OI4FDYBb8ci6UxZsIVTkUYLHPv2nW9ympf/wUlgp2GBJh0IsCYQztXF1pTTlKXGly+Q6VlhwNlFZvQSE6jri17ANUoAG78247DIoDc1U/8OsHViVCcTVJA/Nl+D7fey7s99qAQBtzFW0Lz7rHf5wNn2nIUeCul9+ai9afWlF7m8iBGW/JhtNXf/9cRDc91jKhGfwqin48OYYnb+8oRkD/plWzw84e32c8SK6qr7D/aGri9'
+      password-flow:
+        client-id: '{cipher}AQBamfxmN7Kh18ITIt98EiMKyz+vWdSR3S0rtdbfS5OSL4V6Z1LJMZmpk+2pF9hC+GP3jDsVwnRy1X8HHmR6Zxr/QbooTT9q+y++w2KTTfYJBVSNsqDrmYIhVshdTlxQOjR1qsSSaIIjNtgvSU2PSkeXV2KqGG5937PSA/jj7KCQkMZQqT3I1RdQa6YFgvyAjU8PanRyM/3HroFKYIhKZp9mkPp5EbzNlPHxSVx9w3faOZr2Ivw+V3UPPS0w/+3Td4jvhaK2O+Q+ANeY7SFmQc6ArtAy1pUAEhEfoSw5m1TMPlkJMB29gVYk4pkuyCWwR8dfPyTv/1YRGpLGCxx6IxnFIVgIicieW+jb29Haw+UsTVF9OVt6Dik6j7ZmsR2NSAQ='
+        client-secret: '{cipher}AQBE8x7C6zByo12NFl4JQK48V/Kmkv0CvMd/s/ts6/ldNveXhz2LMWXGe2RUYC/jjfHuXCtQtX9QX84UDL4KuUkv83zTlKEOvZDu/bKeYlehVui0XtjFjqxfva87q529rvKAFptIz1PQWbdMVQD0TVygUkGvqLIMt1yaoi7pKfFMgAnlJh4usmdtvu80rO7QRYp5o52pCYuMvO3uRtWy2cnrH8QWFUwxZrPBz+uSmn/KtNQwgVyfbQBJhr+1T95p2rM0lX7YIQ+JyhxlXAaibaqyKlM7xX7/3o7TWjJVGZsRJq7iLFzSAd4JM3WbB+AJmomvXTqGVeit4E1UCV5NYl9ZsC84dBsq2DLUMkgGKXb0i2LIv67PnAMzzOkMH+SqmZ9VyoBk/hgbzHXaoe7XO+nAvZ0XWFxGc/nRC0DeKtpFYg=='
+        token-endpoint: https://openid.dev.bremersee.org/auth/realms/omnia/protocol/openid-connect/token
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${bremersee.security.authentication.eureka.username}:${bremersee.security.authentication.eureka.password}@eureka1:8761/eureka/,http://${bremersee.security.authentication.eureka.username}:${bremersee.security.authentication.eureka.password}@eureka2:8761/eureka/,http://${bremersee.security.authentication.eureka.username}:${bremersee.security.authentication.eureka.password}@eureka3:8761/eureka/
