@@ -104,8 +104,8 @@ bremersee:
         username: '{cipher}AQBWGFbNNMTwWBU5Pqf9M2C5I3sazPDF6qPpVTCGhKtsvEHPBleMD3mYUfDwCFzZEgDoHEjjW1eVILrib+S1JrNbOwdkkg8QY7S1DgOEeiy6qNHUspI8j5bMCvoYkx/m0umGh6NfOUNCxk34PDjF6hH9K5kppRhAANUeLF/vtji/NF9WRl0jrmf79aHUyxVvu87Vpd70KdlP3s2UhADa5b6ePwLWwcfczQX5ibxnobXEaeOoPNFaKOXoC9SG7BACsgT3KPW0DIfu/GXi/skbAg0QZnvRn1uBYIXfkf8ix//lZFZ57M2WQDcHgdHlNf+/oOoo7IoTT4kjKuIwzUd9EK+aJYRtSez8VFk/rk+vG4E+UShfveH9WbJHY4UzIlWuNu8='
         password: '{cipher}AQBSTXFR5pCi01YxMJ7APS/OHt+dopgHHaKjl7irWamHxXYbJixsccArznT+LNWKzJoAYcx98KLoLVyMLbTs0HkS9ru2PnkvsWmhgnwcfcQwysTyxLNba/2NOIT6riujcvggJNxFhkT0iRhuF4Hk74gK64DBqYxbi99voGMQC6OI4FDYBb8ci6UxZsIVTkUYLHPv2nW9ympf/wUlgp2GBJh0IsCYQztXF1pTTlKXGly+Q6VlhwNlFZvQSE6jri17ANUoAG78247DIoDc1U/8OsHViVCcTVJA/Nl+D7fey7s99qAQBtzFW0Lz7rHf5wNn2nIUeCul9+ai9afWlF7m8iBGW/JhtNXf/9cRDc91jKhGfwqin48OYYnb+8oRkD/plWzw84e32c8SK6qr7D/aGri9'
       password-flow:
-        client-id: '{cipher}'
-        client-secret: '{cipher}'
+        client-id: '{cipher}AQCn5psgAScqhgrrvoTy3dznyStdezBT7znvqzhjN4GBth4ko8oNgUkHnq1Mu9mmKeAT3uN7PKgq4mrZ6n+qr5ByIKb3xY9HJk8KncI11haHm02uMSOFKF/EdmfVsUEX73KCbSYoCEWnDgDU0aJ4Yei+8jUypG6ngjI60Dte5Y1dPBdWPvJp2YJL5jCnG/b7+NQ2CFQAjU1jzMQQqoWVjyKEio5NjX5ZXDJb/Y6QfglIAFicyT2NcWL/Wg2BdBqh+hbQOXKoNKRkIOsi0vVQA1HTSVmw5/bb5ts0zRBRllbQvaxlRv7GVYr7BM8FA+cswDoBt6rkfvMXW6ShBIoZX+5+6jklpY5m6KQNPT3fMVA2KKkWp77kcYAyqEE8rybvr/0='
+        client-secret: '{cipher}AQCI7vr0zuY0652/yRnX3UTHGReOrcR9Pb+1FWoLDbPS9lUB7N1AwnBFCt+NxZIZI/Oswv3FnIDRg3sOHHt9BLyaInaN3/ev/I9f6Qr79nLYZiPaJYeRNsWbUjIqpZUEIyU+rX5+91B9Jknj7hGL1OpPiVL3N+e3MHQQcKWJUPTvduHtSxVKmQ/cD423YO9NEYZSxJ+SLLhHXFg7mrEGH/FIdJGGpKOg3MA3RDOog250HzIag+8qvNMjRMuHGGlQujXcyYOXY8DHK4WcBj45Cv3B77acgY9Fts68/xTD6H9aG8Zw3cayKCvFx3MDAL5WWiXyEJTjlLDfJsyKLw6HoN2hoNjDksgqrlyacwDz0CT5xup//9LBRs+48AHaY9cy5uEMGpvQ3OwGhpdpxqtda7jMOjwfnDvB9EgL9a1VEuNgZg=='
         token-endpoint: https://openid.dev.bremersee.org/auth/realms/omnia/protocol/openid-connect/token
 
 eureka:
