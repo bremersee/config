@@ -65,7 +65,7 @@ management:
       enabled: false
 
 server:
-  forward-headers-strategy: framework
+  forward-headers-strategy: native
   tomcat:
     remote-ip-header: x-forwarded-for
     protocol-header: x-forwarded-proto
@@ -83,10 +83,10 @@ spring:
     inetutils:
       preferred-networks:
         - 10.0.7
-  boot:
-    admin:
-      ui:
-        public-url: https://web.dev.bremersee.org/admin
+#  boot:
+#    admin:
+#      ui:
+#        public-url: https://web.dev.bremersee.org/admin
   security:
     oauth2:
       resourceserver:
