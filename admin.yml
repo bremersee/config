@@ -3,7 +3,7 @@ spring:
   cloud:
     loadbalancer:
       ribbon:
-        enabled: true
+        enabled: false
   boot:
     admin:
       notify:
