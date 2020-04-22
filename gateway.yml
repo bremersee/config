@@ -24,6 +24,7 @@ bremersee:
       actuator:
         roles:
           - "ROLE_ADMIN"
+          - "ROLE_ACTUATOR_ADMIN"
           - "ROLE_ACTUATOR"
         admin-roles:
           - "ROLE_ADMIN"
