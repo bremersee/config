@@ -71,7 +71,7 @@ server:
     protocol-header: x-forwarded-proto
     port-header: x-forwarded-port
     accesslog:
-      enabled: true
+      enabled: false
       directory: /opt/log
       prefix: ${eureka.instance.instance-id}_access_log
 
@@ -107,6 +107,44 @@ bremersee:
         client-id: '{cipher}AQCn5psgAScqhgrrvoTy3dznyStdezBT7znvqzhjN4GBth4ko8oNgUkHnq1Mu9mmKeAT3uN7PKgq4mrZ6n+qr5ByIKb3xY9HJk8KncI11haHm02uMSOFKF/EdmfVsUEX73KCbSYoCEWnDgDU0aJ4Yei+8jUypG6ngjI60Dte5Y1dPBdWPvJp2YJL5jCnG/b7+NQ2CFQAjU1jzMQQqoWVjyKEio5NjX5ZXDJb/Y6QfglIAFicyT2NcWL/Wg2BdBqh+hbQOXKoNKRkIOsi0vVQA1HTSVmw5/bb5ts0zRBRllbQvaxlRv7GVYr7BM8FA+cswDoBt6rkfvMXW6ShBIoZX+5+6jklpY5m6KQNPT3fMVA2KKkWp77kcYAyqEE8rybvr/0='
         client-secret: '{cipher}AQCI7vr0zuY0652/yRnX3UTHGReOrcR9Pb+1FWoLDbPS9lUB7N1AwnBFCt+NxZIZI/Oswv3FnIDRg3sOHHt9BLyaInaN3/ev/I9f6Qr79nLYZiPaJYeRNsWbUjIqpZUEIyU+rX5+91B9Jknj7hGL1OpPiVL3N+e3MHQQcKWJUPTvduHtSxVKmQ/cD423YO9NEYZSxJ+SLLhHXFg7mrEGH/FIdJGGpKOg3MA3RDOog250HzIag+8qvNMjRMuHGGlQujXcyYOXY8DHK4WcBj45Cv3B77acgY9Fts68/xTD6H9aG8Zw3cayKCvFx3MDAL5WWiXyEJTjlLDfJsyKLw6HoN2hoNjDksgqrlyacwDz0CT5xup//9LBRs+48AHaY9cy5uEMGpvQ3OwGhpdpxqtda7jMOjwfnDvB9EgL9a1VEuNgZg=='
         token-endpoint: https://openid.dev.bremersee.org/auth/realms/omnia/protocol/openid-connect/token
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${bremersee.security.authentication.eureka.username}:${bremersee.security.authentication.eureka.password}@eureka1:8761/eureka/,http://${bremersee.security.authentication.eureka.username}:${bremersee.security.authentication.eureka.password}@eureka2:8761/eureka/,http://${bremersee.security.authentication.eureka.username}:${bremersee.security.authentication.eureka.password}@eureka3:8761/eureka/
+
+---
+
+spring:
+  profiles: prod
+  cloud:
+    inetutils:
+      preferred-networks:
+        - 172.16.1
+  #  boot:
+  #    admin:
+  #      ui:
+  #        public-url: https://web.bremersee.org/admin
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: https://openid.bremersee.org/auth/realms/omnis/protocol/openid-connect/certs
+
+bremersee:
+  security:
+    authentication:
+      application:
+        admin-roles:
+          - "ROLE_ADMIN"
+          - "ROLE_PROD_ADMIN"
+      eureka:
+        username: '{cipher}AQAs/zyqDN6WusLJP5Lu4P8JK13EPMbvVJt01OSbbycBsGW9SQ/GChI51LMLLV6+TOjnGDLVqFBxHT06s37ugAIzPS9UlDtsNRsUx2hWyDsYW1AIH9dV1ikijuNgg3edTLJOJ2RhJkXmdb9+q3sdAMgBmOxQafbOftAvRKlhfBLkviYJG9Nv8Pi3P6RDP6eyCs8119wIv3LWe2BVJbLbo9Xn8FTAM8yC8a3D1SIG48J7stDWDln4WPDax8Tc/w4Qvrn3/y2fIIr+uSye4gXOaLs5YbqQTVtqGwpBj9eB/H6pSCOuxhj+plKP9cl13VIA31lEvJWzKAFOK8H//rI10cwcXoI7Ev7AEMKke58kifAvUyhPjLQl7Px6hhf3FB/TqM0='
+        password: '{cipher}AQAgP5Z8+CWJX/sy5g9yF4qmCMSxfn6BfvXellyt+SXDLins5BSiRac7ppOD8bdE7g7QGD+GFyYjYYbWVEJdjtRmgGh3GIvOJNrIHzS8LF7SsyebpTP64Lc0hOgkH3RVOEtngItXTortn85FyVieYkQaP20ssHrYMSHvhaYYxSuBuFE2XTwXZMlg8Wvz3yW2hHDVMlRgz+kRZgc5P0COJbtjOXn0yR8MBB6CyzLjgG4Ul657rQZEPNgv+fduDxGvseK0yAM1XFBpfDLBlD5nCGO3w42b1UtR0LplK5SQH8WbD6NMYT4LA8SAUQDx4Q0ATNOnn14Au1GKzfZtflCKGbbakhG+BG/IrzvzNa/gjQxEkfx5+bvDx5jdIVqiD4c3T+V1v/OQgtIF+/7PeZK/3dL+'
+      password-flow:
+        client-id: '{cipher}AQCn5psgAScqhgrrvoTy3dznyStdezBT7znvqzhjN4GBth4ko8oNgUkHnq1Mu9mmKeAT3uN7PKgq4mrZ6n+qr5ByIKb3xY9HJk8KncI11haHm02uMSOFKF/EdmfVsUEX73KCbSYoCEWnDgDU0aJ4Yei+8jUypG6ngjI60Dte5Y1dPBdWPvJp2YJL5jCnG/b7+NQ2CFQAjU1jzMQQqoWVjyKEio5NjX5ZXDJb/Y6QfglIAFicyT2NcWL/Wg2BdBqh+hbQOXKoNKRkIOsi0vVQA1HTSVmw5/bb5ts0zRBRllbQvaxlRv7GVYr7BM8FA+cswDoBt6rkfvMXW6ShBIoZX+5+6jklpY5m6KQNPT3fMVA2KKkWp77kcYAyqEE8rybvr/0='
+        client-secret: '{cipher}AQApRrcr8lUlFIdvHfzbpw8ibN1zkyUuIxrjUzqUyF4BvHOrVLg9EotTfFEo3CC8kOMwd6mjegnlFXj4dB9Rtc2edyjsXyCSRR/gf6vgBCJIx+xc5N6EqV7T7VAGoNtY1fct0T0efxKw+5BBTwYmPbGg/srOd3DOSYgMvwLTyX4vy9IxyhBF4xP7g4JaDoJO/K9YmITkwiIxCOA55t+pHepjrFOb4XH0F+s0u0AMlVfsjlVVdLUDXlM2gAc4fFh7OIyOdO+xgXggLgpnXN0eohIEqMTqMYoJ+0lxNssADF3RXqk/S0JX0labdbbb69kCYG6TRi6mLTp9QQeJ6WKYJqbAB5UP9GUjYdcYSV6DvOcLnFQUQ/QqKqijm3761FhAYL+rlpTuXVhdbGtEBXbiRbUR6GUfcGNdG+M6Da7qXkqCSQ=='
+        token-endpoint: https://openid.bremersee.org/auth/realms/omnis/protocol/openid-connect/token
 
 eureka:
   client:
