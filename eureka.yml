@@ -112,8 +112,6 @@ bremersee:
         token-endpoint: https://openid.dev.bremersee.org/auth/realms/omnia/protocol/openid-connect/token
 
 eureka:
-  server:
-    enable-self-preservation: false
   client:
     service-url:
       defaultZone: http://${bremersee.security.authentication.eureka.username}:${bremersee.security.authentication.eureka.password}@eureka1:8761/eureka/,http://${bremersee.security.authentication.eureka.username}:${bremersee.security.authentication.eureka.password}@eureka2:8761/eureka/,http://${bremersee.security.authentication.eureka.username}:${bremersee.security.authentication.eureka.password}@eureka3:8761/eureka/
