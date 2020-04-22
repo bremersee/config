@@ -78,6 +78,9 @@ management:
     logfile:
       external-file: ${logging.file.name}
 
+server:
+  forward-headers-strategy: framework
+
 ---
 
 spring:
