@@ -90,3 +90,33 @@ eureka:
   client:
     service-url:
       defaultZone: http://${bremersee.security.authentication.eureka.username}:${bremersee.security.authentication.eureka.password}@eureka1:8761/eureka/,http://${bremersee.security.authentication.eureka.username}:${bremersee.security.authentication.eureka.password}@eureka2:8761/eureka/,http://${bremersee.security.authentication.eureka.username}:${bremersee.security.authentication.eureka.password}@eureka3:8761/eureka/
+
+---
+
+spring:
+  profiles: prod
+  cloud:
+    inetutils:
+      preferred-networks:
+        - 172.16.1
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: https://openid.bremersee.org/auth/realms/omnis/protocol/openid-connect/certs
+
+bremersee:
+  security:
+    authentication:
+      eureka:
+        username: '{cipher}AQAs/zyqDN6WusLJP5Lu4P8JK13EPMbvVJt01OSbbycBsGW9SQ/GChI51LMLLV6+TOjnGDLVqFBxHT06s37ugAIzPS9UlDtsNRsUx2hWyDsYW1AIH9dV1ikijuNgg3edTLJOJ2RhJkXmdb9+q3sdAMgBmOxQafbOftAvRKlhfBLkviYJG9Nv8Pi3P6RDP6eyCs8119wIv3LWe2BVJbLbo9Xn8FTAM8yC8a3D1SIG48J7stDWDln4WPDax8Tc/w4Qvrn3/y2fIIr+uSye4gXOaLs5YbqQTVtqGwpBj9eB/H6pSCOuxhj+plKP9cl13VIA31lEvJWzKAFOK8H//rI10cwcXoI7Ev7AEMKke58kifAvUyhPjLQl7Px6hhf3FB/TqM0='
+        password: '{cipher}AQAgP5Z8+CWJX/sy5g9yF4qmCMSxfn6BfvXellyt+SXDLins5BSiRac7ppOD8bdE7g7QGD+GFyYjYYbWVEJdjtRmgGh3GIvOJNrIHzS8LF7SsyebpTP64Lc0hOgkH3RVOEtngItXTortn85FyVieYkQaP20ssHrYMSHvhaYYxSuBuFE2XTwXZMlg8Wvz3yW2hHDVMlRgz+kRZgc5P0COJbtjOXn0yR8MBB6CyzLjgG4Ul657rQZEPNgv+fduDxGvseK0yAM1XFBpfDLBlD5nCGO3w42b1UtR0LplK5SQH8WbD6NMYT4LA8SAUQDx4Q0ATNOnn14Au1GKzfZtflCKGbbakhG+BG/IrzvzNa/gjQxEkfx5+bvDx5jdIVqiD4c3T+V1v/OQgtIF+/7PeZK/3dL+'
+      password-flow:
+        client-id: '{cipher}AQB8hr+cj0b6v/xBcNb2P8FaNjWN6yrt0q7PWn2mWXCg/RsfP9MSV/UKlk/pr9yjvl82pw/+6OeNggvDEdpymkP3lnRSTQtUo4osUn8B+vph9uS+UNd/DbJItmQu71T67xGsjq2KR7HrF/5D/NVT9W1h5Eee2QFrjZcHPN9ZN4KWoL93f0LDH0+UvAgIsh7RHoNf45a8fcf6/ivAqBSMX/sUfwkc84tnFypT2+hUJO/HESeh04bh6YyItrwIrinYKl3p+Vc2ibzXOyvNXCNSBKlWeiequVRL1wsdcwQfo5lE8H8n8PExTk9tXYbilv7xLwah3UVldfFNbbPr9QD9y9aAQDN7eKNg2shiIdZ55DObJvnLFKzRMGdPU6WX8ZYQxJc='
+        client-secret: '{cipher}AQAxSVi5LfN/4wV7NC5RfAOVrYNcVdj7RNDHPK18DnG7iFCPwuP59VbBPqwZS6/bENd+JP0jth+WTvtSgRMaRhzEWVLWq1FM1YmfzMtf0Eq3X1Bu6deVx8GGTj5fEFMA/TB70mVWvxeAm6T0W1+Df1qsgZePnIr2UgLZ5ZHk0jiCSBHcA2KCt16aGs0/hvAI8AqkPZ6WWWvohWvaoOZDz91sgM9zkoJaMn6KzRGu/V3bHDUUyy9hbi0cXZNU15E9cMh7cBoYNXpZyo9z2P0zocvkjqIgqOxYWobzGxmfgG4tOsBu9v3FcqweUWCn8vvYZZKnzoX4rRzD9OL6UM5WJNBNYowTX4a36NrIezwHb3UQSi0xIzHlRJdQRVupr8QHfVrVT/zPJTHPAw2/oMVBgF3XjxOEtMeKq+e71IlpnOYqWw=='
+        token-endpoint: https://openid.bremersee.org/auth/realms/omnis/protocol/openid-connect/token
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${bremersee.security.authentication.eureka.username}:${bremersee.security.authentication.eureka.password}@eureka1:8761/eureka/,http://${bremersee.security.authentication.eureka.username}:${bremersee.security.authentication.eureka.password}@eureka2:8761/eureka/,http://${bremersee.security.authentication.eureka.username}:${bremersee.security.authentication.eureka.password}@eureka3:8761/eureka/
