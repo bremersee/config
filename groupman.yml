@@ -1,22 +1,3 @@
-spring:
-  profiles: swarm
-  sleuth:
-    enabled: true
-    sampler:
-      probability: 1.0
-  zipkin:
-    enabled: false
-    base-url: http://localhost:9411/
-  cloud:
-    loadbalancer:
-      ribbon:
-        enabled: false
-    gateway:
-      discovery:
-        locator:
-          enabled: true
-          lower-case-service-id: true
-
 bremersee:
   security:
     cors:
@@ -35,6 +16,37 @@ bremersee:
         admin-roles:
           - "ROLE_ADMIN"
           - "ROLE_ACTUATOR_ADMIN"
+
+management:
+  endpoint:
+    health:
+      show-details: when_authorized
+  metrics:
+    distribution:
+      percentiles:
+        http.server.requests: 0.5, 0.95
+
+
+---
+
+spring:
+  profiles: swarm
+  sleuth:
+    enabled: true
+    sampler:
+      probability: 1.0
+  zipkin:
+    enabled: false
+    base-url: http://localhost:9411/
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
 
 eureka:
   instance:
@@ -63,14 +75,8 @@ logging:
 
 management:
   endpoint:
-    health:
-      show-details: when_authorized
     logfile:
       external-file: ${logging.file.name}
-  metrics:
-    distribution:
-      percentiles:
-        http.server.requests: 0.5, 0.95
 
 ---
 
