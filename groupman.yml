@@ -26,7 +26,6 @@ management:
       percentiles:
         http.server.requests: 0.5, 0.95
 
-
 ---
 
 spring:
@@ -42,11 +41,6 @@ spring:
     loadbalancer:
       ribbon:
         enabled: false
-    gateway:
-      discovery:
-        locator:
-          enabled: true
-          lower-case-service-id: true
 
 eureka:
   instance:
