@@ -188,6 +188,11 @@ bremersee:
     mail-with-credentials:
       sender: "no-reply@example.org"
       login-url: "https://web.dev.bremersee.org/dc-con/change-password"
+  security:
+    authentication:
+      actuator:
+        jwt:
+          jwk-set-uri: https://openid.dev.bremersee.org/auth/realms/omnia/protocol/openid-connect/certs
 
 ---
 
