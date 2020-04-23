@@ -1,7 +1,7 @@
 bremersee:
   security:
     authentication:
-      enable-jwt-support: false
+      enable-jwt-support: true
       actuator:
         roles:
           - "ROLE_ACTUATOR"
@@ -93,7 +93,6 @@ bremersee:
       eureka:
         username: '{cipher}AQBWGFbNNMTwWBU5Pqf9M2C5I3sazPDF6qPpVTCGhKtsvEHPBleMD3mYUfDwCFzZEgDoHEjjW1eVILrib+S1JrNbOwdkkg8QY7S1DgOEeiy6qNHUspI8j5bMCvoYkx/m0umGh6NfOUNCxk34PDjF6hH9K5kppRhAANUeLF/vtji/NF9WRl0jrmf79aHUyxVvu87Vpd70KdlP3s2UhADa5b6ePwLWwcfczQX5ibxnobXEaeOoPNFaKOXoC9SG7BACsgT3KPW0DIfu/GXi/skbAg0QZnvRn1uBYIXfkf8ix//lZFZ57M2WQDcHgdHlNf+/oOoo7IoTT4kjKuIwzUd9EK+aJYRtSez8VFk/rk+vG4E+UShfveH9WbJHY4UzIlWuNu8='
         password: '{cipher}AQBSTXFR5pCi01YxMJ7APS/OHt+dopgHHaKjl7irWamHxXYbJixsccArznT+LNWKzJoAYcx98KLoLVyMLbTs0HkS9ru2PnkvsWmhgnwcfcQwysTyxLNba/2NOIT6riujcvggJNxFhkT0iRhuF4Hk74gK64DBqYxbi99voGMQC6OI4FDYBb8ci6UxZsIVTkUYLHPv2nW9ympf/wUlgp2GBJh0IsCYQztXF1pTTlKXGly+Q6VlhwNlFZvQSE6jri17ANUoAG78247DIoDc1U/8OsHViVCcTVJA/Nl+D7fey7s99qAQBtzFW0Lz7rHf5wNn2nIUeCul9+ai9afWlF7m8iBGW/JhtNXf/9cRDc91jKhGfwqin48OYYnb+8oRkD/plWzw84e32c8SK6qr7D/aGri9'
-      enable-jwt-support: true
       password-flow:
         client-id: '{cipher}AQAy3UTXefUBsG02Bw4o3QuG4Xx1WhgYAycAHD+3650fzj1LBj+Zr7Q/Z0MIB7enuIYgEv7CvZa+QB1ZsVyFMyH27RKsAMZE1UNtNBm/tyjv3Qj1Bjc5jsGWV9tYYbL2TtZ8lE3ePyyhrC9S4Epkdx7ER3Ve/2/oMH7Yz/F+vLXmX4s0k1IkfpWia04Rul6+tKKnBHgJL37Ta53VF8BmisruaZ5jm6UzYlqbrTo9e6LbQkfex6hF80Texr2EJEKQVBAr09LkB1+uy5YHQCZ2EVve9/3wqVv/MbUGKPcRzNqF/L2yXcqBFH1MhWrd3BQoEKA7fPvGu40ZFJwqTBd+akOXADNVVl+fI3cM9Wdy4MiZc+ryWHj0tMucYyqekFk4JWo='
         client-secret: '{cipher}AQCv31YpVAl69lGzdhWREz/FNT6E9LFL/kbXPyL5H6OCgjLXM1kHmscMDDTr2H5ih59FrgyBxx/uWc41xYyx16jxZ+P6eSvTPK844hGcEYH0HF1+hBWLgOh+4DY0LOuHrUhuGbMJ9/wytCMvDYuFrmEroMM3IFxHNAC1vutYOF7hg7kCnYnePO4DmGeIYWR9h6HnKIJy1TDYy51vrAJBf5HLW1qnJi7mIgOjjNFj9AhIX1F6Rb2GoiNn0QGYtbYAOKmvUelyUq1r6hN60ABKNrotWbVxA57JlYBRUu+R/WIDU+gc/v/IIjyWsRGf+raxKgmkzjitWz8k17Df1JfWm+ioC4Dp7/Nnln7EgbXlUb27PDem/buZf5kj/qXqiEkLdc2Cydw2EM/4e/45338yyMLdHAZxAJT1ONKipdwE6stumQ=='
