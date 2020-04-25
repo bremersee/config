@@ -16,13 +16,13 @@ spring:
         locator:
           enabled: true
           lower-case-service-id: true
-#      globalcors:
-#        cors-configurations:
-#          '[/**]':
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allow-credentials: true
 #            allowed-origins: "*"
 #            allowed-methods: "*"
 #            allowed-headers: "*"
-#            allow-credentials: true
 
 bremersee:
   security:
