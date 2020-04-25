@@ -149,7 +149,7 @@ spring:
           jwk-set-uri: https://openid.bremersee.org/auth/realms/omnis/protocol/openid-connect/certs
   data:
     mongodb:
-      uri: '{cipher}'
+      uri: '{cipher}AQCXcH3gQBqpb8Pgi7Q7U4+BLx8lEjSP0ss9C7RmFic6TlssZuP7IKyf36psX6az65l6q62VKu2w3Ftm+C5tBaSh1kMGB16I75DDYB+JsQ3pNJ/uQqcZ553UYXiLgW02LZcjlWlLOpNzQKkqGqak+6Js8M9cOFevcd9fGnXcDolE8s1d9RWIk5ZcV4xy5jvzn+BFVrkizop7waCw2WPA07BLU9P18z7P/AnppF8JcU15ZZnv3sT2BWLQTAb/QccJfp4igSjwBCOyiZyct59erJrIrEpMoZyu/GXm3Si4Vinx9DXCFmiJXyh9ScQADh2i8xiJ1V7BFUCa4lYMpfbocVjpryJn0D+AQiwUUNHdES13hHn7sgyHb0I0eGUNWkykYOzmQaD5M3myLfp/j0JjAoBsiDlQeG/ms6+zvW6XSlv960KRk0+OlBVSImAiVX6dxHasE+UzVc7IuNd3U6br5lu88tBODltomBONIQiizanKJjfeE5BUl/wFwhQ8SeL1t5LERm4/PpKtb9U/lZmN6GSP'
 
 eureka:
   client:
@@ -164,12 +164,12 @@ bremersee:
         password: '{cipher}AQAgP5Z8+CWJX/sy5g9yF4qmCMSxfn6BfvXellyt+SXDLins5BSiRac7ppOD8bdE7g7QGD+GFyYjYYbWVEJdjtRmgGh3GIvOJNrIHzS8LF7SsyebpTP64Lc0hOgkH3RVOEtngItXTortn85FyVieYkQaP20ssHrYMSHvhaYYxSuBuFE2XTwXZMlg8Wvz3yW2hHDVMlRgz+kRZgc5P0COJbtjOXn0yR8MBB6CyzLjgG4Ul657rQZEPNgv+fduDxGvseK0yAM1XFBpfDLBlD5nCGO3w42b1UtR0LplK5SQH8WbD6NMYT4LA8SAUQDx4Q0ATNOnn14Au1GKzfZtflCKGbbakhG+BG/IrzvzNa/gjQxEkfx5+bvDx5jdIVqiD4c3T+V1v/OQgtIF+/7PeZK/3dL+'
       password-flow:
         client-id: '{cipher}AQB1TsOgfpx9tJXZSTmS3hA47jl66arYv/IxBmxX4Q6r1ImRI7tof/YcyZcAL/Dw/r+vXsy6KD45xfgavcFsta6Nl3NU53c5s/mYOe98cTe/68VgLfpm4eRI/Emf34sjQRM4sJkCoHcH8mEZgndrlRoqX2F350+nHcLJ2rKDV4rhqhkE0MJKVOkdkhzsuTvH+5qRzg6dLxo2GWiYKUJr4bTx3LXR7AXIiUCG5IQKCxJvb6aUbqpFTdSffdbvwucKgIiFpzBeNZBxwNJet8HL/uA1E6wLL2dbefiF4exajmCrKadBFBRgFUit78ciq2TTj0C7Kk0mhmCwUvirhw8wNXltBP9VNPZxZOYR0xE7oxtFQsrLU4vJgwMrhS5Wvqpbq5I='
-        client-secret: '{cipher}'
+        client-secret: '{cipher}AQAG4FTBBhQ1jKOKrBT4rcEWEIsgj46XDdss8VuqsPc4Xf640lJMc97NKox/U5srs+LGwq2i3Z0FsqR4RQsamZhiUfGsBvDOTnt63sqH8EPhNbQyJlY2whLj1PeRvvNS3X0p87CkBXwKeyo7idj0GoTGOHSARSU+hd3e4yhj/DzFUlQgw+1vQ0rBJNor04P8apcNW6DlMgG07fsxvOaj4pYe2f4xuLJrMuV3tvZ1ggIReRk4NAjHGJF4kahy3m3k67hA0vmEdkYEr5EOnJdnjcQKHYJk220u2zoWHWU0XJnAQRsyXWUn312yzHXmYYpdgDX8FYvqMxRcz62Uuv6LLAVIVG2JYCgL2Z0nWWAiYzMPKGEE2wBgnUGRp4m+DQHvmFtwSTYMUZa30/9NeanrYYWjxit+oVp0j9wnBdHQ+3hq0Q=='
         token-endpoint: https://openid.bremersee.org/auth/realms/omnis/protocol/openid-connect/token
   linkman:
     groupman-base-uri: http://groupman
-    keycloak-base-uri: https://openid.dev.bremersee.org/auth
-    keycloak-realm: omnia
+    keycloak-base-uri: https://openid.bremersee.org/auth
+    keycloak-realm: omnis
 
 ---
 
