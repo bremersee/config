@@ -16,14 +16,14 @@ spring:
         locator:
           enabled: true
           lower-case-service-id: true
-#      globalcors:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allow-credentials: true
+            allowed-origins: "*"
+            allowed-methods: "*"
+            allowed-headers: "*"
 #        add-to-simple-url-handler-mapping: true
-#        cors-configurations:
-#          '[/**]':
-#            allow-credentials: true
-#            allowed-origins: "*"
-#            allowed-methods: "*"
-#            allowed-headers: "*"
 
 bremersee:
   security:
@@ -69,6 +69,13 @@ management:
       show-details: when_authorized
     logfile:
       external-file: ${logging.file.name}
+  endpoints:
+    web:
+      cors:
+        allowed-headers: "*"
+        allowed-methods: "*"
+        allowed-origins: "*"
+        # allow-credentials: true
 
 ---
 
