@@ -72,10 +72,11 @@ management:
   endpoints:
     web:
       cors:
+        add-to-simple-url-handler-mapping: true
         allowed-headers: "*"
         allowed-methods: "*"
         allowed-origins: "*"
-        # allow-credentials: true
+        allow-credentials: true
 
 ---
 
