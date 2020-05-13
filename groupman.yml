@@ -53,6 +53,13 @@ management:
 server:
   forward-headers-strategy: framework
 
+bremersee:
+  actuator:
+    auth:
+      enable-cors: false
+  cors:
+    enable: false
+
 ---
 
 spring:

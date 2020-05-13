@@ -80,10 +80,13 @@ server:
 bremersee:
   actuator:
     auth:
+      enable-cors: false
       password-flow:
         token-endpoint: ${bremersee.auth.client-credentials-flow.token-endpoint}
         client-id: ${bremersee.auth.client-credentials-flow.client-id}
         client-secret: ${bremersee.auth.client-credentials-flow.client-secret}
+  cors:
+    enable: false
 
 ---
 
