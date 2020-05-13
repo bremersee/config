@@ -16,14 +16,14 @@ spring:
         locator:
           enabled: true
           lower-case-service-id: true
-#      globalcors:
-#        add-to-simple-url-handler-mapping: true
-#        cors-configurations:
-#          '[/**]':
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowed-methods: "*"
+            allowed-headers: "*"
+            allowed-origins: "http://localhost:4200"
 #            allow-credentials: true
-#            # allowed-origins: "http://localhost:4200"
-#            allowed-methods: "*"
-#            allowed-headers: "*"
+#        add-to-simple-url-handler-mapping: true
 
 eureka:
   instance:
