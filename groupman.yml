@@ -38,6 +38,8 @@ eureka:
     enabled: true
     register-with-eureka: true
     fetch-registry: true
+    service-url:
+      defaultZone: http://${bremersee.auth.eureka.username}:${bremersee.auth.eureka.password}@eureka1:8761/eureka/,http://${bremersee.auth.eureka.username}:${bremersee.auth.eureka.password}@eureka2:8761/eureka/,http://${bremersee.auth.eureka.username}:${bremersee.auth.eureka.password}@eureka3:8761/eureka/
 
 logging:
   file:
@@ -142,11 +144,6 @@ bremersee:
         client-secret: '{cipher}AQCxXnCOHLoWSmvEFMWwqo7htS7FIGr7oPBwV96mrfQYCJOugIZHrhpvUd4ti+iPJYYC0CFqJUjHDRkbcmVVkWZPAgRGfdknLz9MUm54R1tjMN3nDAG5ke0FxugbDcES8JjG3NSVxlTHF3Jqp17vVsfJwa/iSPo3ugaAR0ZDwZ5bIl+GJDG/7Bd9egkDkbpNvfttuce1OzPUmlpOMJR5SbsVC8rQP4kYoTHhyEhIJn9nEPQ23dT+IsXrLjERbCDU5YXHmMGyQWhNhZD7DbRcbN7rVRgKmlQhpstLW/U1bMI6ifHiELGAB9e3kHiCEH6v45i6l4MOiHXmvfTopexTpH+gN/HIGF7vaz33GTZwtDBbFEo+TFWMt3VOlIDXM+O8UxAfhi5yX5faWEKJWJ5rshl4k2576ZVF6ZpeR+8iW9DGUQ=='
         token-endpoint: https://openid.dev.bremersee.org/auth/realms/omnia/protocol/openid-connect/token
 
-eureka:
-  client:
-    service-url:
-      defaultZone: http://${bremersee.auth.eureka.username}:${bremersee.auth.eureka.password}@eureka1:8761/eureka/,http://${bremersee.auth.eureka.username}:${bremersee.auth.eureka.password}@eureka2:8761/eureka/,http://${bremersee.auth.eureka.username}:${bremersee.auth.eureka.password}@eureka3:8761/eureka/
-
 ---
 
 spring:
@@ -175,11 +172,6 @@ bremersee:
         client-id: '{cipher}AQCF/td/4+X6pRBSjO6gGyYu2pA0FFBcEYNMJw7hUu1WW3JXuLzJKg6gKYdaK76exGLmcGr+8DXXbTaU7mJ8RKNeZbWw9hN5H/gt95E5oRX6D1qRe0+/z4k/VDthPppTeaL0Z9/fMhvmn+olSDY1x0OKBtb9sH1MpaqQcm0HpKsp7hisCLjyIubpSScikTrCpylyFT3EK/TcUSbto8QlZvkAESHGcJVYInO4OmdrO/ccJAxmDJFpJj9SwRDzvzi0wgxIzFjjcGbFhkvbSrcC5wB/DDxp7cHpk0AbUw709cFlMdGH7wXQmJk1g7ew1xIctn6JtWE7D+L1yxFMeOUia57bPUNS8tkrXRCHGy0c3ltX5yaGGU+n4eTSmrnsj6OoLvc='
         client-secret: '{cipher}AQAlCF4Sq+IIiJBba8akT7YfwDZ6lWDwjsKn7m4XFCDO4eU/kQpGyJex4weMMnEy6qTw90IjeaRdARKi9KuXxB8nkA8lHhXnaeD0mRDinSfqLzJPD0xWSBXNHOGQ9U9YY1TuIpc5zBlxBzzFRfw60RyM/rYyjxmjx6P5mExbaakypp/JL58XZ2PkIehxug9xI3jtxZ8krMQJr6LllWkpT+gx/FCO5fRTVxZAmU10PsZSYgjWgJaNGkwPppEqNiERav/1+5BDvsUqVnV7xODRIEchgvd87ByBSrTfuKEA9XvAjWhsH7stblhVLvPfZeybRZ1pGs2LApw9TAP3laFINwwSOln/wKS99alVsR5WYpMrQ1W2y5juLmbPhOdx/mv0622hUe4rR+g40hlvtUiddIDy2TTJKlWjFZHMN3gZN1pweQ=='
         token-endpoint: https://openid.bremersee.org/auth/realms/omnis/protocol/openid-connect/token
-
-eureka:
-  client:
-    service-url:
-      defaultZone: http://${bremersee.auth.eureka.username}:${bremersee.auth.eureka.password}@eureka1:8761/eureka/,http://${bremersee.auth.eureka.username}:${bremersee.auth.eureka.password}@eureka2:8761/eureka/,http://${bremersee.auth.eureka.username}:${bremersee.auth.eureka.password}@eureka3:8761/eureka/
 
 ---
 
