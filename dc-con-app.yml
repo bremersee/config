@@ -77,7 +77,7 @@ management:
       external-file: ${logging.file.name}
 
 server:
-  forward-headers-strategy: native
+  forward-headers-strategy: framework
   tomcat:
     remote-ip-header: x-forwarded-for
     protocol-header: x-forwarded-proto
