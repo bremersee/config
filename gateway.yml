@@ -70,7 +70,7 @@ bremersee:
       password: '{cipher}AQBSTXFR5pCi01YxMJ7APS/OHt+dopgHHaKjl7irWamHxXYbJixsccArznT+LNWKzJoAYcx98KLoLVyMLbTs0HkS9ru2PnkvsWmhgnwcfcQwysTyxLNba/2NOIT6riujcvggJNxFhkT0iRhuF4Hk74gK64DBqYxbi99voGMQC6OI4FDYBb8ci6UxZsIVTkUYLHPv2nW9ympf/wUlgp2GBJh0IsCYQztXF1pTTlKXGly+Q6VlhwNlFZvQSE6jri17ANUoAG78247DIoDc1U/8OsHViVCcTVJA/Nl+D7fey7s99qAQBtzFW0Lz7rHf5wNn2nIUeCul9+ai9afWlF7m8iBGW/JhtNXf/9cRDc91jKhGfwqin48OYYnb+8oRkD/plWzw84e32c8SK6qr7D/aGri9'
   actuator:
     auth:
-      jwk-uri-set: https://openid.dev.bremersee.org/auth/realms/omnia/protocol/openid-connect/certs
+      jwk-set-uri: https://openid.dev.bremersee.org/auth/realms/omnia/protocol/openid-connect/certs
       password-flow:
         client-id: '{cipher}AQBamfxmN7Kh18ITIt98EiMKyz+vWdSR3S0rtdbfS5OSL4V6Z1LJMZmpk+2pF9hC+GP3jDsVwnRy1X8HHmR6Zxr/QbooTT9q+y++w2KTTfYJBVSNsqDrmYIhVshdTlxQOjR1qsSSaIIjNtgvSU2PSkeXV2KqGG5937PSA/jj7KCQkMZQqT3I1RdQa6YFgvyAjU8PanRyM/3HroFKYIhKZp9mkPp5EbzNlPHxSVx9w3faOZr2Ivw+V3UPPS0w/+3Td4jvhaK2O+Q+ANeY7SFmQc6ArtAy1pUAEhEfoSw5m1TMPlkJMB29gVYk4pkuyCWwR8dfPyTv/1YRGpLGCxx6IxnFIVgIicieW+jb29Haw+UsTVF9OVt6Dik6j7ZmsR2NSAQ='
         client-secret: '{cipher}AQBE8x7C6zByo12NFl4JQK48V/Kmkv0CvMd/s/ts6/ldNveXhz2LMWXGe2RUYC/jjfHuXCtQtX9QX84UDL4KuUkv83zTlKEOvZDu/bKeYlehVui0XtjFjqxfva87q529rvKAFptIz1PQWbdMVQD0TVygUkGvqLIMt1yaoi7pKfFMgAnlJh4usmdtvu80rO7QRYp5o52pCYuMvO3uRtWy2cnrH8QWFUwxZrPBz+uSmn/KtNQwgVyfbQBJhr+1T95p2rM0lX7YIQ+JyhxlXAaibaqyKlM7xX7/3o7TWjJVGZsRJq7iLFzSAd4JM3WbB+AJmomvXTqGVeit4E1UCV5NYl9ZsC84dBsq2DLUMkgGKXb0i2LIv67PnAMzzOkMH+SqmZ9VyoBk/hgbzHXaoe7XO+nAvZ0XWFxGc/nRC0DeKtpFYg=='
@@ -92,7 +92,7 @@ bremersee:
       password: '{cipher}AQAgP5Z8+CWJX/sy5g9yF4qmCMSxfn6BfvXellyt+SXDLins5BSiRac7ppOD8bdE7g7QGD+GFyYjYYbWVEJdjtRmgGh3GIvOJNrIHzS8LF7SsyebpTP64Lc0hOgkH3RVOEtngItXTortn85FyVieYkQaP20ssHrYMSHvhaYYxSuBuFE2XTwXZMlg8Wvz3yW2hHDVMlRgz+kRZgc5P0COJbtjOXn0yR8MBB6CyzLjgG4Ul657rQZEPNgv+fduDxGvseK0yAM1XFBpfDLBlD5nCGO3w42b1UtR0LplK5SQH8WbD6NMYT4LA8SAUQDx4Q0ATNOnn14Au1GKzfZtflCKGbbakhG+BG/IrzvzNa/gjQxEkfx5+bvDx5jdIVqiD4c3T+V1v/OQgtIF+/7PeZK/3dL+'
   actuator:
     auth:
-      jwk-uri-set: https://openid.bremersee.org/auth/realms/omnis/protocol/openid-connect/certs
+      jwk-set-uri: https://openid.bremersee.org/auth/realms/omnis/protocol/openid-connect/certs
       password-flow:
         client-id: '{cipher}AQB8hr+cj0b6v/xBcNb2P8FaNjWN6yrt0q7PWn2mWXCg/RsfP9MSV/UKlk/pr9yjvl82pw/+6OeNggvDEdpymkP3lnRSTQtUo4osUn8B+vph9uS+UNd/DbJItmQu71T67xGsjq2KR7HrF/5D/NVT9W1h5Eee2QFrjZcHPN9ZN4KWoL93f0LDH0+UvAgIsh7RHoNf45a8fcf6/ivAqBSMX/sUfwkc84tnFypT2+hUJO/HESeh04bh6YyItrwIrinYKl3p+Vc2ibzXOyvNXCNSBKlWeiequVRL1wsdcwQfo5lE8H8n8PExTk9tXYbilv7xLwah3UVldfFNbbPr9QD9y9aAQDN7eKNg2shiIdZ55DObJvnLFKzRMGdPU6WX8ZYQxJc='
         client-secret: '{cipher}AQAxSVi5LfN/4wV7NC5RfAOVrYNcVdj7RNDHPK18DnG7iFCPwuP59VbBPqwZS6/bENd+JP0jth+WTvtSgRMaRhzEWVLWq1FM1YmfzMtf0Eq3X1Bu6deVx8GGTj5fEFMA/TB70mVWvxeAm6T0W1+Df1qsgZePnIr2UgLZ5ZHk0jiCSBHcA2KCt16aGs0/hvAI8AqkPZ6WWWvohWvaoOZDz91sgM9zkoJaMn6KzRGu/V3bHDUUyy9hbi0cXZNU15E9cMh7cBoYNXpZyo9z2P0zocvkjqIgqOxYWobzGxmfgG4tOsBu9v3FcqweUWCn8vvYZZKnzoX4rRzD9OL6UM5WJNBNYowTX4a36NrIezwHb3UQSi0xIzHlRJdQRVupr8QHfVrVT/zPJTHPAw2/oMVBgF3XjxOEtMeKq+e71IlpnOYqWw=='
