@@ -1,7 +1,7 @@
 bremersee:
   actuator:
     auth:
-      jwk-uri-set: ${spring.security.oauth2.resourceserver.jwt.jwk-set-uri:}
+      jwk-set-uri: ${spring.security.oauth2.resourceserver.jwt.jwk-set-uri:}
 
 management:
   metrics:
