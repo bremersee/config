@@ -157,7 +157,7 @@ server:
     protocol-header: x-forwarded-proto
     port-header: x-forwarded-port
     accesslog:
-      enabled: false
+      enabled: true
       directory: /var/log/dc-con
       prefix: access_log
 
