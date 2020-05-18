@@ -87,6 +87,8 @@ bremersee:
         client-secret: ${bremersee.auth.client-credentials-flow.client-secret}
   cors:
     enable: false
+  redis:
+    embedded: false
 
 ---
 
@@ -104,6 +106,9 @@ spring:
   data:
     mongodb:
       uri: '{cipher}AQAjJGH7zYa5FXj7GGvRePTIv9D9e1+CQyLY6RuCDVIh+/nWymVijWttfiSM1qfcuuKNYJhzgYjfqBaGhCIlGTrpVopXc18k9dmsA17dXTIo+WFp4GOBLpSFpk3+vhYM/2ZL3DIqg9PK+QjKuzg7Ro8bjM01qudaUEzJ/t9Z7Ukx1Z4hsPOOzD9iLAqh7BVtdzcvpEASXiguQ7kIdmVpHkaOdQ+GXGZGKhCbiYPrB+C3lY2W7ubFj63GBiNQlyQmwB+TwvhD+eGb0ZWNJftjMVbF7x92Ydpe4AB0wNBYmRACJ6EKbEPlLbPnfDWfTNXRq7EOURz4UOtTNu+A1Oaqy4q5CgErETWWOtwYYooz7mMOTHp0x5OuwvMs3MF5fgVaBXub3NUvse+cgsaIGeqMnBCO9fWKT9phogBHG+1cLBl1lNvDWoHNmBXfo12pkHZKFgeKXhcRV9Z47ts56y1T4VhGVLQEfP8sxyX+L5ch/8Lbb5qR3h18w9iwOishMCSoLLIPADJobWsrJLMaE/6JmeBK'
+  redis:
+    host: redis
+    port: 6379
 
 bremersee:
   auth:
@@ -135,6 +140,9 @@ spring:
   data:
     mongodb:
       uri: '{cipher}AQCXcH3gQBqpb8Pgi7Q7U4+BLx8lEjSP0ss9C7RmFic6TlssZuP7IKyf36psX6az65l6q62VKu2w3Ftm+C5tBaSh1kMGB16I75DDYB+JsQ3pNJ/uQqcZ553UYXiLgW02LZcjlWlLOpNzQKkqGqak+6Js8M9cOFevcd9fGnXcDolE8s1d9RWIk5ZcV4xy5jvzn+BFVrkizop7waCw2WPA07BLU9P18z7P/AnppF8JcU15ZZnv3sT2BWLQTAb/QccJfp4igSjwBCOyiZyct59erJrIrEpMoZyu/GXm3Si4Vinx9DXCFmiJXyh9ScQADh2i8xiJ1V7BFUCa4lYMpfbocVjpryJn0D+AQiwUUNHdES13hHn7sgyHb0I0eGUNWkykYOzmQaD5M3myLfp/j0JjAoBsiDlQeG/ms6+zvW6XSlv960KRk0+OlBVSImAiVX6dxHasE+UzVc7IuNd3U6br5lu88tBODltomBONIQiizanKJjfeE5BUl/wFwhQ8SeL1t5LERm4/PpKtb9U/lZmN6GSP'
+  redis:
+    host: redis
+    port: 6379
 
 bremersee:
   auth:
