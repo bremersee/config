@@ -141,8 +141,9 @@ spring:
     mongodb:
       uri: '{cipher}AQCXcH3gQBqpb8Pgi7Q7U4+BLx8lEjSP0ss9C7RmFic6TlssZuP7IKyf36psX6az65l6q62VKu2w3Ftm+C5tBaSh1kMGB16I75DDYB+JsQ3pNJ/uQqcZ553UYXiLgW02LZcjlWlLOpNzQKkqGqak+6Js8M9cOFevcd9fGnXcDolE8s1d9RWIk5ZcV4xy5jvzn+BFVrkizop7waCw2WPA07BLU9P18z7P/AnppF8JcU15ZZnv3sT2BWLQTAb/QccJfp4igSjwBCOyiZyct59erJrIrEpMoZyu/GXm3Si4Vinx9DXCFmiJXyh9ScQADh2i8xiJ1V7BFUCa4lYMpfbocVjpryJn0D+AQiwUUNHdES13hHn7sgyHb0I0eGUNWkykYOzmQaD5M3myLfp/j0JjAoBsiDlQeG/ms6+zvW6XSlv960KRk0+OlBVSImAiVX6dxHasE+UzVc7IuNd3U6br5lu88tBODltomBONIQiizanKJjfeE5BUl/wFwhQ8SeL1t5LERm4/PpKtb9U/lZmN6GSP'
   redis:
-    host: redis
-    port: 6379
+    password: '{cipher}AQCTSztA3PgRXP1gZTSCqkY5wPkSU6RbBrNYty1d8vd7NaXpbBFXb4eaCgH6R1nkd7Atmgmk5O+ozezlDTciWF7pZaN/IQt/ZkosrgGgoo5OkJ7zuB+zrdk8xr5CGN2fDIuXM6mHDOLt5EM4GnYuIJ42FyEZWCYu5CewgWvDGE59Fdp9/8wLsapbaE96OPgGDkhzGI7u/f7K8aHu+Z1MhTHsLAuFSy4ikBXKYAYdvvEb0izxrp684ME+Hr9l9Fq1/GEcFV7aw2ahoU0H/p35aHoGMYZpbkAqgZTmf3XrkJ8f/eGNgo7BcGwMciVOts3ZS5ezHwRhzngfmN4Utk+pjxHNtIkuNmAQZB1YRCzXGRE8pZ9su/wdL/BuCmE4xeDvoyGQAJJiUOdtNgC0hk6C9vwH'
+    cluster:
+      nodes: "dev-manager-1:6379,dev-manager-2:6379,dev-manager-3:6379,dev-worker-1:6379,dev-worker-2:6379,dev-worker-3:6379"
 
 bremersee:
   auth:
