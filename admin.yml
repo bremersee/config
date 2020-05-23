@@ -63,6 +63,10 @@ server:
       directory: /opt/log
       prefix: ${eureka.instance.instance-id}_access_log
 
+bremersee:
+  redis:
+    embedded: false
+
 ---
 
 spring:
@@ -79,6 +83,10 @@ spring:
   mail:
     username: '{cipher}AQAuxiB+ICkws7gag2S/lmPZiOxefwox7SfeiTEzZiFh3kv6BqGCVMYOWbKeS757jOacCM7OxhOLIsjoqBGWIJfgCWuhN5+sPjQtR+/FIp+vkDajG6UG/nOx62goX6SDkC0IPoW52aNTaXbG0NX8kFXALbiOa6Cu8bTLXkNk6RUOd7AAwkNrTGJGdoOdrniFrIqKx++xb3uuUw1iwqsm/Z1C/CUbfZdGlfqRDBa6TQsdvzl4ydhl8AAQVwxPgyLfljAE6Wose2ao7rIZ70f3g6Dd0UdMULQNxCreX2YhM5eJnBtI6r+2OpjIt93ypSjCSmFgNtUjDA6dltBo+5rPWdknqy7xdXE7IheZJNsY7y2bA2nLfyzTVys4PFygmCQi4okXCgGjbBQVPo02G7kRV6L+'
     password: '{cipher}AQCESN/nMs5rDfg24+jzY6RMCMxCPkO1fO/3qYlncs1MrMJNN3mfLvusptpR8TbCOFVA9cHvWkMI5S5S3nSFFosKzrWNrlDPYbD7R830El2KXoEtB99twgkFx+LL7PckUN72n3MV+RHPAxDj/JgNMigImd5nmLHrA0Yjb2ijhQdvBeeAiozQjRHlizQadwSfV36v2O5wORHWbWDQBIrX7yPuYXhf7NP/lllycrTAr0fK1mvAY+Up3Utyhv6OzAI6AR+JQtrfQIFc2MXr6qnWFUE+GrpafuXPpQ+xdzrXDVTfYAD0pUU+qMmUTM9JisGN0trTlp/5sq3V/yZgkxrAStt+XvoeFGC6Oky8rbtZbbjzVZMC72QrRAsmze6YdvgNbBKiAzy/vsuJRLbT++ZrXegK'
+  redis:
+    password: '{cipher}AQCTSztA3PgRXP1gZTSCqkY5wPkSU6RbBrNYty1d8vd7NaXpbBFXb4eaCgH6R1nkd7Atmgmk5O+ozezlDTciWF7pZaN/IQt/ZkosrgGgoo5OkJ7zuB+zrdk8xr5CGN2fDIuXM6mHDOLt5EM4GnYuIJ42FyEZWCYu5CewgWvDGE59Fdp9/8wLsapbaE96OPgGDkhzGI7u/f7K8aHu+Z1MhTHsLAuFSy4ikBXKYAYdvvEb0izxrp684ME+Hr9l9Fq1/GEcFV7aw2ahoU0H/p35aHoGMYZpbkAqgZTmf3XrkJ8f/eGNgo7BcGwMciVOts3ZS5ezHwRhzngfmN4Utk+pjxHNtIkuNmAQZB1YRCzXGRE8pZ9su/wdL/BuCmE4xeDvoyGQAJJiUOdtNgC0hk6C9vwH'
+    cluster:
+      nodes: "192.168.1.41:6379,192.168.1.42:6379,192.168.1.43:6379,192.168.1.44:6379,192.168.1.45:6379,192.168.1.46:6379"
 
 bremersee:
   auth:
@@ -110,6 +118,10 @@ spring:
   mail:
     username: '{cipher}AQAkL9eKoBKgEhQ8ZXntCun/pxFMNyOk6+FEy6NWOGAOoltJpnw/z4sk58cyI1xAz1jRcOVKPnOwdqIJv24K+02wdPx3wgc4vhRSbCa5nwplzE9bBqfCWnfc7a6TTMqo1c3o1xpwHrY+FpvLngfN3hGGxdYiWTosVOHRHKvjnkmNsHNBhQSRGpiPagdVrIx97lqnCSEGMHG6WoD2Hy73LN3avQ0S1ubSPO6cA9WV7eF8RISmyvxMB9RTXUnkvKOCddXhlLxFATWDYp3O8YZYM6K34bRb7Z5VU/0e1p3SgHwrgPDk1BwRNBxC44Mp0j//69VLz0y6q6ROvMkw0iXxgPasbY3nAXj6957N6jMdyd9l6fV/j8P3C33hFMGAtJOd3dgXoBnD2/lc+ghgnFSpiIrN'
     password: '{cipher}AQBKFd1S7+TikgQMFGZMxoJfFv+fVW1JLvyfIaK6iR5CVhFm3EwqNe7LxCis6++ZjmScX2l//W6oAkU1WIVi7UW+BMMJ3lZQ5yY8KlQiegci7GQeMqtwRPZsswy8f7HUUqQmsNaeVjlQc4tVR6ZsPHlaPB4J1Rbfrx0lNo0Fs53pVThSR6EqGZbz8zN1KKot7tXrzQXUjQGVozhTO6WzybD4QwhvOoF7qWADW6JZF9JHT7sgF61j+bzxf4pVRXY9Hl5bznpCJDjfVefPOo9tNzgwZRITSirOCMj2SsE2arYqZGpK8sSu41PAqKt1RSBUK5t13hmxGGU5yoRoOVPgOt40dRVE1BHWtePPEmpNaa9gSYD8WKrYpINtkJWdgHfJO32G/ubsa6KbEjh6RnIyVSfq'
+  redis:
+    password: '{cipher}AQAN3SBtcObu2mRWgqu3m+94OEroGqz6d7vZCIZcIKDI0WJAHmuQNXmtHW4zkemnBdpzR0OX2W749Abpk/8E8G5GuKK2E1tCIqDSG3ItAlhjJ6kFGjET0/oOaB2LFIXZNwqAz34Z2tc2OIu+7NtzGywQuLzrr7J8nH0PLjdvdGdAWyH06lxAuW/MsnJfiORW8CBmvsyjFEo2smlHY2jnMZPTEprVGYIJq670O+W1WokxVjjUEIow4zpczRTBiFn/J85UoQduju8aMTxQJEQAVsFpTNj6PBMEbSjVDxZfRqej80UgR9SXBU6z73GWzT6si9K6s2Az4parCKsp1UpB0ubvXFNI8ZddgfXEN7ccUM5JQpFuHA8KTfqylulL9LHxGbliQjrLi5lishbYfcrVQcBc'
+    cluster:
+      nodes: "192.168.1.51:6379,192.168.1.52:6379,192.168.1.53:6379,192.168.1.54:6379,192.168.1.55:6379,192.168.1.56:6379"
 
 bremersee:
   auth:

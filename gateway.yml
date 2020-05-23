@@ -54,6 +54,10 @@ management:
 server:
   forward-headers-strategy: framework
 
+bremersee:
+  redis:
+    embedded: false
+
 ---
 
 spring:
@@ -62,6 +66,10 @@ spring:
     inetutils:
       preferred-networks:
         - 10.0.7
+  redis:
+    password: '{cipher}AQCTSztA3PgRXP1gZTSCqkY5wPkSU6RbBrNYty1d8vd7NaXpbBFXb4eaCgH6R1nkd7Atmgmk5O+ozezlDTciWF7pZaN/IQt/ZkosrgGgoo5OkJ7zuB+zrdk8xr5CGN2fDIuXM6mHDOLt5EM4GnYuIJ42FyEZWCYu5CewgWvDGE59Fdp9/8wLsapbaE96OPgGDkhzGI7u/f7K8aHu+Z1MhTHsLAuFSy4ikBXKYAYdvvEb0izxrp684ME+Hr9l9Fq1/GEcFV7aw2ahoU0H/p35aHoGMYZpbkAqgZTmf3XrkJ8f/eGNgo7BcGwMciVOts3ZS5ezHwRhzngfmN4Utk+pjxHNtIkuNmAQZB1YRCzXGRE8pZ9su/wdL/BuCmE4xeDvoyGQAJJiUOdtNgC0hk6C9vwH'
+    cluster:
+      nodes: "192.168.1.41:6379,192.168.1.42:6379,192.168.1.43:6379,192.168.1.44:6379,192.168.1.45:6379,192.168.1.46:6379"
 
 bremersee:
   auth:
@@ -84,6 +92,10 @@ spring:
     inetutils:
       preferred-networks:
         - 172.16.1
+  redis:
+    password: '{cipher}AQAN3SBtcObu2mRWgqu3m+94OEroGqz6d7vZCIZcIKDI0WJAHmuQNXmtHW4zkemnBdpzR0OX2W749Abpk/8E8G5GuKK2E1tCIqDSG3ItAlhjJ6kFGjET0/oOaB2LFIXZNwqAz34Z2tc2OIu+7NtzGywQuLzrr7J8nH0PLjdvdGdAWyH06lxAuW/MsnJfiORW8CBmvsyjFEo2smlHY2jnMZPTEprVGYIJq670O+W1WokxVjjUEIow4zpczRTBiFn/J85UoQduju8aMTxQJEQAVsFpTNj6PBMEbSjVDxZfRqej80UgR9SXBU6z73GWzT6si9K6s2Az4parCKsp1UpB0ubvXFNI8ZddgfXEN7ccUM5JQpFuHA8KTfqylulL9LHxGbliQjrLi5lishbYfcrVQcBc'
+    cluster:
+      nodes: "192.168.1.51:6379,192.168.1.52:6379,192.168.1.53:6379,192.168.1.54:6379,192.168.1.55:6379,192.168.1.56:6379"
 
 bremersee:
   auth:
