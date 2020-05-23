@@ -61,6 +61,8 @@ bremersee:
       enable-cors: false
   cors:
     enable: false
+  redis:
+    embedded: false
 
 ---
 
