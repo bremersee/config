@@ -48,6 +48,9 @@ server:
 bremersee:
   redis:
     embedded: false
+  actuator:
+    auth:
+      enable: auto
 
 ---
 
@@ -101,6 +104,13 @@ bremersee:
       client-id: '{cipher}AQBrXoktCBTT9dS4YjA3ZB8Jw7wTxwESGbyH+Y3a9c8+Ro3+D2QtO36eviqEuqibxD2/1e3huFw2BZJ7q0Rl/KUdMsxuVuhM21/1/hPI7fZY9K+haMgSrB2noc+3rzOQE7R37orqrL4ZuUBnMBnb4NVmPvC1LvvYVBSKlAckqLCRziJsZuzbW93DgDawnsCFy1zO51R+rXa8jyrpaRcjTTiRovok/BnuDaWTAoM+CudN9oX2N00x45f1CD8k5NMtCRXTbMi2/e+lWcU9aAdn+2O8NGAthEk8r10uY1FgbcH8WyaFwyKUNNP3rO3iFtyKHF/IAogi0L9WAVYTtDWDZJkRCZp4YLOn9WLdgxNDCyTPKKO2WmOOGogcN6yMNngCYNo='
       client-secret: '{cipher}AQCK18eLpNwMs14FI+al9qku8PlDc+hWWQwgjPXgET/nroA0F/QTQCiaoDodDckRZ6bWAoNZBoLsHsixFSdvyRN/7nGvG0YqRP0ZUPKB8B+pxTxmhNdnMvtn4fTf8/W2B0+swloXs1v+Sx+rnOlGTZYE/eOy0Wcl7DPp5ij0wvFw7ZGVVj1FFZHnN82Df3Tjv3Cr8dMSKG3mCrix9mto8ns5G2JnyCcZZOSqUn0F97DXmld8h64rI4ii6DS5ACuH+dlygV/u/K56DVlab2ArR2eG4Ha8CKOoEzVzbSFsYi6mcLa2Lgs5/ibOOMMvYbt1lsv0F8CmiT1lv/E6nK27A0ULxgwp2La+I8U2JD2u5uqTvSswO0RkVf2BuhDuuehiCKbo9DmyOmUH+NkKwV9mTE69rw9I2EJx84TQVCQkK911zA=='
       token-endpoint: https://openid.dev.bremersee.org/auth/realms/omnia/protocol/openid-connect/token
+  actuator:
+    auth:
+      jwk-set-uri: https://openid.dev.bremersee.org/auth/realms/omnia/protocol/openid-connect/certs
+      password-flow:
+        client-id: '{cipher}AQBamfxmN7Kh18ITIt98EiMKyz+vWdSR3S0rtdbfS5OSL4V6Z1LJMZmpk+2pF9hC+GP3jDsVwnRy1X8HHmR6Zxr/QbooTT9q+y++w2KTTfYJBVSNsqDrmYIhVshdTlxQOjR1qsSSaIIjNtgvSU2PSkeXV2KqGG5937PSA/jj7KCQkMZQqT3I1RdQa6YFgvyAjU8PanRyM/3HroFKYIhKZp9mkPp5EbzNlPHxSVx9w3faOZr2Ivw+V3UPPS0w/+3Td4jvhaK2O+Q+ANeY7SFmQc6ArtAy1pUAEhEfoSw5m1TMPlkJMB29gVYk4pkuyCWwR8dfPyTv/1YRGpLGCxx6IxnFIVgIicieW+jb29Haw+UsTVF9OVt6Dik6j7ZmsR2NSAQ='
+        client-secret: '{cipher}AQBE8x7C6zByo12NFl4JQK48V/Kmkv0CvMd/s/ts6/ldNveXhz2LMWXGe2RUYC/jjfHuXCtQtX9QX84UDL4KuUkv83zTlKEOvZDu/bKeYlehVui0XtjFjqxfva87q529rvKAFptIz1PQWbdMVQD0TVygUkGvqLIMt1yaoi7pKfFMgAnlJh4usmdtvu80rO7QRYp5o52pCYuMvO3uRtWy2cnrH8QWFUwxZrPBz+uSmn/KtNQwgVyfbQBJhr+1T95p2rM0lX7YIQ+JyhxlXAaibaqyKlM7xX7/3o7TWjJVGZsRJq7iLFzSAd4JM3WbB+AJmomvXTqGVeit4E1UCV5NYl9ZsC84dBsq2DLUMkgGKXb0i2LIv67PnAMzzOkMH+SqmZ9VyoBk/hgbzHXaoe7XO+nAvZ0XWFxGc/nRC0DeKtpFYg=='
+        token-endpoint: https://openid.dev.bremersee.org/auth/realms/omnia/protocol/openid-connect/token
 
 ---
 
@@ -129,3 +139,10 @@ bremersee:
       client-id: '{cipher}AQAxY0ENqYRV6yyGyFycsXuGBboMOlGA7Fuq0GfBFdn0kcpCeQBsu5MfePfclrin2m1He6gQ+/HzejSGpauWHY30+G7t8jmLb6DwTFiL7AjqSFYcYtb9BOwerX3+mu9C8YMCCHwjC3b8BOdWxYNI65k6xFDjFWfIUpiVLLF5jlZY4klo10slrvDwWWabqszCipUQhYue9q0nXu7CzjkGMNkEenKY6Qj/pRniRN77TpfuiHF+5OptwK/LnPuEAfFRNJXbe8vGCgKeHGvYo2DBSMtnm7wxw8BkGW9bDsJSKu5+55SuAsq9ubH48rrlgsGqZ0JQ8o6Py6yatEjcbqop5j/oF8PeZplupe9IXEXE1MQrhmk6A2hyaslEIHFs0d2/oGI='
       client-secret: '{cipher}AQCD85ZU55kSC2tyU28U7AdQueKDOWM9PRZiJKKgkKegPqdpzBx3gvNJrmmnKZMMtv3mNO2gWws9RAIcpj//zgA8IwHIVDG3rJvUrscSpuBfryUf67/BteLaZgp4UcqbkX+Yp2b2dW6tWL84v4H5xEU+yBDNJ1PHVkPAmf83j4lChVxqfk8r0A/gRP6QMszO+YwcUEeX+DXE1m3Q2PV09AxXNZgTVzNj3TBZ6hSC/2JT3ODXUNrlOM+bbeXRkpx7FCekw05pA2waW9Xpl3BPVYoPjeI2pX7GsTUKSNTVGzrrn6v17DcdN5Fzq002HzNkWve5tu+QJKzupGcDeC1tZkY1uUAdw06OwLBvHJ4devJfow6qsq0/gzb+QI4eMse/AKUJr/2PAHCnKPIY4XWEguwDkZo8lFtOpTRavX9U34uNdA=='
       token-endpoint: https://openid.bremersee.org/auth/realms/omnis/protocol/openid-connect/token
+  actuator:
+    auth:
+      jwk-set-uri: https://openid.bremersee.org/auth/realms/omnis/protocol/openid-connect/certs
+      password-flow:
+        client-id: '{cipher}AQB8hr+cj0b6v/xBcNb2P8FaNjWN6yrt0q7PWn2mWXCg/RsfP9MSV/UKlk/pr9yjvl82pw/+6OeNggvDEdpymkP3lnRSTQtUo4osUn8B+vph9uS+UNd/DbJItmQu71T67xGsjq2KR7HrF/5D/NVT9W1h5Eee2QFrjZcHPN9ZN4KWoL93f0LDH0+UvAgIsh7RHoNf45a8fcf6/ivAqBSMX/sUfwkc84tnFypT2+hUJO/HESeh04bh6YyItrwIrinYKl3p+Vc2ibzXOyvNXCNSBKlWeiequVRL1wsdcwQfo5lE8H8n8PExTk9tXYbilv7xLwah3UVldfFNbbPr9QD9y9aAQDN7eKNg2shiIdZ55DObJvnLFKzRMGdPU6WX8ZYQxJc='
+        client-secret: '{cipher}AQAxSVi5LfN/4wV7NC5RfAOVrYNcVdj7RNDHPK18DnG7iFCPwuP59VbBPqwZS6/bENd+JP0jth+WTvtSgRMaRhzEWVLWq1FM1YmfzMtf0Eq3X1Bu6deVx8GGTj5fEFMA/TB70mVWvxeAm6T0W1+Df1qsgZePnIr2UgLZ5ZHk0jiCSBHcA2KCt16aGs0/hvAI8AqkPZ6WWWvohWvaoOZDz91sgM9zkoJaMn6KzRGu/V3bHDUUyy9hbi0cXZNU15E9cMh7cBoYNXpZyo9z2P0zocvkjqIgqOxYWobzGxmfgG4tOsBu9v3FcqweUWCn8vvYZZKnzoX4rRzD9OL6UM5WJNBNYowTX4a36NrIezwHb3UQSi0xIzHlRJdQRVupr8QHfVrVT/zPJTHPAw2/oMVBgF3XjxOEtMeKq+e71IlpnOYqWw=='
+        token-endpoint: https://openid.bremersee.org/auth/realms/omnis/protocol/openid-connect/token
