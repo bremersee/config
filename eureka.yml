@@ -9,6 +9,7 @@ eureka:
   server:
     enable-self-preservation: true
     eviction-interval-timer-in-ms: 60000
+    peer-node-read-timeout-ms: 1000
   instance:
     prefer-ip-address: true
     hostname: ${HOST_NAME}
