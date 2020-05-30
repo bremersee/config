@@ -38,9 +38,12 @@ server:
 bremersee:
   actuator:
     auth:
+      enable: auto
       enable-cors: false
   cors:
     enable: false
+  auth:
+    resource-server: none
   redis:
     embedded: false
 
