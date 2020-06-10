@@ -124,6 +124,10 @@ bremersee:
     groupman-base-uri: http://groupman
     keycloak-base-uri: https://openid.dev.bremersee.org/auth
     keycloak-realm: omnia
+  minio:
+    url: "https://minio.dev.bremersee.org/"
+    access-key: '{cipher}AQAL1hqB+TM6/JVyBa/vYt2Hn2B6f6aaK/y9fqLFhlwRyhmuKdXBUnhJ2rLS737MXSJfpneTfQv/pgmqWBABMObYuRVh/EhniKCqG5G3m03x54yDzOV/J+CwPI4ys3xggWLihmpbzBEbqe5VMucqXz++m14nMk0+2hcScUz3cZeP71aXuJfV4h2icOmjZ97Qofk4q8UOME7E+QNaNYorXjcGQlTWjEspmW6WOhswP7E/tfiS/EoyLvgslW/D381OpqwY+NKtqK/CHYL4Z+Pcpny3k8ujIqDzGKVSryJhFw+yFVDlLD3SIQha9cp7BYzBWDd+Re4kXpGbnJpfDs0gQi5I84vZC930jhW8romEvk1d9EByAdcfv111uSI7Jr93KYDKejsbqjKm8Su3ECXd5NYz'
+    secret-key: '{cipher}AQCeNO9Zy2Kg+ZXocW2qJmyNYO4sMwkIeE0qHc7SpZpG/KBm5rv9FYphhzGAjd/EHYFswZDfcPYPFtPsptsS57SIXUSJ+OF7XPE5aOnMaNIq0Z2qT/R0HDuqEhqiZwXpEJB0VD2wj5lkBwQFjPKwCUoSVL8CPyLPt1Q2KR89Ut0LiRiVMa8+TtImIDmqESFe6bV5MD1ABRGjkvf1Ry1hM0yAxRz/bYQPf244kiWJNBlS7M/FArWO20WrGZxxgMUeBw2u5DodGYYJNrAyyVk0JQy6m8oggqUjid1291DJgYs8ets7cJCDVipB8pKq9vnYuH6tQC2lXw7jPHRD5hcKBZhW2W7f17VzhnP0+SEhHRZi+Pq0L8aRfvpJ/85mLSJOOgPe3D/QQcX/WPtsGvBI83dTnbJHBBbb+HQMdJogT1vz7Q=='
 
 ---
 
@@ -145,6 +149,10 @@ spring:
     password: '{cipher}AQAN3SBtcObu2mRWgqu3m+94OEroGqz6d7vZCIZcIKDI0WJAHmuQNXmtHW4zkemnBdpzR0OX2W749Abpk/8E8G5GuKK2E1tCIqDSG3ItAlhjJ6kFGjET0/oOaB2LFIXZNwqAz34Z2tc2OIu+7NtzGywQuLzrr7J8nH0PLjdvdGdAWyH06lxAuW/MsnJfiORW8CBmvsyjFEo2smlHY2jnMZPTEprVGYIJq670O+W1WokxVjjUEIow4zpczRTBiFn/J85UoQduju8aMTxQJEQAVsFpTNj6PBMEbSjVDxZfRqej80UgR9SXBU6z73GWzT6si9K6s2Az4parCKsp1UpB0ubvXFNI8ZddgfXEN7ccUM5JQpFuHA8KTfqylulL9LHxGbliQjrLi5lishbYfcrVQcBc'
     cluster:
       nodes: "192.168.1.51:6379,192.168.1.52:6379,192.168.1.53:6379,192.168.1.54:6379,192.168.1.55:6379,192.168.1.56:6379"
+  minio:
+    url: "https://minio.bremersee.org/"
+    access-key: '{cipher}AQAS3W1l3vdShZEFgSlcHjHafjW4HxDQYQVwn7UBa9KD2CDKp3WaG72jvryYBu5vnxOTb7AWUzxYcywlAVewyukB8E77Odr0/jE2Hk7C0+yA1+IxWR5JrszmeaVcYTam0xxbsLfn2zhXiCMLv/7vrcOlgVcrSRepGY3ac5wZemgP96fh2QPi42OyR1b4a+4Y/6GbshLZyKfxum2GzETmBMpp1gvAGhnKByePPZ0O/OGqbQ/aLfh6Up02HIq2l3sb5pqcVtSmTMzjwKqA3lEm9WeHWmo8JoGyuGBi35T55IOPijAU7p75DxaiThdCedZcjOREjLgfE6drHbU+AXPVvkKHj2NF2W3kwhK46xhxAjTGVEoojJIeP4zg2MX/SvmwXBuCj4sqCsDhgKFrK5sCC4j7'
+    secret-key: '{cipher}AQBd4+OlrmAzLj/vCdIf/fHJHDh679Tv063bKcdpWNW8P6NL8WVL59hXuBDA0lHFtvz9yjrinw57ra1Gm1fXw+CYyXbzPKzGyOuo1G2kEnxmfH2EAKyDEDqSnux88oN+upvNq+qv+At7rUWZP/OSXMO2ImPja3g6pg7KezP3RaApJmb8keiLQu+TZwKBo7Iwx+L/bDm5hDSPhTg3WciuuiVF+BcPz9yTIF7xUGHQ9h1K8auL9qgY3zG5Ddh1W+xFvsUIKYJxFfiafv54IOtvbbRKIZP6Pw4RHaPfNBKiLrHSSl44IA8pJepC6Y7vqxNvvdgWDk/EcVxBngKvDS6JjD6FMNR3QGM2PqcwvSVWD2K+MYWn80HIGK1KOw60QwvXle3Pqv7IDPgp2ZXgFPf7etrT8OIVYYnOuBaVwAK9RLl3gA=='
 
 bremersee:
   auth:
