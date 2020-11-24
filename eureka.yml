@@ -7,9 +7,10 @@ spring:
 
 eureka:
   server:
-    enable-self-preservation: true
-    eviction-interval-timer-in-ms: 60000
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 1000
     peer-node-read-timeout-ms: 1000
+    # see https://github.com/spring-cloud/spring-cloud-netflix/issues/1322
   instance:
     prefer-ip-address: true
     hostname: ${HOST_NAME}
