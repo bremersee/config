@@ -183,7 +183,6 @@ bremersee:
     enabled: true
     use-unbound-id-provider: false
     ldap-url: ${LDAP_URL:ldaps://example.org:636}
-    use-ssl: true
     use-start-tls: false
     bind-dn: '{cipher}AQBAyUg8HKpK2KNQxr89z/3tnpEuVuT4+2kbdgNq/ezxdi0254pRXn0GNOjTkIOT01tMrKPUcUBgZj/1WFkSuBD7H3Q0WR/tYMT644pZzwC4Jpn/j8SWRcHqJKDAq72W3tbVdOzG7v0mu+29hY6qcVx8/9+cZPYyScLz4CGUvSIx+xq1Hlv4hIbixvVCOPzJWoTpTuqGrYwXu0O3G1Wru+GhK0tfRlwnCbKyiac4yIa+HBAahMV548+oQqiD7AXXp6BDYIODo7kBBsQk3aFWIu9PdFZKeQrXgQ7zZ8SS0HPJ+mESt96nT+xDkur5PgwnmQUc6mEoNDGCoQBRpMEseAaS1HjiJCPs/ry9IyRtj1n9vLmkuTXHNc6351NtKZy4s4T6n+hA4zJdO1Gas4CPPJvPRjzNeLye78UiKXlR43X96g=='
     bind-credentials: '{cipher}AQBFsE6aRbmoiZfWYqR80BKl6mLOgB58tJ82RaKUScgqnNBXW+qBoXzkNwiQfWbahH3lGWRsV6QgZJOyXBWP0tB5ePRAhJCZcRi67zVyBXzqlvAXGn0RF97Qf260yBKoBVFrdEcGUODruuG0vb9SiGfLuxhSxhE0iGl4ubhWucDnS8bKiH3wW6qB0t7HYfHsHg/YkIgZDD0vgOpvAG+7ckIR9NXsH6LPCf4ai80KVC3ShPD8/gMGhv6DrSLAHoItxyO0u//Kb7iRPaVLvFh4RWd2KVhAbzeQAR3xYKLUkJGkpGd1WarKGDbkB2THaM6s2PL3toIwMMka6L7gYYj4GIIsJNZ3EDswKcDdpYcjZ53nGb1ZLF7ZKcYFKzOiHNPW+nZFpMZN7Iz/GR7OXj/Q/hP1'
@@ -193,9 +192,6 @@ bremersee:
     validate-on-check-in: false
     validate-on-check-out: false
     validate-periodically: true
-    validate-period: 300
-    idle-time: 600
-    block-wait-time: 10000
     search-validator:
       search-request:
         base-dn: '{cipher}AQBp1vdrl/J43sscxYkYtDoyvtm8UCgmxznDrSpiwrh24yJd5ltHW2cHamcOojU1Ro+h3gYLJqVY2dT17i19OHKxSBXQAUUTMmWazwOeFpqLAFBS21PWKt4j0rkDLTxq7FbNmpXhjWwap/5lPyjV8BHJkmJl27DRpb6yqqQ14LBf8XLaCm4GJn32wWCUkFI7TOXo5RbTO/0ggqbk+K2vHrSbI2bczfVjFrXOHbVOIPIB7eSi3o5oe+O9N/wkTO7mI7qvoByw1QFDyDgHbFxwePkmQKNQb+u3csGdgK7GiOnDJveIo9ASBR/1d9fcAP5cwdn0p4/211T1mznlC4J9vC2u7reCAq34/q7Sq1VvnTjhcNUSRJvxOwo9Uja6xEB9KRA2bYQk7nv2g4ikZU8x3DaO/GAxHrRbDGYL0KfilC1UwA=='
