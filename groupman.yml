@@ -72,9 +72,7 @@ spring:
 bremersee:
   ldaptive:
     enabled: true
-    use-unbound-id-provider: false
     ldap-url: '{cipher}AQB+foyajAOpFFQ3s9/jmCRoZiNiOKw7FSaA7zbWxCAG40i9WUZZKi5aCzkW/KGqmhi8jDx+A7LrjOqq5ZmjdqlOSh0JNxMRBl9e+8Rd2NsyhUHVGunNwQR0B49ZLb/EEecKedgD8Q1o+eU6tnvWpERPMJpUs4V4XQHhhemyBN3bRvZ8UsT5Bjwq/hHP0VNJTS6jw4eYu8RFZCJrsm5ks2o8hpcjWb+f0VgR1Y/WrFoYVpZW+fI7CwA6lyGRb42JR5n7eXpD59lRaVwv7l+kF5ou1TSPbeylGXxrh9KpdWqz/sBA80pb0BA644zc4dNJldhAIFqWpXL1d24p4nXhiPcbzU5bDcz/H5/Xyj+qABJSFfCMLmhZWy7kzNRpAxjIzOcdwMzcKRJ25JvFVH75WWjRsYIfWgyT24j8RAU74mYqblSHuLmhbTdCM9vpZkgiCZHD9ntX6jHq0VSPxbfoNaR6'
-    use-ssl: true
     use-start-tls: false
     bind-dn: '{cipher}AQBAyUg8HKpK2KNQxr89z/3tnpEuVuT4+2kbdgNq/ezxdi0254pRXn0GNOjTkIOT01tMrKPUcUBgZj/1WFkSuBD7H3Q0WR/tYMT644pZzwC4Jpn/j8SWRcHqJKDAq72W3tbVdOzG7v0mu+29hY6qcVx8/9+cZPYyScLz4CGUvSIx+xq1Hlv4hIbixvVCOPzJWoTpTuqGrYwXu0O3G1Wru+GhK0tfRlwnCbKyiac4yIa+HBAahMV548+oQqiD7AXXp6BDYIODo7kBBsQk3aFWIu9PdFZKeQrXgQ7zZ8SS0HPJ+mESt96nT+xDkur5PgwnmQUc6mEoNDGCoQBRpMEseAaS1HjiJCPs/ry9IyRtj1n9vLmkuTXHNc6351NtKZy4s4T6n+hA4zJdO1Gas4CPPJvPRjzNeLye78UiKXlR43X96g=='
     bind-credentials: '{cipher}AQBFsE6aRbmoiZfWYqR80BKl6mLOgB58tJ82RaKUScgqnNBXW+qBoXzkNwiQfWbahH3lGWRsV6QgZJOyXBWP0tB5ePRAhJCZcRi67zVyBXzqlvAXGn0RF97Qf260yBKoBVFrdEcGUODruuG0vb9SiGfLuxhSxhE0iGl4ubhWucDnS8bKiH3wW6qB0t7HYfHsHg/YkIgZDD0vgOpvAG+7ckIR9NXsH6LPCf4ai80KVC3ShPD8/gMGhv6DrSLAHoItxyO0u//Kb7iRPaVLvFh4RWd2KVhAbzeQAR3xYKLUkJGkpGd1WarKGDbkB2THaM6s2PL3toIwMMka6L7gYYj4GIIsJNZ3EDswKcDdpYcjZ53nGb1ZLF7ZKcYFKzOiHNPW+nZFpMZN7Iz/GR7OXj/Q/hP1'
@@ -84,9 +82,6 @@ bremersee:
     validate-on-check-in: false
     validate-on-check-out: false
     validate-periodically: true
-    validate-period: 300
-    idle-time: 600
-    block-wait-time: 10000
     search-validator:
       search-request:
         base-dn: '{cipher}AQCkR8AGNdk6bICBa7h79sYDpW7bNTl7vMpm0BxlDj2b38CdjbaCKdK5BU9aN5K1N+ol1a2gkXw2mcdUMQHD9CPIbr2/VAQ/glvha9zo/AuAOagA0pKXITvsH/ouQ6MyhNKw0nNdlqWVvfaj01yigpzkJW5db2NutD/5YwwgLo/5FP6WSWFN6blaU9xEdgRNGI6kZpkq+Ks/l0EYYqACr/0jtb4ra4KpoOena/IjsKsn+N2lU11yWaMjrQ0PbBKENUN6baKQFhH9Y8OE9UHx5IAWNmqGB2V2i2QLB2Y4mtTEX6azaiO58qlrZtea8ftbPa2rtEHMWqaVpAYWyFG0a6f3xu99OtFOzVKMcjs2NVDcAtgSFgPRrF5NakeTLbqS/VlUqrZgehva1N9uBbUY31sDzh1n1cgi5tVqfNC1nHyJqA=='
