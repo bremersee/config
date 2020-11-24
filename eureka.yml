@@ -34,6 +34,10 @@ management:
   endpoint:
     logfile:
       external-file: ${logging.file.name}
+  # Redis health check is broken: https://github.com/spring-projects/spring-boot/issues/22061 (will be fixed in 2.4.0)
+  health:
+    redis:
+      enabled: false
 
 server:
   forward-headers-strategy: native
