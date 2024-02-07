@@ -27,5 +27,9 @@ spring:
           uri: https://github.com/bremersee/config # for all
 ```
 
-Will this work?
+Will this work? Yes!
+
+But:
+When using a composite environment, it is important that all repositories contain the same labels. If you have an environment similar to those in the preceding examples and you request configuration data with the master label but the Subversion repository does not contain a branch called master, the entire request fails.
+
 
