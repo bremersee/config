@@ -6,4 +6,3 @@ bremersee:
       http://${bremersee.eureka.username}:${bremersee.eureka.password}@app1.eixe.bremersee.org:8761/eureka/,
       http://${bremersee.eureka.username}:${bremersee.eureka.password}@app2.eixe.bremersee.org:8761/eureka/,
       http://${bremersee.eureka.username}:${bremersee.eureka.password}@data.eixe.bremersee.org:8761/eureka/
-
