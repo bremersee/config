@@ -5,7 +5,40 @@ bremersee:
   eureka:
     username: '{cipher}29702559bb6aa1a222c90a1a5aa0f0b1d683812c50c5cf34481bed56726a48d1'
     password: '{cipher}837a17de38fe666e130fa25cf23ba87e4761c9e01d967521540dedfe1d83afc7fb50cd5d5c8bcfe48730fa7d0511c87c'
-    defaultZone: >
-      http://${bremersee.eureka.username}:${bremersee.eureka.password}@app1.eixe.bremersee.org:8761/eureka/,
-      http://${bremersee.eureka.username}:${bremersee.eureka.password}@app2.eixe.bremersee.org:8761/eureka/,
-      http://${bremersee.eureka.username}:${bremersee.eureka.password}@data.eixe.bremersee.org:8761/eureka/
+    defaultZone: "http://${bremersee.eureka.username}:${bremersee.eureka.password}@app1.eixe.bremersee.org:8761/eureka/,\
+      http://${bremersee.eureka.username}:${bremersee.eureka.password}@app2.eixe.bremersee.org:8761/eureka/,\
+      http://${bremersee.eureka.username}:${bremersee.eureka.password}@data.eixe.bremersee.org:8761/eureka/"
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: simple-ldap
+
+bremersee:
+  ldaptive:
+    ldap-url: ldaps://dc1.eixe.bremersee.org ldaps://dc2.eixe.bremersee.org
+    ldaptive-template-class: org.bremersee.ldaptive.LdaptiveSambaTemplate
+    immutable: true
+    use-start-tls: false
+    pooled: false
+  authentication:
+    ldaptive:
+      template: active_directory
+      user-base-dn: "CN=Users,DC=eixe,DC=bremersee,DC=org"
+      user-find-one-search-scope: onelevel
+      refused-usernames:
+        - "Administrator"
+      role-prefix: "ROLE_"
+      role-case-transformation: to_upper_case
+      role-string-replacements:
+        - regex: "[- ]"
+          replacement: "_"
+        - regex: "_ADMINS"
+          replacement: "_ADMIN"
+      role-mapping:
+        - source: "Domain Admins"
+          target: "ROLE_ADMIN"
+        - source: "samba-admins"
+          target: "ROLE_ADMIN"

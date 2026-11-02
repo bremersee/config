@@ -98,7 +98,7 @@ bremersee:
     ldaptive:
       template: active_directory
       user-base-dn: "CN=Users,DC=eixe,DC=bremersee,DC=org"
-      user-find-one-search-scope: subtree
+      user-find-one-search-scope: onelevel
       role-prefix: "ROLE_"
       role-case-transformation: to_upper_case
       role-string-replacements:
