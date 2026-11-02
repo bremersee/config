@@ -3,6 +3,9 @@ eureka:
     eviction-interval-timer-in-ms: 1000
   instance:
     instance-id: ${spring.application.name}:${eureka.instance.hostname}
+  client:
+    register-with-eureka: true
+    fetch-registry: true
 
 server:
   port: 8761
