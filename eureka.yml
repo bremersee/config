@@ -4,9 +4,13 @@ eureka:
   instance:
     instance-id: ${spring.application.name}:${eureka.instance.hostname}
     prefer-ip-address: false
+    non-secure-port: 8761
+    non-secure-port-enabled: true
+    registry:
+      expected-number-of-clients-sending-renews: 2
   client:
-    register-with-eureka: false
-    fetch-registry: false
+    register-with-eureka: true
+    fetch-registry: true
 
 server:
   port: 8761
@@ -25,6 +29,7 @@ eureka:
         http://${bremersee.eureka.username}:${bremersee.eureka.password}@data.eixe.bremersee.org:8761/eureka/"
   instance:
     hostname: app1.eixe.bremersee.org
+    ip-address: 192.168.1.51
 
 ---
 
@@ -40,6 +45,7 @@ eureka:
         http://${bremersee.eureka.username}:${bremersee.eureka.password}@data.eixe.bremersee.org:8761/eureka/"
   instance:
     hostname: app2.eixe.bremersee.org
+    ip-address: 192.168.1.52
 
 ---
 
@@ -55,6 +61,7 @@ eureka:
         http://${bremersee.eureka.username}:${bremersee.eureka.password}@app2.eixe.bremersee.org:8761/eureka/"
   instance:
     hostname: data.eixe.bremersee.org
+    ip-address: 192.168.1.8
 
 ---
 
