@@ -1,7 +1,7 @@
 bremersee:
   eureka:
     username: '{cipher}29702559bb6aa1a222c90a1a5aa0f0b1d683812c50c5cf34481bed56726a48d1'
-    password: '{cipher}6cc38edebb80300c4beb8cf791963db468c578c8e2922cfade2fd8aeebef31e4c5a150cc5a865ba9c9cb9dea12de2f44'
+    password: '{cipher}837a17de38fe666e130fa25cf23ba87e4761c9e01d967521540dedfe1d83afc7fb50cd5d5c8bcfe48730fa7d0511c87c'
     defaultZone: >
       http://${bremersee.eureka.username}:${bremersee.eureka.password}@app1.eixe.bremersee.org:8761/eureka/,
       http://${bremersee.eureka.username}:${bremersee.eureka.password}@app2.eixe.bremersee.org:8761/eureka/,
