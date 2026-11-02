@@ -1,2 +1,9 @@
-# shared between all clients
-common: value from config repo
+bremersee:
+  eureka:
+    username: '{cipher}a818289e44b3d385461626ddea26f6da30c3f4e006008e6fb7da682e2ab0e0e9'
+    password: '{cipher}1b86c4435362813f25c95f25dab4712a244222e1063b9d10c0d309287ceaaffb3f15f098197ac6db067c247cc3cdc2aa8bc0802274db24d59c5f7f6de9783fff'
+    defaultZone: >
+      http://${bremersee.eureka.username}:${bremersee.eureka.password}@app1.eixe.bremersee.org:8761/eureka/,
+      http://${bremersee.eureka.username}:${bremersee.eureka.password}@app2.eixe.bremersee.org:8761/eureka/,
+      http://${bremersee.eureka.username}:${bremersee.eureka.password}@data.eixe.bremersee.org:8761/eureka/
+
