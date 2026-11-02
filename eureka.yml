@@ -1,1 +1,104 @@
-foo: '{cipher}d6cb2ffab94a2d71c373dfa12138d5ad72d441328feda9570a6b3183ce742ea3'
+eureka:
+  server:
+    eviction-interval-timer-in-ms: ${EVICTION_INTERVAL_TIMER:1000}
+  instance:
+    instance-id: ${spring.application.name}:${eureka.instance.hostname}
+
+bremersee:
+  eureka:
+    username: '{cipher}a818289e44b3d385461626ddea26f6da30c3f4e006008e6fb7da682e2ab0e0e9'
+    password: '{cipher}1b86c4435362813f25c95f25dab4712a244222e1063b9d10c0d309287ceaaffb3f15f098197ac6db067c247cc3cdc2aa8bc0802274db24d59c5f7f6de9783fff'
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: app1
+
+eureka:
+  instance:
+    hostname: app1.eixe.bremersee.org
+  client:
+    service-url:
+      defaultZone: >
+        http://${bremersee.eureka.username}:${bremersee.eureka.password}@app2.eixe.bremersee.org:8761/eureka/,
+        http://${bremersee.eureka.username}:${bremersee.eureka.password}@data.eixe.bremersee.org:8761/eureka/
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: app2
+
+eureka:
+  instance:
+    hostname: app2.eixe.bremersee.org
+  client:
+    service-url:
+      defaultZone: >
+        http://${bremersee.eureka.username}:${bremersee.eureka.password}@app1.eixe.bremersee.org:8761/eureka/,
+        http://${bremersee.eureka.username}:${bremersee.eureka.password}@data.eixe.bremersee.org:8761/eureka/
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: data
+
+eureka:
+  instance:
+    hostname: data.eixe.bremersee.org
+  client:
+    service-url:
+      defaultZone: >
+        http://${bremersee.eureka.username}:${bremersee.eureka.password}@app1.eixe.bremersee.org:8761/eureka/,
+        http://${bremersee.eureka.username}:${bremersee.eureka.password}@app2.eixe.bremersee.org:8761/eureka/
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: ldap
+
+bremersee:
+  ldaptive:
+    ldap-url: ldaps://dc1.eixe.bremersee.org ldaps://dc2.eixe.bremersee.org
+    ldaptive-template-class: org.bremersee.ldaptive.LdaptiveSambaTemplate
+    immutable: true
+    use-start-tls: false
+    bind-dn: '{cipher}c8f0d20bfdb6087083ec1a18eee507806622e50c9da2b2295977b8207f2fe0668aef89b99ed2d3746834064cc62d733723ca2ab70d44ddf7062d2ee51221af6f'
+    bind-credentials: '{cipher}4fbefa96ef0e671c9530dbab12e88b79af071b6015bb93aba7550ce75f487651dde9322730f217a9ddee35c0e5a5cf2b'
+    pooled: true
+    connection-validator:
+      search-request:
+        base-dn: "DC=eixe,DC=bremersee,DC=org"
+    connection-pool:
+      min-pool-size: 3
+      max-pool-size: 10
+      validate-on-check-in: false
+      validate-on-check-out: false
+      validate-periodically: true
+      validator:
+        search-request:
+          base-dn: "DC=eixe,DC=bremersee,DC=org"
+  authentication:
+    ldaptive:
+      template: active_directory
+      user-base-dn: "CN=Users,DC=eixe,DC=bremersee,DC=org"
+      user-find-one-search-scope: subtree
+      role-prefix: "ROLE_"
+      role-case-transformation: to_upper_case
+      role-string-replacements:
+        - regex: "[- ]"
+          replacement: "_"
+        - regex: "_ADMINS"
+          replacement: "_ADMIN"
+      role-mapping:
+        - source: "Domain Admins"
+          target: "ROLE_ADMIN"
+        - source: "samba-admins"
+          target: "ROLE_ADMIN"
