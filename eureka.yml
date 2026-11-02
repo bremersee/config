@@ -15,13 +15,13 @@ spring:
       on-profile: app1
 
 eureka:
-  instance:
-    hostname: app1.eixe.bremersee.org
   client:
     service-url:
       defaultZone: >
         http://${bremersee.eureka.username}:${bremersee.eureka.password}@app2.eixe.bremersee.org:8761/eureka/,
         http://${bremersee.eureka.username}:${bremersee.eureka.password}@data.eixe.bremersee.org:8761/eureka/
+  instance:
+    hostname: app1.eixe.bremersee.org
 
 ---
 
@@ -31,13 +31,13 @@ spring:
       on-profile: app2
 
 eureka:
-  instance:
-    hostname: app2.eixe.bremersee.org
   client:
     service-url:
       defaultZone: >
         http://${bremersee.eureka.username}:${bremersee.eureka.password}@app1.eixe.bremersee.org:8761/eureka/,
         http://${bremersee.eureka.username}:${bremersee.eureka.password}@data.eixe.bremersee.org:8761/eureka/
+  instance:
+    hostname: app2.eixe.bremersee.org
 
 ---
 
@@ -47,13 +47,13 @@ spring:
       on-profile: data
 
 eureka:
-  instance:
-    hostname: data.eixe.bremersee.org
   client:
     service-url:
       defaultZone: >
         http://${bremersee.eureka.username}:${bremersee.eureka.password}@app1.eixe.bremersee.org:8761/eureka/,
         http://${bremersee.eureka.username}:${bremersee.eureka.password}@app2.eixe.bremersee.org:8761/eureka/
+  instance:
+    hostname: data.eixe.bremersee.org
 
 ---
 
