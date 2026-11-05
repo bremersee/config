@@ -8,6 +8,157 @@ bremersee:
     defaultZone: "http://${bremersee.eureka.username}:${bremersee.eureka.password}@app1.eixe.bremersee.org:8761/eureka/,\
       http://${bremersee.eureka.username}:${bremersee.eureka.password}@app2.eixe.bremersee.org:8761/eureka/,\
       http://${bremersee.eureka.username}:${bremersee.eureka.password}@data.eixe.bremersee.org:8761/eureka/"
+  keycloak:
+    base-uri: https://openid.bremersee.org
+    realm: eixe
+    admin-client:
+      login-realm: master
+      client-id: admin-cli
+      username: '{cipher}e79c5c91332cd3e783fa86ca4f31525e57719a26f0da8c920cc7cbb0f2fe7649'
+      password: '{cipher}035695fb26b031b8a537ef6261d35c0cceb0b770f69896bbf3c0f937fa9bb3a6'
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      cors:
+        allowed-headers: "*"
+        allowed-methods: "*"
+        allowed-origins: "*"
+  endpoint:
+    health:
+      show-details: when_authorized
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: api
+
+bremersee:
+  exception-mapping:
+    api-paths:
+      - /api/**
+    default-exception-mapping-config:
+      include-handler: true
+      include-stack-trace: true
+      include-cause: true
+  web:
+    cors:
+      enabled: true
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: jwt
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: ${bremersee.keycloak.base-uri}/realms/${bremersee.keycloak.realm}/protocol/openid-connect/certs
+      client:
+        provider:
+          swagger-ui:
+            authorization-uri: ${bremersee.keycloak.base-uri}/realms/${bremersee.keycloak.realm}/protocol/openid-connect/auth
+            token-uri: ${bremersee.keycloak.base-uri}/realms/${bremersee.keycloak.realm}/protocol/openid-connect/token
+
+bremersee:
+  authentication:
+    jwt-converter:
+      name-json-path: $.sub
+      first-name-json-path: $.given_name
+      last-name-json-path: $.family_name
+      roles-json-path: $.realm_access.roles
+      roles-value-list: true
+      role-prefix: "ROLE_"
+      role-case-transformation: to_upper_case
+      role-string-replacements:
+        - regex: "[- ]"
+          replacement: "_"
+        - regex: "_ADMINS"
+          replacement: "_ADMIN"
+      role-mapping:
+        - source: "Domain Admins"
+          target: "ROLE_ADMIN"
+        - source: "samba-admins"
+          target: "ROLE_ADMIN"
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: ldap
+
+bremersee:
+  ldaptive:
+    ldap-url: ldaps://dc1.eixe.bremersee.org ldaps://dc2.eixe.bremersee.org
+    ldaptive-template-class: org.bremersee.ldaptive.LdaptiveSambaTemplate
+    immutable: true
+    use-start-tls: false
+    pooled: false
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: ldap-auth
+
+bremersee:
+  authentication:
+    ldaptive:
+      template: active_directory
+      user-base-dn: "CN=Users,DC=eixe,DC=bremersee,DC=org"
+      user-find-one-search-scope: onelevel
+      refused-usernames:
+        - "Administrator"
+      role-prefix: "ROLE_"
+      role-case-transformation: to_upper_case
+      role-string-replacements:
+        - regex: "[- ]"
+          replacement: "_"
+        - regex: "_ADMINS"
+          replacement: "_ADMIN"
+      role-mapping:
+        - source: "Domain Admins"
+          target: "ROLE_ADMIN"
+        - source: "samba-admins"
+          target: "ROLE_ADMIN"
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: ldap-with-bind
+
+bremersee:
+  ldaptive:
+    ldap-url: ldaps://dc1.eixe.bremersee.org ldaps://dc2.eixe.bremersee.org
+    ldaptive-template-class: org.bremersee.ldaptive.LdaptiveSambaTemplate
+    immutable: true
+    use-start-tls: false
+    bind-dn: '{cipher}c8f0d20bfdb6087083ec1a18eee507806622e50c9da2b2295977b8207f2fe0668aef89b99ed2d3746834064cc62d733723ca2ab70d44ddf7062d2ee51221af6f'
+    bind-credentials: '{cipher}4fbefa96ef0e671c9530dbab12e88b79af071b6015bb93aba7550ce75f487651dde9322730f217a9ddee35c0e5a5cf2b'
+    pooled: true
+    connection-validator:
+      search-request:
+        base-dn: "DC=eixe,DC=bremersee,DC=org"
+    connection-pool:
+      min-pool-size: 3
+      max-pool-size: 10
+      validate-on-check-in: false
+      validate-on-check-out: false
+      validate-periodically: true
+      validator:
+        search-request:
+          base-dn: "DC=eixe,DC=bremersee,DC=org"
 
 ---
 
