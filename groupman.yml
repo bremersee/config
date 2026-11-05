@@ -2,7 +2,6 @@ eureka:
   instance:
     instance-id: ${spring.application.name}:${eureka.instance.hostname}
     prefer-ip-address: false
-    non-secure-port: 10200
     non-secure-port-enabled: true
     registry:
       expected-number-of-clients-sending-renews: 2
@@ -13,9 +12,8 @@ eureka:
     enabled: true
     register-with-eureka: true
     fetch-registry: true
-
-server:
-  port: 8080
+    service-url:
+      defaultZone: ${bremersee.eureka.defaultZone}
 
 bremersee:
   keycloak:
@@ -30,9 +28,6 @@ spring:
       on-profile: app1
 
 eureka:
-  client:
-    service-url:
-      defaultZone: ${bremersee.eureka.defaultZone}
   instance:
     hostname: app1.eixe.bremersee.org
     ip-address: 192.168.1.51
@@ -45,9 +40,6 @@ spring:
       on-profile: app2
 
 eureka:
-  client:
-    service-url:
-      defaultZone: ${bremersee.eureka.defaultZone}
   instance:
     hostname: app2.eixe.bremersee.org
     ip-address: 192.168.1.52
