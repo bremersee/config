@@ -35,6 +35,22 @@ management:
 spring:
   config:
     activate:
+      on-profile: springdoc
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+    oauth:
+      client-id: apps-pkce
+      use-pkce-with-authorization-code-grant: true
+
+---
+
+spring:
+  config:
+    activate:
       on-profile: api
 
 bremersee:
