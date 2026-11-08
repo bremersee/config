@@ -3,6 +3,13 @@ bremersee:
     admin-client:
       enabled: true
 
+springdoc:
+  open-api:
+    # see: https://github.com/OAI/OpenAPI-Specification/blob/3.1.1/versions/3.1.1.md#info-object
+    servers:
+      - url: https://apps.eixe.bremersee.org/groupman
+        description: Group Manager API
+
 ---
 
 spring:
