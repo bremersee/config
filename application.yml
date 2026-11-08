@@ -227,4 +227,5 @@ spring:
     password: '{cipher}33e33abc698578e48f51ca75f8042bd6c52d2f259826185c0c423e4c5ef770ee58f99ee273a023bb1076c687cb208457'
     test-connection: true
     properties:
-      mail.smtp.starttls.enable: true
+      mail.smtp.ssl.enable: true
+      # mail.smtp.starttls.enable: true
