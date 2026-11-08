@@ -1,3 +1,30 @@
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+    oauth:
+      client-id: apps-pkce
+      use-pkce-with-authorization-code-grant: true
+    urls:
+      - name: gateway
+        display-name: Gateway API
+        url: /v3/api-docs
+      - name: groupman
+        display-name: Group Manager API
+        url: /groupman/v3/api-docs
+
+spring:
+  security:
+    oauth2:
+      client:
+        provider:
+          swagger-ui:
+            authorization-uri: ${bremersee.keycloak.base-uri}/realms/${bremersee.keycloak.realm}/protocol/openid-connect/auth
+            token-uri: ${bremersee.keycloak.base-uri}/realms/${bremersee.keycloak.realm}/protocol/openid-connect/token
+
+---
+
 spring:
   config:
     activate:
