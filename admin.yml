@@ -11,6 +11,11 @@ spring:
             - '{cipher}ae315441260daa7ca8832e7b049bb15638e05ddcaa38b477d7852873a3d16042ae90a0c0d2252f1a1ef0bc94ec2f6ad9194a4c568d0974da5bcaab33a70cedbf'
       hazelcast:
         enabled: true
+      ui:
+        public-url: https://apps.eixe.bremersee.org/admin
+
+server:
+  forward-headers-strategy: native
 
 ---
 
