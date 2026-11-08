@@ -1,3 +1,7 @@
+spring:
+  jmx:
+    enabled: true
+
 bremersee:
   keycloak:
     admin-client:

@@ -1,3 +1,7 @@
+spring:
+  jmx:
+    enabled: true
+
 eureka:
   server:
     enable-self-preservation: true

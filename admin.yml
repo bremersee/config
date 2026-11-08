@@ -1,0 +1,37 @@
+spring:
+  jmx:
+    enabled: true
+  boot:
+    admin:
+      notify:
+        mail:
+          enabled: true # profile 'mail' must be activated
+          from: ${spring.mail.username}
+          to:
+            - '{cipher}ae315441260daa7ca8832e7b049bb15638e05ddcaa38b477d7852873a3d16042ae90a0c0d2252f1a1ef0bc94ec2f6ad9194a4c568d0974da5bcaab33a70cedbf'
+      hazelcast:
+        enabled: true
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: app1
+
+eureka:
+  instance:
+    hostname: app1.eixe.bremersee.org
+    ip-address: 192.168.1.51
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: app2
+
+eureka:
+  instance:
+    hostname: app2.eixe.bremersee.org
+    ip-address: 192.168.1.52

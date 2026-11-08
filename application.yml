@@ -134,6 +134,19 @@ bremersee:
 spring:
   config:
     activate:
+      on-profile: remember-me
+
+bremersee:
+  authentication:
+    remember-me:
+      key: '{cipher}c418e1cbb87dcf575d7ecc9cd0133a38a50697bc1ef3762aa63b7c7380e4311fc2a4f99a0084e61c684861820eedb43d61ffaff4bad49466dbecfd33669a2888'
+      token-validity-seconds: 2419200 # four weeks
+
+---
+
+spring:
+  config:
+    activate:
       on-profile: ldap
 
 bremersee:
@@ -206,31 +219,12 @@ bremersee:
 spring:
   config:
     activate:
-      on-profile: simple-ldap
-
-bremersee:
-  ldaptive:
-    ldap-url: ldaps://dc1.eixe.bremersee.org ldaps://dc2.eixe.bremersee.org
-    ldaptive-template-class: org.bremersee.ldaptive.LdaptiveSambaTemplate
-    immutable: true
-    use-start-tls: false
-    pooled: false
-  authentication:
-    ldaptive:
-      template: active_directory
-      user-base-dn: "CN=Users,DC=eixe,DC=bremersee,DC=org"
-      user-find-one-search-scope: onelevel
-      refused-usernames:
-        - "Administrator"
-      role-prefix: "ROLE_"
-      role-case-transformation: to_upper_case
-      role-string-replacements:
-        - regex: "[- ]"
-          replacement: "_"
-        - regex: "_ADMINS"
-          replacement: "_ADMIN"
-      role-mapping:
-        - source: "Domain Admins"
-          target: "ROLE_ADMIN"
-        - source: "samba-admins"
-          target: "ROLE_ADMIN"
+      on-profile: mail
+  mail:
+    host: '{cipher}6461e8cef3e460731994d6fa99a2255941d9788ef458127138fb450f161d9444fa82e1fbf4fbbcecdc1e178c8fd735b3'
+    port: 587
+    username: '{cipher}9cbf6be46b06c97ab447d3b555279b8cd06d0da6489e0dfff64df6a274d4fa72e7fd9d87d198a0231556c75aa4526135'
+    password: '{cipher}33e33abc698578e48f51ca75f8042bd6c52d2f259826185c0c423e4c5ef770ee58f99ee273a023bb1076c687cb208457'
+    test-connection: true
+    properties:
+      mail.smtp.starttls.enable: true

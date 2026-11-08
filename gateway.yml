@@ -25,6 +25,8 @@ spring:
           swagger-ui:
             authorization-uri: ${bremersee.keycloak.base-uri}/realms/${bremersee.keycloak.realm}/protocol/openid-connect/auth
             token-uri: ${bremersee.keycloak.base-uri}/realms/${bremersee.keycloak.realm}/protocol/openid-connect/token
+  jmx:
+    enabled: true
 
 springdoc:
   api-docs:
