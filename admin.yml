@@ -12,7 +12,7 @@ spring:
       hazelcast:
         enabled: true
       ui:
-        public-url: https://apps.eixe.bremersee.org/admin
+        public-url: https://admin.eixe.bremersee.org
 
 server:
   forward-headers-strategy: native
