@@ -1,20 +1,3 @@
-eureka:
-  instance:
-    instance-id: ${spring.application.name}:${eureka.instance.hostname}
-    prefer-ip-address: false
-    non-secure-port-enabled: true
-    registry:
-      expected-number-of-clients-sending-renews: 2
-    metadata-map:
-      user.name: ${bremersee.actuator.username}
-      user.password: ${bremersee.actuator.password}
-  client:
-    enabled: true
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: ${bremersee.eureka.defaultZone}
-
 bremersee:
   keycloak:
     admin-client:

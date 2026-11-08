@@ -1,6 +1,6 @@
 eureka:
   server:
-    eviction-interval-timer-in-ms: 1000
+    enable-self-preservation: true
   instance:
     instance-id: ${spring.application.name}:${eureka.instance.hostname}
     prefer-ip-address: false
