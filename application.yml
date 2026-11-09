@@ -134,19 +134,6 @@ bremersee:
 spring:
   config:
     activate:
-      on-profile: remember-me
-
-bremersee:
-  authentication:
-    remember-me:
-      key: '{cipher}c418e1cbb87dcf575d7ecc9cd0133a38a50697bc1ef3762aa63b7c7380e4311fc2a4f99a0084e61c684861820eedb43d61ffaff4bad49466dbecfd33669a2888'
-      token-validity-seconds: 2419200 # four weeks
-
----
-
-spring:
-  config:
-    activate:
       on-profile: ldap
 
 bremersee:
@@ -156,6 +143,35 @@ bremersee:
     immutable: true
     use-start-tls: false
     pooled: false
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: ldap-with-bind
+
+bremersee:
+  ldaptive:
+    ldap-url: ldaps://dc1.eixe.bremersee.org ldaps://dc2.eixe.bremersee.org
+    ldaptive-template-class: org.bremersee.ldaptive.LdaptiveSambaTemplate
+    immutable: true
+    use-start-tls: false
+    bind-dn: '{cipher}c8f0d20bfdb6087083ec1a18eee507806622e50c9da2b2295977b8207f2fe0668aef89b99ed2d3746834064cc62d733723ca2ab70d44ddf7062d2ee51221af6f'
+    bind-credentials: '{cipher}4fbefa96ef0e671c9530dbab12e88b79af071b6015bb93aba7550ce75f487651dde9322730f217a9ddee35c0e5a5cf2b'
+    pooled: true
+    connection-validator:
+      search-request:
+        base-dn: "DC=eixe,DC=bremersee,DC=org"
+    connection-pool:
+      min-pool-size: 3
+      max-pool-size: 10
+      validate-on-check-in: false
+      validate-on-check-out: false
+      validate-periodically: true
+      validator:
+        search-request:
+          base-dn: "DC=eixe,DC=bremersee,DC=org"
 
 ---
 
@@ -190,29 +206,13 @@ bremersee:
 spring:
   config:
     activate:
-      on-profile: ldap-with-bind
+      on-profile: remember-me
 
 bremersee:
-  ldaptive:
-    ldap-url: ldaps://dc1.eixe.bremersee.org ldaps://dc2.eixe.bremersee.org
-    ldaptive-template-class: org.bremersee.ldaptive.LdaptiveSambaTemplate
-    immutable: true
-    use-start-tls: false
-    bind-dn: '{cipher}c8f0d20bfdb6087083ec1a18eee507806622e50c9da2b2295977b8207f2fe0668aef89b99ed2d3746834064cc62d733723ca2ab70d44ddf7062d2ee51221af6f'
-    bind-credentials: '{cipher}4fbefa96ef0e671c9530dbab12e88b79af071b6015bb93aba7550ce75f487651dde9322730f217a9ddee35c0e5a5cf2b'
-    pooled: true
-    connection-validator:
-      search-request:
-        base-dn: "DC=eixe,DC=bremersee,DC=org"
-    connection-pool:
-      min-pool-size: 3
-      max-pool-size: 10
-      validate-on-check-in: false
-      validate-on-check-out: false
-      validate-periodically: true
-      validator:
-        search-request:
-          base-dn: "DC=eixe,DC=bremersee,DC=org"
+  authentication:
+    remember-me:
+      key: '{cipher}c418e1cbb87dcf575d7ecc9cd0133a38a50697bc1ef3762aa63b7c7380e4311fc2a4f99a0084e61c684861820eedb43d61ffaff4bad49466dbecfd33669a2888'
+      token-validity-seconds: 2419200 # four weeks
 
 ---
 
