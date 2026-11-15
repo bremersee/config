@@ -1,2 +1,249 @@
-# shared between all clients
-common: value from config repo
+bremersee:
+  dc1: '{cipher}efd2a9fa9642604b2036957cc12abee5af0cb94965ec847152fe36d3514c3d8950c216149eddb0508b1c361d3db0fb5d'
+  dc2: '{cipher}64d36cbb6b9d4d2e571eb1dd6d1edbdd1da055ed85733cb8079e6625f66b14028bc1332140bf49f960fa4c72350cda9a'
+  host1: '{cipher}58162a106d0bb7434d46a86fc5d318b4e72ff998aa67080da7eb7d2289b9651e4e12ea1695fbd574f67dcfb565d20747'
+  host2: '{cipher}75804caf467d5c464a86979fe151238de70b3cda1b9ec61e5f500be828eb7bcfc28c8613d6e98830af9a13d3fe07505a'
+  host3: '{cipher}96c154c78f48f253e6dda7a4c276670992eced5b138fcc2304bf897cb98fb8ca2f5777e713b354d757a5ebe8511fa57a'
+  actuator:
+    username: '{cipher}8377d6c640797688a3e093744e5f57bd336530bcb7ef735573fe4d2301cea861839ba1dbaf18e66b30110d97dff06644'
+    password: '{cipher}175bc9d22e79417e89981f03464de37922ed6064c55b794890c6e791ba923c9febcf5f45947126ab1a19448792f9b6d8'
+  eureka:
+    username: '{cipher}29702559bb6aa1a222c90a1a5aa0f0b1d683812c50c5cf34481bed56726a48d1'
+    password: '{cipher}837a17de38fe666e130fa25cf23ba87e4761c9e01d967521540dedfe1d83afc7fb50cd5d5c8bcfe48730fa7d0511c87c'
+    defaultZone: "http://${bremersee.eureka.username}:${bremersee.eureka.password}@${bremersee.host1}:8761/eureka/,\
+      http://${bremersee.eureka.username}:${bremersee.eureka.password}@${bremersee.host2}:8761/eureka/,\
+      http://${bremersee.eureka.username}:${bremersee.eureka.password}@${bremersee.host3}:8761/eureka/"
+  keycloak:
+    base-uri: '{cipher}04e7f2e3095a2d5d2f69438bd660226c4a217bb5f2bc05b8a55cf83546e5a65a4137b9670b2a83d21aceed57fc0bdda2'
+    realm: '{cipher}fe9a2494a78d274ea42ef34b00d45367af3e5a889b13e5163fe6bd25804e760d'
+    admin-client:
+      login-realm: master
+      client-id: admin-cli
+      username: '{cipher}e79c5c91332cd3e783fa86ca4f31525e57719a26f0da8c920cc7cbb0f2fe7649'
+      password: '{cipher}035695fb26b031b8a537ef6261d35c0cceb0b770f69896bbf3c0f937fa9bb3a6'
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      cors:
+        allowed-headers: "*"
+        allowed-methods: "*"
+        allowed-origins: "*"
+  endpoint:
+    health:
+      show-details: when_authorized
+
+spring:
+  jmx:
+    enabled: true
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: eureka-client
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${eureka.instance.hostname}
+    prefer-ip-address: false
+    non-secure-port: ${server.port}
+    non-secure-port-enabled: true
+    registry:
+      expected-number-of-clients-sending-renews: 2
+    metadata-map:
+      user.name: ${bremersee.actuator.username}
+      user.password: ${bremersee.actuator.password}
+  client:
+    enabled: true
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: ${bremersee.eureka.defaultZone}
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: springdoc
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+    oauth:
+      client-id: apps-pkce
+      use-pkce-with-authorization-code-grant: true
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: api
+
+bremersee:
+  exception-mapping:
+    api-paths:
+      - /api/**
+    default-exception-mapping-config:
+      include-handler: true
+      include-stack-trace: true
+      include-cause: true
+  web:
+    cors:
+      enabled: true
+      configurations:
+        - path: "/api/**"
+          configuration:
+            allowed-origins:
+              - "*"
+            allowed-headers:
+              - "*"
+            allowed-methods:
+              - "*"
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: jwt
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: ${bremersee.keycloak.base-uri}/realms/${bremersee.keycloak.realm}/protocol/openid-connect/certs
+      client:
+        provider:
+          swagger-ui:
+            authorization-uri: ${bremersee.keycloak.base-uri}/realms/${bremersee.keycloak.realm}/protocol/openid-connect/auth
+            token-uri: ${bremersee.keycloak.base-uri}/realms/${bremersee.keycloak.realm}/protocol/openid-connect/token
+
+bremersee:
+  authentication:
+    jwt-converter:
+      name-json-path: $.sub
+      first-name-json-path: $.given_name
+      last-name-json-path: $.family_name
+      roles-json-path: $.realm_access.roles
+      roles-value-list: true
+      role-prefix: "ROLE_"
+      role-case-transformation: to_upper_case
+      role-string-replacements:
+        - regex: "[- ]"
+          replacement: "_"
+        - regex: "_ADMINS"
+          replacement: "_ADMIN"
+      role-mapping:
+        - source: "Domain Admins"
+          target: "ROLE_ADMIN"
+        - source: "samba-admins"
+          target: "ROLE_ADMIN"
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: ldap
+
+bremersee:
+  ldaptive:
+    ldap-url: ldaps://${bremersee.dc1} ldaps://${bremersee.dc2}
+    ldaptive-template-class: org.bremersee.ldaptive.LdaptiveSambaTemplate
+    immutable: true
+    use-start-tls: false
+    pooled: false
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: ldap-with-bind
+
+bremersee:
+  ldaptive:
+    ldap-url: ldaps://${bremersee.dc1} ldaps://${bremersee.dc2}
+    ldaptive-template-class: org.bremersee.ldaptive.LdaptiveSambaTemplate
+    immutable: true
+    use-start-tls: false
+    bind-dn: '{cipher}c8f0d20bfdb6087083ec1a18eee507806622e50c9da2b2295977b8207f2fe0668aef89b99ed2d3746834064cc62d733723ca2ab70d44ddf7062d2ee51221af6f'
+    bind-credentials: '{cipher}4fbefa96ef0e671c9530dbab12e88b79af071b6015bb93aba7550ce75f487651dde9322730f217a9ddee35c0e5a5cf2b'
+    pooled: true
+    connection-validator:
+      search-request:
+        base-dn: '{cipher}3ef30fc3a508299fe01a9beb3888c89797df70a2be18d1457f5f7db88c7ac1ebb6c8ddc43da38260d3e4d314e31fa2db'
+    connection-pool:
+      min-pool-size: 3
+      max-pool-size: 10
+      validate-on-check-in: false
+      validate-on-check-out: false
+      validate-periodically: true
+      validator:
+        search-request:
+          base-dn: '{cipher}3ef30fc3a508299fe01a9beb3888c89797df70a2be18d1457f5f7db88c7ac1ebb6c8ddc43da38260d3e4d314e31fa2db'
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: ldap-auth
+
+bremersee:
+  authentication:
+    ldaptive:
+      template: active_directory
+      user-base-dn: '{cipher}3ef30fc3a508299fe01a9beb3888c89797df70a2be18d1457f5f7db88c7ac1ebb6c8ddc43da38260d3e4d314e31fa2db'
+      user-find-one-search-scope: subtree
+      refused-usernames:
+        - "Administrator"
+      role-prefix: "ROLE_"
+      role-case-transformation: to_upper_case
+      role-string-replacements:
+        - regex: "[- ]"
+          replacement: "_"
+        - regex: "_ADMINS"
+          replacement: "_ADMIN"
+      role-mapping:
+        - source: "Domain Admins"
+          target: "ROLE_ADMIN"
+        - source: "samba-admins"
+          target: "ROLE_ADMIN"
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: remember-me
+
+bremersee:
+  authentication:
+    remember-me:
+      key: '{cipher}c418e1cbb87dcf575d7ecc9cd0133a38a50697bc1ef3762aa63b7c7380e4311fc2a4f99a0084e61c684861820eedb43d61ffaff4bad49466dbecfd33669a2888'
+      cookie-domain: '{cipher}2be0555b91391985a553c8bfd89e8daf36d247aaca98d1fe316d843dbc118e6e'
+      token-validity-seconds: 2419200 # four weeks
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: mail
+  mail:
+    host: '{cipher}6461e8cef3e460731994d6fa99a2255941d9788ef458127138fb450f161d9444fa82e1fbf4fbbcecdc1e178c8fd735b3'
+    port: 587
+    username: '{cipher}9cbf6be46b06c97ab447d3b555279b8cd06d0da6489e0dfff64df6a274d4fa72e7fd9d87d198a0231556c75aa4526135'
+    password: '{cipher}a6f21be76cd4daa96d9a944b05ab8cd30275144b2df9964428b968d3422670ce1dfacd4e018f1262e1526a936b13b9bb'
+    test-connection: true
+    properties:
+      mail.smtp.starttls.enable: true
