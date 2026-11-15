@@ -1,6 +1,4 @@
 spring:
-  jmx:
-    enabled: true
   boot:
     admin:
       notify:
@@ -12,7 +10,7 @@ spring:
       hazelcast:
         enabled: true
       ui:
-        public-url: https://admin.eixe.bremersee.org
+        public-url: '{cipher}c22a0c1a78cda3a062387c9227cda6f2b217b002ae829e3c9075e481a1f79d0abafef037122f171e90164b55e5dd8c1c96df67eeacddae471b0094b6eb64d980'
 
 server:
   forward-headers-strategy: native
@@ -26,7 +24,7 @@ spring:
 
 eureka:
   instance:
-    hostname: app1.eixe.bremersee.org
+    hostname: ${bremersee.host1}
     ip-address: 192.168.1.51
 
 ---
@@ -38,5 +36,5 @@ spring:
 
 eureka:
   instance:
-    hostname: app2.eixe.bremersee.org
+    hostname: ${bremersee.host2}
     ip-address: 192.168.1.52

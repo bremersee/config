@@ -1,16 +1,21 @@
 bremersee:
+  dc1: '{cipher}efd2a9fa9642604b2036957cc12abee5af0cb94965ec847152fe36d3514c3d8950c216149eddb0508b1c361d3db0fb5d'
+  dc2: '{cipher}64d36cbb6b9d4d2e571eb1dd6d1edbdd1da055ed85733cb8079e6625f66b14028bc1332140bf49f960fa4c72350cda9a'
+  host1: '{cipher}58162a106d0bb7434d46a86fc5d318b4e72ff998aa67080da7eb7d2289b9651e4e12ea1695fbd574f67dcfb565d20747'
+  host2: '{cipher}75804caf467d5c464a86979fe151238de70b3cda1b9ec61e5f500be828eb7bcfc28c8613d6e98830af9a13d3fe07505a'
+  host3: '{cipher}96c154c78f48f253e6dda7a4c276670992eced5b138fcc2304bf897cb98fb8ca2f5777e713b354d757a5ebe8511fa57a'
   actuator:
     username: '{cipher}8377d6c640797688a3e093744e5f57bd336530bcb7ef735573fe4d2301cea861839ba1dbaf18e66b30110d97dff06644'
     password: '{cipher}175bc9d22e79417e89981f03464de37922ed6064c55b794890c6e791ba923c9febcf5f45947126ab1a19448792f9b6d8'
   eureka:
     username: '{cipher}29702559bb6aa1a222c90a1a5aa0f0b1d683812c50c5cf34481bed56726a48d1'
     password: '{cipher}837a17de38fe666e130fa25cf23ba87e4761c9e01d967521540dedfe1d83afc7fb50cd5d5c8bcfe48730fa7d0511c87c'
-    defaultZone: "http://${bremersee.eureka.username}:${bremersee.eureka.password}@app1.eixe.bremersee.org:8761/eureka/,\
-      http://${bremersee.eureka.username}:${bremersee.eureka.password}@app2.eixe.bremersee.org:8761/eureka/,\
-      http://${bremersee.eureka.username}:${bremersee.eureka.password}@data.eixe.bremersee.org:8761/eureka/"
+    defaultZone: "http://${bremersee.eureka.username}:${bremersee.eureka.password}@${bremersee.host1}:8761/eureka/,\
+      http://${bremersee.eureka.username}:${bremersee.eureka.password}@${bremersee.host2}:8761/eureka/,\
+      http://${bremersee.eureka.username}:${bremersee.eureka.password}@${bremersee.host3}:8761/eureka/"
   keycloak:
-    base-uri: https://openid.bremersee.org
-    realm: eixe
+    base-uri: '{cipher}04e7f2e3095a2d5d2f69438bd660226c4a217bb5f2bc05b8a55cf83546e5a65a4137b9670b2a83d21aceed57fc0bdda2'
+    realm: '{cipher}fe9a2494a78d274ea42ef34b00d45367af3e5a889b13e5163fe6bd25804e760d'
     admin-client:
       login-realm: master
       client-id: admin-cli
@@ -29,6 +34,10 @@ management:
   endpoint:
     health:
       show-details: when_authorized
+
+spring:
+  jmx:
+    enabled: true
 
 ---
 
@@ -89,6 +98,15 @@ bremersee:
   web:
     cors:
       enabled: true
+      configurations:
+        - path: "/api/**"
+          configuration:
+            allowed-origins:
+              - "*"
+            allowed-headers:
+              - "*"
+            allowed-methods:
+              - "*"
 
 ---
 
@@ -138,7 +156,7 @@ spring:
 
 bremersee:
   ldaptive:
-    ldap-url: ldaps://dc1.eixe.bremersee.org ldaps://dc2.eixe.bremersee.org
+    ldap-url: ldaps://${bremersee.dc1} ldaps://${bremersee.dc2}
     ldaptive-template-class: org.bremersee.ldaptive.LdaptiveSambaTemplate
     immutable: true
     use-start-tls: false
@@ -153,7 +171,7 @@ spring:
 
 bremersee:
   ldaptive:
-    ldap-url: ldaps://dc1.eixe.bremersee.org ldaps://dc2.eixe.bremersee.org
+    ldap-url: ldaps://${bremersee.dc1} ldaps://${bremersee.dc2}
     ldaptive-template-class: org.bremersee.ldaptive.LdaptiveSambaTemplate
     immutable: true
     use-start-tls: false
@@ -162,7 +180,7 @@ bremersee:
     pooled: true
     connection-validator:
       search-request:
-        base-dn: "DC=eixe,DC=bremersee,DC=org"
+        base-dn: '{cipher}3ef30fc3a508299fe01a9beb3888c89797df70a2be18d1457f5f7db88c7ac1ebb6c8ddc43da38260d3e4d314e31fa2db'
     connection-pool:
       min-pool-size: 3
       max-pool-size: 10
@@ -171,7 +189,7 @@ bremersee:
       validate-periodically: true
       validator:
         search-request:
-          base-dn: "DC=eixe,DC=bremersee,DC=org"
+          base-dn: '{cipher}3ef30fc3a508299fe01a9beb3888c89797df70a2be18d1457f5f7db88c7ac1ebb6c8ddc43da38260d3e4d314e31fa2db'
 
 ---
 
@@ -184,8 +202,8 @@ bremersee:
   authentication:
     ldaptive:
       template: active_directory
-      user-base-dn: "CN=Users,DC=eixe,DC=bremersee,DC=org"
-      user-find-one-search-scope: onelevel
+      user-base-dn: '{cipher}3ef30fc3a508299fe01a9beb3888c89797df70a2be18d1457f5f7db88c7ac1ebb6c8ddc43da38260d3e4d314e31fa2db'
+      user-find-one-search-scope: subtree
       refused-usernames:
         - "Administrator"
       role-prefix: "ROLE_"
@@ -212,6 +230,7 @@ bremersee:
   authentication:
     remember-me:
       key: '{cipher}c418e1cbb87dcf575d7ecc9cd0133a38a50697bc1ef3762aa63b7c7380e4311fc2a4f99a0084e61c684861820eedb43d61ffaff4bad49466dbecfd33669a2888'
+      cookie-domain: '{cipher}2be0555b91391985a553c8bfd89e8daf36d247aaca98d1fe316d843dbc118e6e'
       token-validity-seconds: 2419200 # four weeks
 
 ---
