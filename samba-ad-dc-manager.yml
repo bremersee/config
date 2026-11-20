@@ -12,6 +12,7 @@ bremersee:
     company-name: '{cipher}2be0555b91391985a553c8bfd89e8daf36d247aaca98d1fe316d843dbc118e6e'
     company-url: '{cipher}f54dca82fb946bcb1f12bd8f35a5f6bca559d483dfcffc36ca7b377b150dab49c6c0b1298a732ba8dfcadace59a24eec'
     crypto-secret: '{cipher}c43fb78c83ccf00d95e5782a7114931ba09cdeb20c396469e4200f52cfd97be14c053ee19e83fec9f1cf72aa3ff8b5dddee40ca3c2b37271415d95291c12348f86385d77f76e10ccc2beab542d9c9e16'
+    crypto-salt: '{cipher}ed7824aa2432a386e14a4ec4a45375e650e9494b5baa64ccf75b16d9153b5c1a'
     cli:
       hostname-binary: /usr/bin/hostname
       samba-tool-binary: /usr/bin/samba-tool
